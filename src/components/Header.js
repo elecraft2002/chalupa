@@ -14,7 +14,7 @@ const localeLabels = {
 export function Header({ locales = [], navigation, settings }) {
   const [isOpen, setOpenState] = useState(false);
   return (
-    <nav class="fixed left-0 top-0 z-50 w-full border-b border-gray-200 bg-glass-600">
+    <nav class="fixed left-0 top-0 z-50 w-full border-b border-gray-200 bg-glass-600 backdrop-blur-3xl">
       <div
         onClick={() => {
           setOpenState(!isOpen);
@@ -23,7 +23,7 @@ export function Header({ locales = [], navigation, settings }) {
           !isOpen && "hidden"
         } absolute -z-10 h-screen w-screen backdrop-blur-md md:hidden`}
       />
-      <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between  p-4 backdrop-blur-3xl">
+      <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between  p-4">
         <PrismicNextLink href="/" className="h-8 w-8">
           {prismic.isFilled.image(settings.data.logo) && (
             <PrismicNextImage

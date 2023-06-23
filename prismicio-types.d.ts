@@ -111,7 +111,15 @@ interface PageDocumentData {
  * Slice for *Page → Slice Zone*
  *
  */
-type PageDocumentDataSlicesSlice = never;
+type PageDocumentDataSlicesSlice =
+  | FeaturesSlice
+  | ProcedureSlice
+  | RealizaceSlice
+  | TextWithImageSlice
+  | HeroSlice
+  | ReferenceSlice
+  | ImageSlice
+  | TextWithFeaturesSlice;
 /**
  * Page document from Prismic
  *
@@ -467,6 +475,78 @@ export type AllDocumentTypes =
   | RealizaceDocument
   | ReferenceDocument
   | SettingsDocument;
+/**
+ * Primary content in Features → Primary
+ *
+ */
+interface FeaturesSliceDefaultPrimary {
+  /**
+   * Text field in *Features → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+}
+/**
+ * Item in Features → Items
+ *
+ */
+export interface FeaturesSliceDefaultItem {
+  /**
+   * Icon field in *Features → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.items[].icon
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  icon: prismic.ImageField<never>;
+  /**
+   * Text field in *Features → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.items[].text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+}
+/**
+ * Default variation for Features Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FeaturesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FeaturesSliceDefaultPrimary>,
+  Simplify<FeaturesSliceDefaultItem>
+>;
+/**
+ * Slice variation for *Features*
+ *
+ */
+type FeaturesSliceVariation = FeaturesSliceDefault;
+/**
+ * Features Shared Slice
+ *
+ * - **API ID**: `features`
+ * - **Description**: `Features`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type FeaturesSlice = prismic.SharedSlice<
+  "features",
+  FeaturesSliceVariation
+>;
 /**
  * Primary content in Hero → Primary
  *
@@ -975,6 +1055,59 @@ export type ReferenceSlice = prismic.SharedSlice<
   ReferenceSliceVariation
 >;
 /**
+ * Primary content in Review → Primary
+ *
+ */
+interface ReviewSliceDefaultPrimary {
+  /**
+   * Image field in *Review → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: review.primary.image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>;
+  /**
+   * Text field in *Review → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: review.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+}
+/**
+ * Default variation for Review Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ReviewSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ReviewSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *Review*
+ *
+ */
+type ReviewSliceVariation = ReviewSliceDefault;
+/**
+ * Review Shared Slice
+ *
+ * - **API ID**: `review`
+ * - **Description**: `Review`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ReviewSlice = prismic.SharedSlice<"review", ReviewSliceVariation>;
+/**
  * Primary content in TextWithFeatures → Primary
  *
  */
@@ -1128,6 +1261,11 @@ declare module "@prismicio/client" {
       SettingsDocumentData,
       SettingsDocument,
       AllDocumentTypes,
+      FeaturesSliceDefaultPrimary,
+      FeaturesSliceDefaultItem,
+      FeaturesSliceDefault,
+      FeaturesSliceVariation,
+      FeaturesSlice,
       HeroSliceDefaultPrimary,
       HeroSliceDefault,
       HeroSliceWithButtonPrimary,
@@ -1156,6 +1294,10 @@ declare module "@prismicio/client" {
       ReferenceSliceDefault,
       ReferenceSliceVariation,
       ReferenceSlice,
+      ReviewSliceDefaultPrimary,
+      ReviewSliceDefault,
+      ReviewSliceVariation,
+      ReviewSlice,
       TextWithFeaturesSliceDefaultPrimary,
       TextWithFeaturesSliceDefaultItem,
       TextWithFeaturesSliceDefault,

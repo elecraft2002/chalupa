@@ -19,7 +19,18 @@
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
-        "config": { "choices": {} }
+        "config": {
+          "choices": {
+            "features": { "type": "SharedSlice" },
+            "procedure": { "type": "SharedSlice" },
+            "realizace": { "type": "SharedSlice" },
+            "text_with_image": { "type": "SharedSlice" },
+            "hero": { "type": "SharedSlice" },
+            "reference": { "type": "SharedSlice" },
+            "image": { "type": "SharedSlice" },
+            "text_with_features": { "type": "SharedSlice" }
+          }
+        }
       }
     },
     "SEO & Metadata": {
