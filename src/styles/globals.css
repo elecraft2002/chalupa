@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[data-collapsible="true"].bg-white + [data-collapsible="true"].bg-white,
+[data-collapsible="true"].bg-slate-100
+  + [data-collapsible="true"].bg-slate-100 {
+  @apply pt-0 md:pt-0;
+}
+figure{margin: 0;}

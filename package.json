@@ -1,0 +1,47 @@
+{
+  "name": "chalupa",
+  "version": "0.0.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": "Prismic <contact@prismic.io> (https://prismic.io)",
+  "scripts": {
+    "dev": "concurrently \"npm:next:dev\" \"npm:slicemachine\" --names \"next,slicemachine\" --prefix-colors blue,magenta",
+    "next:dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "slicemachine": "start-slicemachine",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@prismicio/client": "^7.1.0",
+    "@prismicio/helpers": "^2.3.9",
+    "@prismicio/next": "^1.3.2",
+    "@prismicio/react": "^2.7.1",
+    "@react-google-maps/api": "^2.18.1",
+    "@react-spring/web": "^9.7.2",
+    "axios": "^1.4.0",
+    "clsx": "^1.2.1",
+    "next": "^13.4.4",
+    "nodemailer": "^6.9.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scroll-parallax": "^3.4.2",
+    "react-spring": "^9.7.1",
+    "styled-components": "^6.0.0-rc.3",
+    "swiper": "^9.3.2"
+  },
+  "devDependencies": {
+    "@slicemachine/adapter-next": "^0.3.0",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "autoprefixer": "^10.4.14",
+    "concurrently": "^8.1.0",
+    "eslint": "^8.41.0",
+    "eslint-config-next": "^13.4.4",
+    "postcss": "^8.4.24",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "slice-machine-ui": "^1.2.0",
+    "tailwindcss": "^3.3.2"
+  }
+}
