@@ -4,6 +4,7 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
 import { Bounded } from "./Bounded";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const localeLabels = {
   "en-us": "EN",
@@ -13,6 +14,7 @@ const localeLabels = {
 
 export function Header({ locales = [], navigation, settings }) {
   const [isOpen, setOpenState] = useState(false);
+  const router = useRouter();
   return (
     <nav class="fixed left-0 top-0 z-50 w-full border-b border-gray-200 bg-glass-600 backdrop-blur-3xl">
       <div
@@ -78,7 +80,7 @@ export function Header({ locales = [], navigation, settings }) {
                 className="font-semibold tracking-tight text-slate-800"
               >
                 <PrismicNextLink
-                  className="block rounded py-2 pl-3 pr-4 text-gray-900 hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-orange-500"
+                    className={`block rounded py-2 pl-3 pr-4 ${router.asPath===prismic.asLink(item.link)?"text-orange-700":"text-gray-900"} hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-orange-500`}
                   field={item.link}
                 >
                   <PrismicText field={item.label} />

@@ -1,8 +1,8 @@
 {
-  "id": "review",
+  "id": "image_full_screen",
   "type": "SharedSlice",
-  "name": "Review",
-  "description": "Review",
+  "name": "ImageFullScreen",
+  "description": "ImageFullScreen",
   "variations": [
     {
       "id": "default",
@@ -22,7 +22,20 @@
             "label": "Text",
             "placeholder": "",
             "allowTargetBlank": true,
-            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+            "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "button_text": {
+          "type": "Text",
+          "config": { "label": "Button Text", "placeholder": "" }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "select": null
           }
         }
       },

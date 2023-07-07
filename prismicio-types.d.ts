@@ -119,7 +119,10 @@ type PageDocumentDataSlicesSlice =
   | HeroSlice
   | ReferenceSlice
   | ImageSlice
-  | TextWithFeaturesSlice;
+  | TextWithFeaturesSlice
+  | ReviewsSlice
+  | TextWithImagesSlice
+  | ImageFullScreenSlice;
 /**
  * Page document from Prismic
  *
@@ -131,10 +134,10 @@ type PageDocumentDataSlicesSlice =
  */
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
-/** Content for Vylet documents */
+/** Content for Trip documents */
 interface RealizaceDocumentData {
   /**
-   * Title field in *Vylet*
+   * Title field in *Trip*
    *
    * - **Field Type**: Title
    * - **Placeholder**: *None*
@@ -145,7 +148,7 @@ interface RealizaceDocumentData {
    */
   title: prismic.TitleField;
   /**
-   * Description field in *Vylet*
+   * Description field in *Trip*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -156,7 +159,7 @@ interface RealizaceDocumentData {
    */
   description: prismic.RichTextField;
   /**
-   * Image field in *Vylet*
+   * Image field in *Trip*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -167,7 +170,7 @@ interface RealizaceDocumentData {
    */
   image: prismic.ImageField<"Small" | "Big">;
   /**
-   * Rating field in *Vylet*
+   * Rating field in *Trip*
    *
    * - **Field Type**: Select
    * - **Placeholder**: *None*
@@ -179,7 +182,7 @@ interface RealizaceDocumentData {
    */
   rating: prismic.SelectField<"1" | "2" | "3" | "4" | "5", "filled">;
   /**
-   * Distance field in *Vylet*
+   * Distance field in *Trip*
    *
    * - **Field Type**: Number
    * - **Placeholder**: *None*
@@ -190,7 +193,7 @@ interface RealizaceDocumentData {
    */
   distance: prismic.NumberField;
   /**
-   * Gallery field in *Vylet*
+   * Gallery field in *Trip*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -201,7 +204,7 @@ interface RealizaceDocumentData {
    */
   gallery: prismic.GroupField<Simplify<RealizaceDocumentDataGalleryItem>>;
   /**
-   * Info field in *Vylet*
+   * Info field in *Trip*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -212,7 +215,7 @@ interface RealizaceDocumentData {
    */
   info: prismic.GroupField<Simplify<RealizaceDocumentDataInfoItem>>;
   /**
-   * Slice Zone field in *Vylet*
+   * Slice Zone field in *Trip*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
@@ -223,7 +226,7 @@ interface RealizaceDocumentData {
    */
   slices: prismic.SliceZone<RealizaceDocumentDataSlicesSlice>;
   /**
-   * Meta Description field in *Vylet*
+   * Meta Description field in *Trip*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: A brief summary of the page
@@ -234,7 +237,7 @@ interface RealizaceDocumentData {
    */
   meta_description: prismic.RichTextField;
   /**
-   * Meta Title field in *Vylet*
+   * Meta Title field in *Trip*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A title of the page used for social media and search engines
@@ -246,12 +249,12 @@ interface RealizaceDocumentData {
   meta_title: prismic.KeyTextField;
 }
 /**
- * Item in Vylet → Gallery
+ * Item in Trip → Gallery
  *
  */
 export interface RealizaceDocumentDataGalleryItem {
   /**
-   * Image field in *Vylet → Gallery*
+   * Image field in *Trip → Gallery*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -262,12 +265,12 @@ export interface RealizaceDocumentDataGalleryItem {
   image: prismic.ImageField<"Small" | "Big">;
 }
 /**
- * Item in Vylet → Info
+ * Item in Trip → Info
  *
  */
 export interface RealizaceDocumentDataInfoItem {
   /**
-   * Info text field in *Vylet → Info*
+   * Info text field in *Trip → Info*
    *
    * - **Field Type**: Title
    * - **Placeholder**: *None*
@@ -277,7 +280,7 @@ export interface RealizaceDocumentDataInfoItem {
    */
   info_text: prismic.TitleField;
   /**
-   * Info value field in *Vylet → Info*
+   * Info value field in *Trip → Info*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -288,12 +291,12 @@ export interface RealizaceDocumentDataInfoItem {
   info_value: prismic.RichTextField;
 }
 /**
- * Slice for *Vylet → Slice Zone*
+ * Slice for *Trip → Slice Zone*
  *
  */
 type RealizaceDocumentDataSlicesSlice = never;
 /**
- * Vylet document from Prismic
+ * Trip document from Prismic
  *
  * - **API ID**: `realizace`
  * - **Repeatable**: `true`
@@ -407,6 +410,125 @@ export type ReferenceDocument<Lang extends string = string> =
     "reference",
     Lang
   >;
+/** Content for Review documents */
+interface ReviewDocumentData {
+  /**
+   * Name field in *Review*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: review.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  name: prismic.TitleField;
+  /**
+   * Image field in *Review*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: review.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>;
+  /**
+   * Text field in *Review*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Review text
+   * - **API ID Path**: review.text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+  /**
+   * Date field in *Review*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: review.date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/date
+   *
+   */
+  date: prismic.DateField;
+  /**
+   * Stars field in *Review*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: 5
+   * - **API ID Path**: review.stars
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/select
+   *
+   */
+  stars: prismic.SelectField<"5" | "4" | "3" | "2" | "1" | "0", "filled">;
+  /**
+   * Slice Zone field in *Review*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: review.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices: prismic.SliceZone<ReviewDocumentDataSlicesSlice>;
+  /**
+   * Meta Description field in *Review*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: review.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  meta_description: prismic.KeyTextField;
+  /**
+   * Meta Image field in *Review*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: review.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  meta_image: prismic.ImageField<never>;
+  /**
+   * Meta Title field in *Review*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: review.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  meta_title: prismic.KeyTextField;
+}
+/**
+ * Slice for *Review → Slice Zone*
+ *
+ */
+type ReviewDocumentDataSlicesSlice = never;
+/**
+ * Review document from Prismic
+ *
+ * - **API ID**: `review`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ReviewDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<ReviewDocumentData>, "review", Lang>;
 /** Content for Settings documents */
 interface SettingsDocumentData {
   /**
@@ -474,6 +596,7 @@ export type AllDocumentTypes =
   | PageDocument
   | RealizaceDocument
   | ReferenceDocument
+  | ReviewDocument
   | SettingsDocument;
 /**
  * Primary content in Features → Primary
@@ -753,6 +876,82 @@ type ImageSliceVariation = ImageSliceWhite | ImageSliceLightSlate;
  *
  */
 export type ImageSlice = prismic.SharedSlice<"image", ImageSliceVariation>;
+/**
+ * Primary content in ImageFullScreen → Primary
+ *
+ */
+interface ImageFullScreenSliceDefaultPrimary {
+  /**
+   * Image field in *ImageFullScreen → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_full_screen.primary.image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>;
+  /**
+   * Text field in *ImageFullScreen → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_full_screen.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+  /**
+   * Button Text field in *ImageFullScreen → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_full_screen.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  button_text: prismic.KeyTextField;
+  /**
+   * Link field in *ImageFullScreen → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_full_screen.primary.link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  link: prismic.LinkField;
+}
+/**
+ * Default variation for ImageFullScreen Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ImageFullScreenSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageFullScreenSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *ImageFullScreen*
+ *
+ */
+type ImageFullScreenSliceVariation = ImageFullScreenSliceDefault;
+/**
+ * ImageFullScreen Shared Slice
+ *
+ * - **API ID**: `image_full_screen`
+ * - **Description**: `ImageFullScreen`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ImageFullScreenSlice = prismic.SharedSlice<
+  "image_full_screen",
+  ImageFullScreenSliceVariation
+>;
 /**
  * Primary content in Procedure → Primary
  *
@@ -1055,58 +1254,51 @@ export type ReferenceSlice = prismic.SharedSlice<
   ReferenceSliceVariation
 >;
 /**
- * Primary content in Review → Primary
+ * Primary content in Reviews → Primary
  *
  */
-interface ReviewSliceDefaultPrimary {
+interface ReviewsSliceDefaultPrimary {
   /**
-   * Image field in *Review → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: review.primary.image
-   * - **Documentation**: https://prismic.io/docs/core-concepts/image
-   *
-   */
-  image: prismic.ImageField<never>;
-  /**
-   * Text field in *Review → Primary*
+   * Text field in *Reviews → Primary*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: review.primary.text
+   * - **Placeholder**: Text above reviews.
+   * - **API ID Path**: reviews.primary.text
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
    *
    */
   text: prismic.RichTextField;
 }
 /**
- * Default variation for Review Slice
+ * Default variation for Reviews Slice
  *
  * - **API ID**: `default`
  * - **Description**: `Default`
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type ReviewSliceDefault = prismic.SharedSliceVariation<
+export type ReviewsSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Simplify<ReviewSliceDefaultPrimary>,
+  Simplify<ReviewsSliceDefaultPrimary>,
   never
 >;
 /**
- * Slice variation for *Review*
+ * Slice variation for *Reviews*
  *
  */
-type ReviewSliceVariation = ReviewSliceDefault;
+type ReviewsSliceVariation = ReviewsSliceDefault;
 /**
- * Review Shared Slice
+ * Reviews Shared Slice
  *
- * - **API ID**: `review`
- * - **Description**: `Review`
+ * - **API ID**: `reviews`
+ * - **Description**: `Reviews`
  * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
  *
  */
-export type ReviewSlice = prismic.SharedSlice<"review", ReviewSliceVariation>;
+export type ReviewsSlice = prismic.SharedSlice<
+  "reviews",
+  ReviewsSliceVariation
+>;
 /**
  * Primary content in TextWithFeatures → Primary
  *
@@ -1235,6 +1427,98 @@ export type TextWithImageSlice = prismic.SharedSlice<
   "text_with_image",
   TextWithImageSliceVariation
 >;
+/**
+ * Primary content in TextWithImages → Primary
+ *
+ */
+interface TextWithImagesSliceDefaultPrimary {
+  /**
+   * Text field in *TextWithImages → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Text above images
+   * - **API ID Path**: text_with_images.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+}
+/**
+ * Item in TextWithImages → Items
+ *
+ */
+export interface TextWithImagesSliceDefaultItem {
+  /**
+   * Image field in *TextWithImages → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_images.items[].image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>;
+  /**
+   * Text field in *TextWithImages → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_images.items[].text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+  /**
+   * Link field in *TextWithImages → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_images.items[].link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  link: prismic.LinkField;
+  /**
+   * Button text field in *TextWithImages → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_images.items[].button_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  button_text: prismic.KeyTextField;
+}
+/**
+ * Default variation for TextWithImages Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TextWithImagesSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TextWithImagesSliceDefaultPrimary>,
+  Simplify<TextWithImagesSliceDefaultItem>
+>;
+/**
+ * Slice variation for *TextWithImages*
+ *
+ */
+type TextWithImagesSliceVariation = TextWithImagesSliceDefault;
+/**
+ * TextWithImages Shared Slice
+ *
+ * - **API ID**: `text_with_images`
+ * - **Description**: `TextWithImages`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TextWithImagesSlice = prismic.SharedSlice<
+  "text_with_images",
+  TextWithImagesSliceVariation
+>;
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -1258,6 +1542,9 @@ declare module "@prismicio/client" {
       ReferenceDocumentData,
       ReferenceDocumentDataSlicesSlice,
       ReferenceDocument,
+      ReviewDocumentData,
+      ReviewDocumentDataSlicesSlice,
+      ReviewDocument,
       SettingsDocumentData,
       SettingsDocument,
       AllDocumentTypes,
@@ -1278,6 +1565,10 @@ declare module "@prismicio/client" {
       ImageSliceLightSlate,
       ImageSliceVariation,
       ImageSlice,
+      ImageFullScreenSliceDefaultPrimary,
+      ImageFullScreenSliceDefault,
+      ImageFullScreenSliceVariation,
+      ImageFullScreenSlice,
       ProcedureSliceDefaultPrimary,
       ProcedureSliceDefaultItem,
       ProcedureSliceDefault,
@@ -1294,10 +1585,10 @@ declare module "@prismicio/client" {
       ReferenceSliceDefault,
       ReferenceSliceVariation,
       ReferenceSlice,
-      ReviewSliceDefaultPrimary,
-      ReviewSliceDefault,
-      ReviewSliceVariation,
-      ReviewSlice,
+      ReviewsSliceDefaultPrimary,
+      ReviewsSliceDefault,
+      ReviewsSliceVariation,
+      ReviewsSlice,
       TextWithFeaturesSliceDefaultPrimary,
       TextWithFeaturesSliceDefaultItem,
       TextWithFeaturesSliceDefault,
@@ -1307,6 +1598,11 @@ declare module "@prismicio/client" {
       TextWithImageSliceDefault,
       TextWithImageSliceVariation,
       TextWithImageSlice,
+      TextWithImagesSliceDefaultPrimary,
+      TextWithImagesSliceDefaultItem,
+      TextWithImagesSliceDefault,
+      TextWithImagesSliceVariation,
+      TextWithImagesSlice,
     };
   }
 }

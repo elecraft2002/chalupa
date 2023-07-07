@@ -6,10 +6,12 @@ export const components = {
   features: dynamic(() => import("./Features")),
   hero: dynamic(() => import("./Hero")),
   image: dynamic(() => import("./Image")),
+  image_full_screen: dynamic(() => import("./ImageFullScreen")),
   procedure: dynamic(() => import("./Procedure")),
   realizace: dynamic(() => import("./Realizace")),
   reference: dynamic(() => import("./Reference")),
-  review: dynamic(() => import("./Review")),
+  reviews: dynamic(() => import("./Reviews")),
   text_with_features: dynamic(() => import("./TextWithFeatures")),
   text_with_image: dynamic(() => import("./TextWithImage")),
+  text_with_images: dynamic(() => import("./TextWithImages")),
 };

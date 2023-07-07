@@ -1,6 +1,6 @@
 {
   "id": "realizace",
-  "label": "Vylet",
+  "label": "Trip",
   "format": "page",
   "repeatable": true,
   "status": true,

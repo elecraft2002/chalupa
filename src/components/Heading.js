@@ -2,7 +2,7 @@ import clsx from "clsx";
 
 export function Heading({
   as: Comp = "h1",
-  size = "8xl",
+  size/*  = "8xl" */,
   children,
   className,
 }) {

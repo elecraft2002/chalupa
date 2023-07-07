@@ -65,7 +65,7 @@ function SignUpForm({ settings }) {
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d80822.7086265226!2d15.46138965158454!3d50.72532568071398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470ec2181cc6ac75%3A0x400af0f6615e320!2zNTQzIDUxIMWgcGluZGxlcsWvdiBNbMO9bg!5e0!3m2!1scs!2scz!4v1687425183658!5m2!1scs!2scz"
             width="100%"
             height="100%"
-            allowfullscreen=""
+            allowFullScreen
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
@@ -73,7 +73,7 @@ function SignUpForm({ settings }) {
         <div className="box-border flex w-full flex-col items-center justify-center p-8">
           <form className="w-full" onSubmit={handleSubmit}>
             <div class="mb-6 w-full max-w-xl">
-              <label for="default-input" class="mb-2 block text-sm font-medium">
+              <label /* for="default-input" */ class="mb-2 block text-sm font-medium">
                 Jméno
               </label>
               <input
@@ -89,7 +89,7 @@ function SignUpForm({ settings }) {
             </div>
 
             <div class="mb-6 w-full max-w-xl">
-              <label for="default-input" class="mb-2 block text-sm font-medium">
+              <label /* for="default-input" */ class="mb-2 block text-sm font-medium">
                 Email
               </label>
               <input

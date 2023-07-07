@@ -31,8 +31,7 @@ export default function Home({
   navigation,
   settings,
   locales,
-  realizace,
-  reference,
+  reviews
 }) {
   console.log("page", page);
   return (
@@ -96,7 +95,7 @@ export default function Home({
       <SliceZone
         slices={page.data.slices}
         components={components}
-        context={{ realizace, reference }}
+        context={{ reviews }}
       />
     </Layout>
   );
@@ -108,8 +107,7 @@ export async function getStaticProps({ locale, previewData }) {
   const page = await client.getByUID("page", "home", { lang: locale });
   const navigation = await client.getSingle("navigation", { lang: locale });
   const settings = await client.getSingle("settings", { lang: locale });
-  const realizace = await client.getAllByType("realizace", { lang: locale });
-  const reference = await client.getAllByType("reference", { lang: locale });
+  const reviews = await client.getAllByType("review", { lang: locale });
 
   const locales = await getLocales(page, client);
 
@@ -118,9 +116,7 @@ export async function getStaticProps({ locale, previewData }) {
       page,
       navigation,
       settings,
-      locales,
-      realizace,
-      reference,
+      locales,reviews
     },
   };
 }
