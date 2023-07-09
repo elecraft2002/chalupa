@@ -43,7 +43,7 @@ export async function getStaticProps({ params, locale, previewData }) {
 export async function getStaticPaths() {
   const client = createClient();
 
-  const pages = await client.getAllByType("vylet", { lang: "*" });
+  const pages = await client.getAllByType("realizace", { lang: "*" });
 
   return {
     paths: pages.map((page) => {

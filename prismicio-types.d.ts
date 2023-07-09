@@ -185,7 +185,7 @@ interface RealizaceDocumentData {
    * Distance field in *Trip*
    *
    * - **Field Type**: Number
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Distance in km
    * - **API ID Path**: realizace.distance
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/core-concepts/number
@@ -1102,12 +1102,12 @@ export type ProcedureSlice = prismic.SharedSlice<
   ProcedureSliceVariation
 >;
 /**
- * Primary content in Realizace → Primary
+ * Primary content in Trips → Primary
  *
  */
 interface RealizaceSliceDefaultPrimary {
   /**
-   * Text field in *Realizace → Primary*
+   * Text field in *Trips → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -1117,7 +1117,7 @@ interface RealizaceSliceDefaultPrimary {
    */
   text: prismic.RichTextField;
   /**
-   * Button text field in *Realizace → Primary*
+   * Button text field in *Trips → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -1127,7 +1127,7 @@ interface RealizaceSliceDefaultPrimary {
    */
   button_text: prismic.RichTextField;
   /**
-   * Button Link field in *Realizace → Primary*
+   * Button Link field in *Trips → Primary*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -1137,7 +1137,7 @@ interface RealizaceSliceDefaultPrimary {
    */
   button_link: prismic.LinkField;
   /**
-   * Visible field in *Realizace → Primary*
+   * Visible field in *Trips → Primary*
    *
    * - **Field Type**: Number
    * - **Placeholder**: *None*
@@ -1148,7 +1148,7 @@ interface RealizaceSliceDefaultPrimary {
   visible: prismic.NumberField;
 }
 /**
- * Default variation for Realizace Slice
+ * Default variation for Trips Slice
  *
  * - **API ID**: `default`
  * - **Description**: `Default`
@@ -1161,12 +1161,12 @@ export type RealizaceSliceDefault = prismic.SharedSliceVariation<
   never
 >;
 /**
- * Slice variation for *Realizace*
+ * Slice variation for *Trips*
  *
  */
 type RealizaceSliceVariation = RealizaceSliceDefault;
 /**
- * Realizace Shared Slice
+ * Trips Shared Slice
  *
  * - **API ID**: `realizace`
  * - **Description**: `Realizace`

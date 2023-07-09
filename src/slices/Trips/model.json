@@ -1,7 +1,7 @@
 {
   "id": "realizace",
   "type": "SharedSlice",
-  "name": "Realizace",
+  "name": "Trips",
   "description": "Realizace",
   "variations": [
     {

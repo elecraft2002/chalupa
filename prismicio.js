@@ -26,6 +26,10 @@ const routes = [
     path: "/:uid",
   },
   {
+    type: "realizace",
+    path: "vylet/:uid",
+  },
+  {
     type: "vylet",
     path: "vylet/:uid",
   },

@@ -31,7 +31,8 @@ export default function Home({
   navigation,
   settings,
   locales,
-  reviews
+  reviews,
+  trips,
 }) {
   console.log("page", page);
   return (
@@ -82,8 +83,8 @@ export default function Home({
           translateY={["-50vh", "50vh"]}
         />
         <ParallaxBannerLayer translateY={["-70vh", "70vh"]}>
-          <div className="flex h-screen w-screen items-center justify-center"   >
-            <h1 className="text-4xl text-slate-100 font-bold">Chalupa</h1>
+          <div className="flex h-screen w-screen items-center justify-center">
+            <h1 className="text-4xl font-bold text-slate-100">Chalupa</h1>
           </div>
         </ParallaxBannerLayer>
         <ParallaxBannerLayer
@@ -95,7 +96,7 @@ export default function Home({
       <SliceZone
         slices={page.data.slices}
         components={components}
-        context={{ reviews }}
+        context={{ reviews, trips }}
       />
     </Layout>
   );
@@ -108,15 +109,18 @@ export async function getStaticProps({ locale, previewData }) {
   const navigation = await client.getSingle("navigation", { lang: locale });
   const settings = await client.getSingle("settings", { lang: locale });
   const reviews = await client.getAllByType("review", { lang: locale });
+  const trips = await client.getAllByType("realizace", { lang: locale });
 
   const locales = await getLocales(page, client);
 
   return {
     props: {
       page,
+      trips,
       navigation,
       settings,
-      locales,reviews
+      locales,
+      reviews,
     },
   };
 }

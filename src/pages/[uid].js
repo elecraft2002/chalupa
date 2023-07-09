@@ -7,7 +7,14 @@ import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { Layout } from "@/components/Layout";
 
-export default function Page({ page, navigation, settings, locales }) {
+export default function Page({
+  page,
+  navigation,
+  settings,
+  locales,
+  trips,
+  reviews,
+}) {
   return (
     <Layout locales={locales} navigation={navigation} settings={settings}>
       <Head>
@@ -15,8 +22,37 @@ export default function Page({ page, navigation, settings, locales }) {
           {prismic.asText(page.data.title)} |{" "}
           {prismic.asText(settings.data.siteTitle)}
         </title>
+        <meta
+          name="description"
+          content={prismic.asText(page.data.meta_description)}
+        />
+        <link
+          rel="icon"
+          href={prismic.asImageSrc(settings.data.logo.Icon)}
+          sizes="any"
+        />
+        <meta
+          property="og:title"
+          content={
+            prismic.isFilled.richText(page.data.meta_title)
+              ? page.data.meta_title
+              : prismic.asText(page.data.title)
+          }
+        />
+        <meta
+          property="og:description"
+          content={prismic.asText(page.data.meta_description)}
+        />
+        <meta
+          property="og:image"
+          content={prismic.asImageSrc(settings.data.logo)}
+        />
       </Head>
-      <SliceZone slices={page.data.slices} components={components} />
+      <SliceZone
+        slices={page.data.slices}
+        components={components}
+        context={{ trips, reviews }}
+      />
     </Layout>
   );
 }
@@ -27,6 +63,8 @@ export async function getStaticProps({ params, locale, previewData }) {
   const page = await client.getByUID("page", params.uid, { lang: locale });
   const navigation = await client.getSingle("navigation", { lang: locale });
   const settings = await client.getSingle("settings", { lang: locale });
+  const reviews = await client.getAllByType("review", { lang: locale });
+  const trips = await client.getAllByType("realizace", { lang: locale });
 
   const locales = await getLocales(page, client);
 
@@ -36,6 +74,8 @@ export async function getStaticProps({ params, locale, previewData }) {
       navigation,
       settings,
       locales,
+      trips,
+      reviews,
     },
   };
 }

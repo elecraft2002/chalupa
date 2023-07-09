@@ -47,7 +47,7 @@
       },
       "distance": {
         "type": "Number",
-        "config": { "label": "Distance", "placeholder": "" }
+        "config": { "label": "Distance", "placeholder": "Distance in km" }
       },
       "gallery": {
         "type": "Group",
