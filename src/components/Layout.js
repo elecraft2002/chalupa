@@ -6,7 +6,7 @@ export function Layout({ locales, navigation, settings, children }) {
     <div className="text-slate-800">
       <Background />
       <Header locales={locales} navigation={navigation} settings={settings} />
-      <main>{children}</main>
+      <main className="mt-16">{children}</main>
       <Footer settings={settings} navigation={navigation} />
     </div>
   );

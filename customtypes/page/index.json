@@ -31,7 +31,8 @@
             "text_with_features": { "type": "SharedSlice" },
             "reviews": { "type": "SharedSlice" },
             "text_with_images": { "type": "SharedSlice" },
-            "image_full_screen": { "type": "SharedSlice" }
+            "image_full_screen": { "type": "SharedSlice" },
+            "bookings": { "type": "SharedSlice" }
           }
         }
       }

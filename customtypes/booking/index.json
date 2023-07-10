@@ -1,6 +1,6 @@
 {
-  "id": "realizace",
-  "label": "Trip",
+  "id": "booking",
+  "label": "Booking",
   "format": "page",
   "repeatable": true,
   "status": true,
@@ -36,15 +36,6 @@
           ]
         }
       },
-      "rating": {
-        "type": "Select",
-        "config": {
-          "label": "Rating",
-          "placeholder": "",
-          "options": ["1", "2", "3", "4", "5"],
-          "default_value": "1"
-        }
-      },
       "distance": {
         "type": "Number",
         "config": { "label": "Distance", "placeholder": "Distance in km" }
@@ -73,6 +64,14 @@
         "config": {
           "label": "Info",
           "fields": {
+            "icon": {
+              "type": "Image",
+              "config": {
+                "label": "Icon",
+                "constraint": {},
+                "thumbnails": [{ "name": "Small", "width": null, "height": 28 }]
+              }
+            },
             "info_text": {
               "type": "StructuredText",
               "config": {

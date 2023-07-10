@@ -135,6 +135,7 @@ export default function Page({
       </Head>
       <section className="flex min-h-[50] w-full flex-col items-center justify-center bg-slate-100/90">
         <div className="flex min-h-[50] w-full max-w-7xl flex-col items-center justify-center bg-slate-100/90  md:grid md:grid-cols-2">
+        <Gallery images={page.data.gallery} />
           <div className="flex flex-col p-4">
             <PrismicRichText field={page.data.title} />
             <Stars count={page.data.rating} />
@@ -156,7 +157,6 @@ export default function Page({
               })}
             </ul>
           </div>
-          <Gallery images={page.data.gallery} />
         </div>
       </section>
       <SliceZone
@@ -171,7 +171,7 @@ export default function Page({
 export async function getStaticProps({ params, locale, previewData }) {
   const client = createClient({ previewData });
 
-  const page = await client.getByUID("trip", params.uid, { lang: locale });
+  const page = await client.getByUID("booking", params.uid, { lang: locale });
   const navigation = await client.getSingle("navigation", { lang: locale });
   const settings = await client.getSingle("settings", { lang: locale });
   const reviews = await client.getAllByType("review", { lang: locale });
@@ -196,7 +196,7 @@ export async function getStaticProps({ params, locale, previewData }) {
 export async function getStaticPaths() {
   const client = createClient();
 
-  const pages = await client.getAllByType("trip", { lang: "*" });
+  const pages = await client.getAllByType("booking", { lang: "*" });
 
   return {
     paths: pages.map((page) => {

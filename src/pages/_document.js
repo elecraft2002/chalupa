@@ -14,7 +14,7 @@ export default function Document() {
         />
       </Head>
       <body className="overflow-x-hidden antialiased">
-        <Main />
+        <Main/>
         <NextScript />
       </body>
     </Html>

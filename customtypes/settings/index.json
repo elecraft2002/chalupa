@@ -20,26 +20,34 @@
         "config": {
           "label": "Logo",
           "constraint": {},
-          "thumbnails": [{ "name": "Icon", "width": 64, "height": null }]
+          "thumbnails": [{ "name": "Icon", "width": 100, "height": null }]
         }
       },
       "newsletterDescription": {
         "type": "StructuredText",
         "config": {
-          "label": "Newsletter Description",
-          "placeholder": "Text above the sign up form",
+          "label": "Footer Description",
+          "placeholder": "Text below the sign up form",
           "allowTargetBlank": true,
-          "multi": "heading1,paragraph,strong,em,hyperlink,list-item,o-list-item"
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
-      "newsletterDisclaimer": {
+      "app": {
+        "type": "Text",
+        "config": { "label": "App", "placeholder": "App button text" }
+      },
+      "copyright": {
         "type": "StructuredText",
         "config": {
-          "label": "Newsletter Disclaimer",
-          "placeholder": "Small text below sign up form",
+          "label": "copyright",
+          "placeholder": "",
           "allowTargetBlank": true,
-          "multi": "paragraph,em,strong,hyperlink"
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
+      },
+      "more_info": {
+        "type": "Text",
+        "config": { "label": "More info", "placeholder": "More info text" }
       }
     }
   }

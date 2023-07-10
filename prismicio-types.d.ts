@@ -5,6 +5,180 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = {
   [KeyType in keyof T]: T[KeyType];
 };
+/** Content for Booking documents */
+interface BookingDocumentData {
+  /**
+   * Title field in *Booking*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: booking.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  title: prismic.TitleField;
+  /**
+   * Description field in *Booking*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: booking.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  description: prismic.RichTextField;
+  /**
+   * Image field in *Booking*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: booking.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<"Small" | "Big">;
+  /**
+   * Distance field in *Booking*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: Distance in km
+   * - **API ID Path**: booking.distance
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/number
+   *
+   */
+  distance: prismic.NumberField;
+  /**
+   * Gallery field in *Booking*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: booking.gallery[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  gallery: prismic.GroupField<Simplify<BookingDocumentDataGalleryItem>>;
+  /**
+   * Info field in *Booking*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: booking.info[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  info: prismic.GroupField<Simplify<BookingDocumentDataInfoItem>>;
+  /**
+   * Slice Zone field in *Booking*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: booking.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices: prismic.SliceZone<BookingDocumentDataSlicesSlice>;
+  /**
+   * Meta Description field in *Booking*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: booking.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  meta_description: prismic.RichTextField;
+  /**
+   * Meta Title field in *Booking*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: booking.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  meta_title: prismic.KeyTextField;
+}
+/**
+ * Item in Booking → Gallery
+ *
+ */
+export interface BookingDocumentDataGalleryItem {
+  /**
+   * Image field in *Booking → Gallery*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: booking.gallery[].image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<"Small" | "Big">;
+}
+/**
+ * Item in Booking → Info
+ *
+ */
+export interface BookingDocumentDataInfoItem {
+  /**
+   * Icon field in *Booking → Info*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: booking.info[].icon
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  icon: prismic.ImageField<"Small">;
+  /**
+   * Info text field in *Booking → Info*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: booking.info[].info_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  info_text: prismic.TitleField;
+  /**
+   * Info value field in *Booking → Info*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: booking.info[].info_value
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  info_value: prismic.RichTextField;
+}
+/**
+ * Slice for *Booking → Slice Zone*
+ *
+ */
+type BookingDocumentDataSlicesSlice = never;
+/**
+ * Booking document from Prismic
+ *
+ * - **API ID**: `booking`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type BookingDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<BookingDocumentData>,
+    "booking",
+    Lang
+  >;
 /** Content for Navigation documents */
 interface NavigationDocumentData {
   /**
@@ -122,7 +296,8 @@ type PageDocumentDataSlicesSlice =
   | TextWithFeaturesSlice
   | ReviewsSlice
   | TextWithImagesSlice
-  | ImageFullScreenSlice;
+  | ImageFullScreenSlice
+  | BookingsSlice;
 /**
  * Page document from Prismic
  *
@@ -134,182 +309,6 @@ type PageDocumentDataSlicesSlice =
  */
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
-/** Content for Trip documents */
-interface RealizaceDocumentData {
-  /**
-   * Title field in *Trip*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: realizace.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
-   */
-  title: prismic.TitleField;
-  /**
-   * Description field in *Trip*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: realizace.description
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
-   */
-  description: prismic.RichTextField;
-  /**
-   * Image field in *Trip*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: realizace.image
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/image
-   *
-   */
-  image: prismic.ImageField<"Small" | "Big">;
-  /**
-   * Rating field in *Trip*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: 1
-   * - **API ID Path**: realizace.rating
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/select
-   *
-   */
-  rating: prismic.SelectField<"1" | "2" | "3" | "4" | "5", "filled">;
-  /**
-   * Distance field in *Trip*
-   *
-   * - **Field Type**: Number
-   * - **Placeholder**: Distance in km
-   * - **API ID Path**: realizace.distance
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/number
-   *
-   */
-  distance: prismic.NumberField;
-  /**
-   * Gallery field in *Trip*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: realizace.gallery[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/group
-   *
-   */
-  gallery: prismic.GroupField<Simplify<RealizaceDocumentDataGalleryItem>>;
-  /**
-   * Info field in *Trip*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: realizace.info[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/group
-   *
-   */
-  info: prismic.GroupField<Simplify<RealizaceDocumentDataInfoItem>>;
-  /**
-   * Slice Zone field in *Trip*
-   *
-   * - **Field Type**: Slice Zone
-   * - **Placeholder**: *None*
-   * - **API ID Path**: realizace.slices[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
-   *
-   */
-  slices: prismic.SliceZone<RealizaceDocumentDataSlicesSlice>;
-  /**
-   * Meta Description field in *Trip*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: realizace.meta_description
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
-   */
-  meta_description: prismic.RichTextField;
-  /**
-   * Meta Title field in *Trip*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: realizace.meta_title
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-   *
-   */
-  meta_title: prismic.KeyTextField;
-}
-/**
- * Item in Trip → Gallery
- *
- */
-export interface RealizaceDocumentDataGalleryItem {
-  /**
-   * Image field in *Trip → Gallery*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: realizace.gallery[].image
-   * - **Documentation**: https://prismic.io/docs/core-concepts/image
-   *
-   */
-  image: prismic.ImageField<"Small" | "Big">;
-}
-/**
- * Item in Trip → Info
- *
- */
-export interface RealizaceDocumentDataInfoItem {
-  /**
-   * Info text field in *Trip → Info*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: realizace.info[].info_text
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
-   */
-  info_text: prismic.TitleField;
-  /**
-   * Info value field in *Trip → Info*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: realizace.info[].info_value
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
-   */
-  info_value: prismic.RichTextField;
-}
-/**
- * Slice for *Trip → Slice Zone*
- *
- */
-type RealizaceDocumentDataSlicesSlice = never;
-/**
- * Trip document from Prismic
- *
- * - **API ID**: `realizace`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type RealizaceDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<RealizaceDocumentData>,
-    "realizace",
-    Lang
-  >;
 /** Content for Reference documents */
 interface ReferenceDocumentData {
   /**
@@ -554,10 +553,10 @@ interface SettingsDocumentData {
    */
   logo: prismic.ImageField<"Icon">;
   /**
-   * Newsletter Description field in *Settings*
+   * Footer Description field in *Settings*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: Text above the sign up form
+   * - **Placeholder**: Text below the sign up form
    * - **API ID Path**: settings.newsletterDescription
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
@@ -565,16 +564,38 @@ interface SettingsDocumentData {
    */
   newsletterDescription: prismic.RichTextField;
   /**
-   * Newsletter Disclaimer field in *Settings*
+   * App field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: App button text
+   * - **API ID Path**: settings.app
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  app: prismic.KeyTextField;
+  /**
+   * copyright field in *Settings*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: Small text below sign up form
-   * - **API ID Path**: settings.newsletterDisclaimer
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.copyright
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
    *
    */
-  newsletterDisclaimer: prismic.RichTextField;
+  copyright: prismic.RichTextField;
+  /**
+   * More info field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: More info text
+   * - **API ID Path**: settings.more_info
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  more_info: prismic.KeyTextField;
 }
 /**
  * Settings document from Prismic
@@ -591,13 +612,284 @@ export type SettingsDocument<Lang extends string = string> =
     "settings",
     Lang
   >;
+/** Content for Trip documents */
+interface TripDocumentData {
+  /**
+   * Title field in *Trip*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trip.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  title: prismic.TitleField;
+  /**
+   * Description field in *Trip*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trip.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  description: prismic.RichTextField;
+  /**
+   * Image field in *Trip*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trip.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<"Small" | "Big">;
+  /**
+   * Rating field in *Trip*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: 1
+   * - **API ID Path**: trip.rating
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/select
+   *
+   */
+  rating: prismic.SelectField<"1" | "2" | "3" | "4" | "5", "filled">;
+  /**
+   * Distance field in *Trip*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: Distance in km
+   * - **API ID Path**: trip.distance
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/number
+   *
+   */
+  distance: prismic.NumberField;
+  /**
+   * Gallery field in *Trip*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trip.gallery[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  gallery: prismic.GroupField<Simplify<TripDocumentDataGalleryItem>>;
+  /**
+   * Info field in *Trip*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trip.info[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  info: prismic.GroupField<Simplify<TripDocumentDataInfoItem>>;
+  /**
+   * Season field in *Trip*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Summer
+   * - **API ID Path**: trip.season
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/select
+   *
+   */
+  season: prismic.SelectField<"Summer" | "Winter", "filled">;
+  /**
+   * Slice Zone field in *Trip*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trip.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/slices
+   *
+   */
+  slices: prismic.SliceZone<TripDocumentDataSlicesSlice>;
+  /**
+   * Meta Description field in *Trip*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: trip.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  meta_description: prismic.RichTextField;
+  /**
+   * Meta Title field in *Trip*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: trip.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  meta_title: prismic.KeyTextField;
+}
+/**
+ * Item in Trip → Gallery
+ *
+ */
+export interface TripDocumentDataGalleryItem {
+  /**
+   * Image field in *Trip → Gallery*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trip.gallery[].image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<"Small" | "Big">;
+}
+/**
+ * Item in Trip → Info
+ *
+ */
+export interface TripDocumentDataInfoItem {
+  /**
+   * Icon field in *Trip → Info*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trip.info[].icon
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  icon: prismic.ImageField<"Small">;
+  /**
+   * Info text field in *Trip → Info*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trip.info[].info_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  info_text: prismic.TitleField;
+  /**
+   * Info value field in *Trip → Info*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trip.info[].info_value
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  info_value: prismic.RichTextField;
+}
+/**
+ * Slice for *Trip → Slice Zone*
+ *
+ */
+type TripDocumentDataSlicesSlice = never;
+/**
+ * Trip document from Prismic
+ *
+ * - **API ID**: `trip`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TripDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<TripDocumentData>, "trip", Lang>;
 export type AllDocumentTypes =
+  | BookingDocument
   | NavigationDocument
   | PageDocument
-  | RealizaceDocument
   | ReferenceDocument
   | ReviewDocument
-  | SettingsDocument;
+  | SettingsDocument
+  | TripDocument;
+/**
+ * Primary content in Bookings → Primary
+ *
+ */
+interface BookingsSliceDefaultPrimary {
+  /**
+   * Text field in *Bookings → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bookings.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+  /**
+   * Button text field in *Bookings → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bookings.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  button_text: prismic.RichTextField;
+  /**
+   * Button Link field in *Bookings → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bookings.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  button_link: prismic.LinkField;
+  /**
+   * Visible field in *Bookings → Primary*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bookings.primary.visible
+   * - **Documentation**: https://prismic.io/docs/core-concepts/number
+   *
+   */
+  visible: prismic.NumberField;
+}
+/**
+ * Default variation for Bookings Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type BookingsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BookingsSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *Bookings*
+ *
+ */
+type BookingsSliceVariation = BookingsSliceDefault;
+/**
+ * Bookings Shared Slice
+ *
+ * - **API ID**: `bookings`
+ * - **Description**: `Bookings`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type BookingsSlice = prismic.SharedSlice<
+  "bookings",
+  BookingsSliceVariation
+>;
 /**
  * Primary content in Features → Primary
  *
@@ -1528,17 +1820,17 @@ declare module "@prismicio/client" {
   }
   namespace Content {
     export type {
+      BookingDocumentData,
+      BookingDocumentDataGalleryItem,
+      BookingDocumentDataInfoItem,
+      BookingDocumentDataSlicesSlice,
+      BookingDocument,
       NavigationDocumentData,
       NavigationDocumentDataLinksItem,
       NavigationDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       PageDocument,
-      RealizaceDocumentData,
-      RealizaceDocumentDataGalleryItem,
-      RealizaceDocumentDataInfoItem,
-      RealizaceDocumentDataSlicesSlice,
-      RealizaceDocument,
       ReferenceDocumentData,
       ReferenceDocumentDataSlicesSlice,
       ReferenceDocument,
@@ -1547,7 +1839,16 @@ declare module "@prismicio/client" {
       ReviewDocument,
       SettingsDocumentData,
       SettingsDocument,
+      TripDocumentData,
+      TripDocumentDataGalleryItem,
+      TripDocumentDataInfoItem,
+      TripDocumentDataSlicesSlice,
+      TripDocument,
       AllDocumentTypes,
+      BookingsSliceDefaultPrimary,
+      BookingsSliceDefault,
+      BookingsSliceVariation,
+      BookingsSlice,
       FeaturesSliceDefaultPrimary,
       FeaturesSliceDefaultItem,
       FeaturesSliceDefault,

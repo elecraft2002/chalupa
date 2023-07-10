@@ -14,6 +14,7 @@ export default function Page({
   locales,
   trips,
   reviews,
+  bookings,
 }) {
   return (
     <Layout locales={locales} navigation={navigation} settings={settings}>
@@ -51,7 +52,7 @@ export default function Page({
       <SliceZone
         slices={page.data.slices}
         components={components}
-        context={{ trips, reviews }}
+        context={{ trips, reviews, bookings }}
       />
     </Layout>
   );
@@ -64,7 +65,8 @@ export async function getStaticProps({ params, locale, previewData }) {
   const navigation = await client.getSingle("navigation", { lang: locale });
   const settings = await client.getSingle("settings", { lang: locale });
   const reviews = await client.getAllByType("review", { lang: locale });
-  const trips = await client.getAllByType("realizace", { lang: locale });
+  const trips = await client.getAllByType("trip", { lang: locale });
+  const bookings = await client.getAllByType("booking", { lang: locale });
 
   const locales = await getLocales(page, client);
 
@@ -76,6 +78,7 @@ export async function getStaticProps({ params, locale, previewData }) {
       locales,
       trips,
       reviews,
+      bookings,
     },
   };
 }

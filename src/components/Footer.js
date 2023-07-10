@@ -143,15 +143,14 @@ export function Footer({ settings, navigation }) {
               <PrismicRichText field={settings.data.siteTitle} />
             </span>
           </a>
-          <p class="my-6 text-gray-500 dark:text-gray-400">
-            Open-source library of over 400+ web components and interactive
-            elements built for better web.
-          </p>
-          <ul class="mb-6 flex flex-wrap items-center justify-center text-gray-900 dark:text-white">
+          <span class="my-6 text-gray-500 dark:text-gray-400">
+            <PrismicRichText field={settings.data.newsletterDescription} />
+          </span>
+          <ul class="mb-6 flex flex-wrap items-center justify-center gap-5 text-gray-900 dark:text-white">
             {navigation.data?.links.map((item) => (
               <li
                 key={prismic.asText(item.label)}
-                className="mr-4 font-semibold tracking-tight hover:underline md:mr-6 "
+                className="font-semibold tracking-tight hover:underline"
               >
                 <PrismicNextLink field={item.link}>
                   <PrismicText field={item.label} />
@@ -160,8 +159,7 @@ export function Footer({ settings, navigation }) {
             ))}
           </ul>
           <span class="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
-            © 2021-2022 <a href="#" class="hover:underline"></a>. All Rights
-            Reserved.
+            <PrismicRichText field={settings.data.copyright} />
           </span>
         </div>
       </footer>

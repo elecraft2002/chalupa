@@ -33,6 +33,7 @@ export default function Home({
   locales,
   reviews,
   trips,
+  bookings,
 }) {
   console.log("page", page);
   return (
@@ -96,7 +97,7 @@ export default function Home({
       <SliceZone
         slices={page.data.slices}
         components={components}
-        context={{ reviews, trips }}
+        context={{ reviews, trips, bookings }}
       />
     </Layout>
   );
@@ -109,7 +110,8 @@ export async function getStaticProps({ locale, previewData }) {
   const navigation = await client.getSingle("navigation", { lang: locale });
   const settings = await client.getSingle("settings", { lang: locale });
   const reviews = await client.getAllByType("review", { lang: locale });
-  const trips = await client.getAllByType("realizace", { lang: locale });
+  const trips = await client.getAllByType("trip", { lang: locale });
+  const bookings = await client.getAllByType("booking", { lang: locale });
 
   const locales = await getLocales(page, client);
 
@@ -121,6 +123,7 @@ export async function getStaticProps({ locale, previewData }) {
       settings,
       locales,
       reviews,
+      bookings,
     },
   };
 }

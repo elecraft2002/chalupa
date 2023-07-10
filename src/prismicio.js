@@ -27,12 +27,12 @@ export const routes = [
     path: "/:lang?/:uid",
   },
   {
-    type: "realizace",
-    path: "/:lang?/realizace/:uid",
+    type: "trip",
+    path: "/:lang?/vylet/:uid",
   },
   {
-    type: "reference",
-    path: "/:lang?/reference/:uid",
+    type: "booking",
+    path: "/:lang?/rezervace/:uid",
   },
 ];
 
