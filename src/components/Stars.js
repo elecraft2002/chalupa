@@ -6,7 +6,7 @@ const Stars = ({ count }) => {
       {array.map((star, index) => {
         console.log(count, index);
         return (
-          <li>
+          <li key={index}>
             <svg
               class={`h-4 w-4 text-${
                 count > index ? "yellow-300" : "gray-500"

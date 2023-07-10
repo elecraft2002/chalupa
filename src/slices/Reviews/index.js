@@ -43,9 +43,9 @@ const Reviews = ({ slice, context }) => {
     >
       <PrismicRichText field={slice.primary.text} />
       <ul className="flex w-full flex-wrap items-center justify-evenly gap-6">
-        {context.reviews.map((item) => {
+        {context.reviews.map((item,index) => {
           return (
-            <article className="w-full max-w-sm">
+            <article key={index} className="w-full max-w-sm">
               <div class="mb-4 flex items-center space-x-4">
                 <figure className="aspect-1 overflow-hidden rounded-full">
                   <PrismicNextImage
