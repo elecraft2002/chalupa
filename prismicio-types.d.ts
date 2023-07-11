@@ -192,6 +192,28 @@ interface NavigationDocumentData {
    *
    */
   links: prismic.GroupField<Simplify<NavigationDocumentDataLinksItem>>;
+  /**
+   * Button Link field in *Navigation*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.button_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  button_link: prismic.LinkField;
+  /**
+   * Button Text field in *Navigation*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.button_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  button_text: prismic.RichTextField;
 }
 /**
  * Item in Navigation → Links
@@ -297,7 +319,8 @@ type PageDocumentDataSlicesSlice =
   | ReviewsSlice
   | TextWithImagesSlice
   | ImageFullScreenSlice
-  | BookingsSlice;
+  | BookingsSlice
+  | GallerySlice;
 /**
  * Page document from Prismic
  *
@@ -961,6 +984,68 @@ type FeaturesSliceVariation = FeaturesSliceDefault;
 export type FeaturesSlice = prismic.SharedSlice<
   "features",
   FeaturesSliceVariation
+>;
+/**
+ * Primary content in Gallery → Primary
+ *
+ */
+interface GallerySliceDefaultPrimary {
+  /**
+   * Text field in *Gallery → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Text above gallery
+   * - **API ID Path**: gallery.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+}
+/**
+ * Item in Gallery → Items
+ *
+ */
+export interface GallerySliceDefaultItem {
+  /**
+   * Image field in *Gallery → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery.items[].image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<"Small">;
+}
+/**
+ * Default variation for Gallery Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type GallerySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<GallerySliceDefaultPrimary>,
+  Simplify<GallerySliceDefaultItem>
+>;
+/**
+ * Slice variation for *Gallery*
+ *
+ */
+type GallerySliceVariation = GallerySliceDefault;
+/**
+ * Gallery Shared Slice
+ *
+ * - **API ID**: `gallery`
+ * - **Description**: `Gallery`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type GallerySlice = prismic.SharedSlice<
+  "gallery",
+  GallerySliceVariation
 >;
 /**
  * Primary content in Hero → Primary
@@ -1854,6 +1939,11 @@ declare module "@prismicio/client" {
       FeaturesSliceDefault,
       FeaturesSliceVariation,
       FeaturesSlice,
+      GallerySliceDefaultPrimary,
+      GallerySliceDefaultItem,
+      GallerySliceDefault,
+      GallerySliceVariation,
+      GallerySlice,
       HeroSliceDefaultPrimary,
       HeroSliceDefault,
       HeroSliceWithButtonPrimary,

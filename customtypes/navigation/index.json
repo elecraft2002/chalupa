@@ -30,6 +30,19 @@
             }
           }
         }
+      },
+      "button_link": {
+        "type": "Link",
+        "config": { "label": "Button Link", "placeholder": "", "select": null }
+      },
+      "button_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Button Text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
       }
     }
   }

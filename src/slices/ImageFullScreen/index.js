@@ -2,6 +2,7 @@ import Button from "@/components/Button";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 import { ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
+import * as prismic from "@prismicio/client";
 
 /**
  * @typedef {import("@prismicio/client").Content.ImageFullScreenSlice} ImageFullScreenSlice
@@ -26,7 +27,7 @@ const ImageFullScreen = ({ slice }) => {
           <span className="text-center text-slate-100">
             <PrismicRichText field={slice.primary.text} />
           </span>
-          {slice.primary.text && (
+          {slice.primary.button_text && (
             <PrismicNextLink field={slice.primary.link}>
               <Button>{slice.primary.button_text}</Button>
             </PrismicNextLink>

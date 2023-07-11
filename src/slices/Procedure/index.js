@@ -8,12 +8,11 @@ import { PrismicRichText } from "@prismicio/react";
  * @param {ProcedureProps}
  */
 const Procedure = ({ slice }) => {
-  console.log(slice.primary);
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex min-h-[50vh] flex-col items-center justify-center gap-16 py-20 bg-slate-100/70"
+      className="flex min-h-[50vh] flex-col items-center justify-center gap-16 py-20 bg-slate-900/70"
     >
       Procedure
       <div className="grid w-screen grid-cols-1 grid-rows-2 items-center sm:grid-cols-2 sm:grid-rows-1">

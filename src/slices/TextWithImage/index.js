@@ -7,7 +7,7 @@ import { PrismicRichText } from "@/components/PrismicRichText";
 
 const TextWithImage = ({ slice }) => {
   return (
-    <Bounded as="section" className="bg-slate-100/70">
+    <Bounded as="section" className="bg-slate-100/70 text-slate-900">
       <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-16">
         <div className="relative max-w-xs md:col-span-5 md:max-w-none">
           <div className="absolute -left-6 -top-6 w-2/3">

@@ -20,60 +20,16 @@ import Stars from "@/components/Stars";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import { PrismicNextImage } from "@prismicio/next";
+import Image from "next/image";
 
 const Gallery = ({ images }) => {
-  console.log(images);
   return (
     <div class="grid gap-4 p-4">
-      {/* <div>
-        <img
-          class="h-auto max-w-full rounded-lg"
-          src="https://flowbite.s3.amazonaws.com/docs/gallery/featured/image.jpg"
-          alt=""
-        />
-      </div> */}
-      {/* <div class="grid grid-cols-5 gap-4">
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg"
-            alt=""
-          />
-        </div>
-        <div>
-          <img
-            class="h-auto max-w-full rounded-lg"
-            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg"
-            alt=""
-          />
-        </div>
-      </div> */}
       <Carousel autoPlay infiniteLoop className="h-auto max-w-full rounded-lg">
         {images.map((item) => {
           return (
             <div key={item.id} className="h-full w-full">
-              <img
+              <Image
                 className="h-full w-full rounded-lg object-cover"
                 src={item.image.url}
                 loading="lazy"

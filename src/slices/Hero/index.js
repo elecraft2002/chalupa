@@ -7,7 +7,7 @@ import { PrismicRichText } from "@/components/PrismicRichText";
 
 const Hero = ({ slice }) => {
   return (
-    <Bounded as="section" collapsible={false} className="bg-glass-200 pb-0 md:pb-0">
+    <Bounded as="section" collapsible={false} className="bg-slate-950/90 pb-0 md:pb-0">
       <div className="grid grid-cols-1 justify-items-center gap-10">
         <div className="max-w-2xl text-center leading-relaxed">
           <PrismicRichText

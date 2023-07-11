@@ -13,7 +13,7 @@ const TextWithImages = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex min-h-[50vh] flex-col items-center justify-center gap-16 bg-slate-300/70 py-20"
+      className="flex min-h-[50vh] flex-col items-center justify-center gap-16 bg-slate-300/70 py-20 text-slate-900"
     >
       <span className="m-4 max-w-7xl">
         <PrismicRichText field={slice.primary.text} />
@@ -28,7 +28,7 @@ const TextWithImages = ({ slice }) => {
               <figure className={` ${index & 1 && "sm:order-last"}`}>
                 <PrismicNextImage field={item.image} />
               </figure>
-              <span className="flex flex-col items-center">
+              <span className="flex flex-col items-center m-4">
                 <PrismicRichText field={item.text} />
                 {item.button_text && (
                   <PrismicNextLink document={item.link}>

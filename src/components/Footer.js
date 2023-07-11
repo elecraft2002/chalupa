@@ -29,7 +29,7 @@ function SignUpForm({ settings }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoadingState(true);
-    console.log("Submit", { name, email, message });
+    // console.log("Submit", { name, email, message });
     // const res = await fetch("/api/contact")
     try {
       const res = await axios.post("/api/contact", { name, email, message });
@@ -40,15 +40,15 @@ function SignUpForm({ settings }) {
         setError("");
         setMessage("");
       }
-      console.log(res);
+      // console.log(res);
     } catch (error) {
-      console.log(error.response.data.error);
+      // console.log(error.response.data.error);
       setError(error.response.data.error);
     }
   };
 
   return (
-    <section className="flex min-h-[50] w-full flex-col items-center justify-center bg-slate-100/90 py-20">
+    <section className="flex min-h-[50] w-full flex-col items-center justify-center bg-slate-100/90 py-20 text-slate-900">
       <h2>Kontaktujte nás</h2>
       <div className="grid w-screen grid-cols-1 grid-rows-2 items-center justify-center sm:grid-cols-2 sm:grid-rows-1">
         <div className="m-auto box-border h-[50vh] w-full max-w-xl p-4">
