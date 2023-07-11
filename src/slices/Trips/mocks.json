@@ -36,6 +36,28 @@
 					"__TYPE__": "ExternalLink",
 					"url": "https://prismic.io"
 				}
+			},
+			"text_summer": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Qui Lorem veniam aute aliqua aliqua voluptate proident cupidatat consectetur et reprehenderit commodo eiusmod consectetur esse. Nisi aliqua incididunt aliqua occaecat pariatur aute et aute."
+						}
+					}
+				]
+			},
+			"text_winter": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Do id minim sit occaecat aliquip do mollit ullamco eiusmod non nostrud anim sit non minim."
+						}
+					}
+				]
 			}
 		},
 		"items": []

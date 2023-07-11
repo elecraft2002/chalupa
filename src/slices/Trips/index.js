@@ -10,6 +10,7 @@ import * as prismicH from "@prismicio/helpers";
  * @param {RealizaceProps}
  */
 const Realizace = ({ slice, context }) => {
+  console.log(context.trips)
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -17,12 +18,36 @@ const Realizace = ({ slice, context }) => {
       className="flex flex-col items-center bg-slate-100/70 py-16 text-slate-900"
     >
       <PrismicRichText field={slice.primary.text} />
-      <div className="flex w-full flex-wrap place-content-around">
-        {context.trips
-          ?.slice(0, slice.primary.visible ? slice.primary.visible : 3)
-          .map((project) => {
-            return <Article type={0} key={project.id} data={project} />;
-          })}
+
+      <div>
+        <span className="text-center"><PrismicRichText field={slice.primary.text_summer} /></span>
+        <ul className="flex w-full flex-wrap place-content-around">
+          {context.trips
+            ?.slice(0, slice.primary.visible ? slice.primary.visible : 3)
+            .map((project) => {
+              if (project.data.season === "Winter") return null;
+              return (
+                <li key={project.id}>
+                  <Article type={0} data={project} />
+                </li>
+              );
+            })}
+        </ul>
+      </div>
+      <div>
+      <span className="text-center"><PrismicRichText field={slice.primary.text_winter} /></span>
+        <ul className="flex w-full flex-wrap place-content-around">
+          {context.trips
+            ?.slice(0, slice.primary.visible ? slice.primary.visible : 3)
+            .map((project) => {
+              if (project.data.season === "Summer" ||project.data.season === null) return null;
+              return (
+                <li key={project.id}>
+                  <Article type={0} data={project} />
+                </li>
+              );
+            })}
+        </ul>
       </div>
       {prismicH.asText(slice.primary.button_text) && (
         <PrismicNextLink document={slice.primary.button_link}>

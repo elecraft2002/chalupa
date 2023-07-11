@@ -41,6 +41,24 @@
         "visible": {
           "type": "Number",
           "config": { "label": "Visible", "placeholder": "" }
+        },
+        "text_summer": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text summer",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "text_winter": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text winter",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
         }
       },
       "items": {}

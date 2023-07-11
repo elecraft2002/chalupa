@@ -1523,6 +1523,26 @@ interface RealizaceSliceDefaultPrimary {
    *
    */
   visible: prismic.NumberField;
+  /**
+   * Text summer field in *Trips → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: realizace.primary.text_summer
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text_summer: prismic.RichTextField;
+  /**
+   * Text winter field in *Trips → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: realizace.primary.text_winter
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text_winter: prismic.RichTextField;
 }
 /**
  * Default variation for Trips Slice
