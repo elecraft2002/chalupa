@@ -619,6 +619,28 @@ interface SettingsDocumentData {
    *
    */
   more_info: prismic.KeyTextField;
+  /**
+   * Cookies field in *Settings*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.cookies
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  cookies: prismic.RichTextField;
+  /**
+   * Cookies Button field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.cookies_button
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  cookies_button: prismic.KeyTextField;
 }
 /**
  * Settings document from Prismic

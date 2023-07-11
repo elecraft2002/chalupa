@@ -48,6 +48,19 @@
       "more_info": {
         "type": "Text",
         "config": { "label": "More info", "placeholder": "More info text" }
+      },
+      "cookies": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Cookies",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "cookies_button": {
+        "type": "Text",
+        "config": { "label": "Cookies Button", "placeholder": "" }
       }
     }
   }

@@ -7,6 +7,7 @@ import { PrismicLink, PrismicProvider } from "@prismicio/react";
 import Link from "next/link";
 import { Heading } from "@/components/Heading";
 import { ParallaxProvider } from "react-scroll-parallax";
+import { GoogleAnalytics } from "nextjs-google-analytics";
 
 const richTextComponents = {
   heading1: ({ children }) => (
@@ -74,7 +75,9 @@ export default function App({ Component, pageProps }) {
     >
       <ParallaxProvider>
         <Component {...pageProps} />
+        <GoogleAnalytics trackPageViews />
         <PrismicPreview repositoryName={repositoryName} />
+        
       </ParallaxProvider>
     </PrismicProvider>
   );
