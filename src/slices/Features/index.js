@@ -11,17 +11,16 @@ const Features = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex min-h-[50vh] flex-col items-center justify-center gap-6 bg-slate-300/50 py-20 text-center"
+      className="flex min-h-[50vh] flex-col items-center justify-center gap-6 bg-slate-300/50 py-20 text-center text-slate-900"
     >
       <div>
         <PrismicRichText field={slice.primary.text} />
       </div>
       <ul className="flex flex-wrap items-center justify-center">
         {slice.items.map((item,index) => {
-          console.log(item);
           return (
             <li key={index} className="max-w-[40vw] md:max-w-[30vw] lg:max-w-xs">
-              <figure className=" flex flex-col gap-6">
+              <figure className=" flex flex-col gap-6 w-1/2">
                 <PrismicNextImage
                   field={item.icon}
                   className="transition hover:scale-105"

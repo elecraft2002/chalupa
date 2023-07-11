@@ -1,10 +1,11 @@
 import * as prismic from "@prismicio/client";
-import { PrismicText } from "@prismicio/react";
+import { PrismicRichText, PrismicText } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 
 import { Bounded } from "./Bounded";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Button from "./Button";
 
 const localeLabels = {
   "en-us": "EN",
@@ -16,7 +17,7 @@ export function Header({ locales = [], navigation, settings }) {
   const [isOpen, setOpenState] = useState(false);
   const router = useRouter();
   return (
-    <nav class="fixed left-0 top-0 z-50 w-full border-b border-gray-200 bg-glass-600 backdrop-blur-3xl">
+    <nav class="fixed left-0 top-0 z-50 w-full border-b border-slate-800 bg-slate-950/80 backdrop-blur-3xl">
       <div
         onClick={() => {
           setOpenState(!isOpen);
@@ -35,12 +36,13 @@ export function Header({ locales = [], navigation, settings }) {
           )}
         </PrismicNextLink>
         <div class="flex md:order-2">
-          <button
-            type="button"
-            class="mr-3 rounded-lg bg-orange-500 px-4 py-2 text-center text-sm font-medium text-white hover:bg-orange-800 focus:outline-none focus:ring-4 focus:ring-orange-300 md:mr-0"
-          >
-            ZAREZERVOVAT
-          </button>
+          {prismic.isFilled.richText(navigation.data.button_text) && (
+            <PrismicNextLink field={navigation.data.button_link}>
+              <Button>
+                <PrismicRichText field={navigation.data.button_text} />
+              </Button>
+            </PrismicNextLink>
+          )}
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"
@@ -77,10 +79,14 @@ export function Header({ locales = [], navigation, settings }) {
             {navigation.data?.links.map((item) => (
               <li
                 key={prismic.asText(item.label)}
-                className="font-semibold tracking-tight text-slate-800"
+                className="font-semibold tracking-tight"
               >
                 <PrismicNextLink
-                    className={`block rounded py-2 pl-3 pr-4 ${router.asPath===prismic.asLink(item.link)?"text-orange-700":"text-gray-900"} hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-orange-500`}
+                  className={`block rounded py-2 pl-3 pr-4 ${
+                    router.asPath === prismic.asLink(item.link)
+                      ? "text-slate-400"
+                      : ""
+                  } hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-slate-300`}
                   field={item.link}
                 >
                   <PrismicText field={item.label} />

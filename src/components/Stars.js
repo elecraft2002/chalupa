@@ -4,7 +4,6 @@ const Stars = ({ count }) => {
   return (
     <ul class="mb-1 flex items-center">
       {array.map((star, index) => {
-        console.log(count, index);
         return (
           <li key={index}>
             <svg

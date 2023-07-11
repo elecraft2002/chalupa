@@ -10,7 +10,6 @@ import Stars from "../../components/Stars"
 
 
 const Reviews1 = ({ slice, context }) => {
-  console.log(context.reviews);
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -34,12 +33,11 @@ const Reviews1 = ({ slice, context }) => {
 };
 
 const Reviews = ({ slice, context }) => {
-  console.log(context.reviews);
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex flex-col items-center bg-slate-300/80 py-16"
+      className="flex flex-col items-center bg-slate-800/80 py-16"
     >
       <PrismicRichText field={slice.primary.text} />
       <ul className="flex w-full flex-wrap items-center justify-evenly gap-6">

@@ -35,7 +35,6 @@ export default function Home({
   trips,
   bookings,
 }) {
-  console.log("page", page);
   return (
     <Layout locales={locales} navigation={navigation} settings={settings}>
       <Head>

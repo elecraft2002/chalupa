@@ -7,7 +7,7 @@ type EmailPayload = {
 }
  */
 // Replace with your SMTP credentials
-console.log(process.env.SMTP_USER)
+// console.log(process.env.SMTP_USER)
 const smtpOptions = {
   host: process.env.SMTP_HOST || "smtp.mailtrap.io",
   port: parseInt(process.env.SMTP_PORT || "2525"),

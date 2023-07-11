@@ -10,12 +10,11 @@ import * as prismicH from "@prismicio/helpers";
  * @param {RealizaceProps}
  */
 const Realizace = ({ slice, context }) => {
-  console.log(context.trips);
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex flex-col items-center bg-slate-100/70 py-16"
+      className="flex flex-col items-center bg-slate-100/70 py-16 text-slate-900"
     >
       <PrismicRichText field={slice.primary.text} />
       <div className="flex w-full flex-wrap place-content-around">
