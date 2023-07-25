@@ -48,7 +48,7 @@ function SignUpForm({ settings }) {
   };
 
   return (
-    <section className="flex min-h-[50] w-full flex-col items-center justify-center bg-secondary/90 py-20 text-primary">
+    <section className="flex min-h-[50] w-full flex-col items-center justify-center bg-secondary/10 py-20 ">
       <h2>Kontaktujte nás</h2>
       <div className="grid w-screen grid-cols-1 grid-rows-2 items-center justify-center sm:grid-cols-2 sm:grid-rows-1">
         <div className="m-auto box-border h-[50vh] w-full max-w-xl p-4">
