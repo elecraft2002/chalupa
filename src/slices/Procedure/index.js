@@ -12,7 +12,7 @@ const Procedure = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex min-h-[50vh] flex-col items-center justify-center gap-16 py-20 bg-slate-900/70"
+      className="flex min-h-[50vh] flex-col items-center justify-center gap-16 py-20"
     >
       Procedure
       <div className="grid w-screen grid-cols-1 grid-rows-2 items-center sm:grid-cols-2 sm:grid-rows-1">
@@ -41,7 +41,7 @@ const Procedure = ({ slice }) => {
               return (
                 <li key={i} className={"relative mx-4 flex  gap-4 pb-8"}>
                   <span
-                    className={`flex aspect-1 h-16 w-16 items-center justify-center rounded-full border border-slate-500 bg-glass-200 text-slate-800 after:absolute after:top-0 after:-z-10 after:h-full after:w-[${
+                    className={`flex aspect-1 h-16 w-16 items-center justify-center rounded-full border border-slate-500 bg-glass-200 text-secondary after:absolute after:top-0 after:-z-10 after:h-full after:w-[${
                       slice.items.length === i + 1 ? "0px" : "1px"
                     }] after:bg-slate-300 `}
                   >

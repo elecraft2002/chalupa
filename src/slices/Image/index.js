@@ -9,14 +9,14 @@ const Image = ({ slice }) => {
     <Bounded
       as="section"
       className={clsx(
-        slice.variation === "lightSlate" && "bg-glass-400",
-        slice.variation === "white" && "bg-white"
+        slice.variation === "lightSlate" && "",
+        slice.variation === "white" && "bg-secondary"
       )}
     >
       <div className="relative">
         {slice.primary.withAccent && (
           <div className="absolute -left-4 -top-4 w-1/3">
-            <div className="aspect-h-1 aspect-w-1 bg-slate-200/50" />
+            <div className="aspect-h-1 aspect-w-1 " />
           </div>
         )}
         {prismic.isFilled.image(slice.primary.image) && (

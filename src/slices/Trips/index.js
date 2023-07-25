@@ -15,7 +15,7 @@ const Realizace = ({ slice, context }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex flex-col items-center bg-slate-100/70 py-16 text-slate-900"
+      className="flex flex-col items-center py-16 text-secondary"
     >
       <PrismicRichText field={slice.primary.text} />
 

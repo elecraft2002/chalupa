@@ -37,7 +37,7 @@ const Reviews = ({ slice, context }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex flex-col items-center bg-slate-800/80 py-16"
+      className="flex flex-col items-center py-16"
     >
       <PrismicRichText field={slice.primary.text} />
       <ul className="flex w-full flex-wrap items-center justify-evenly gap-6">
@@ -51,7 +51,7 @@ const Reviews = ({ slice, context }) => {
                     field={item.data.image}
                   />
                 </figure>
-                <div class="space-y-1 font-medium dark:text-white">
+                <div class="space-y-1 font-medium">
                   <span>
                     <PrismicRichText field={item.data.name} />
                     {/* <div class="mb-1 flex items-center">

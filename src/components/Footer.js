@@ -48,7 +48,7 @@ function SignUpForm({ settings }) {
   };
 
   return (
-    <section className="flex min-h-[50] w-full flex-col items-center justify-center bg-slate-100/90 py-20 text-slate-900">
+    <section className="flex min-h-[50] w-full flex-col items-center justify-center bg-secondary/90 py-20 text-primary">
       <h2>Kontaktujte nás</h2>
       <div className="grid w-screen grid-cols-1 grid-rows-2 items-center justify-center sm:grid-cols-2 sm:grid-rows-1">
         <div className="m-auto box-border h-[50vh] w-full max-w-xl p-4">
@@ -132,11 +132,11 @@ export function Footer({ settings, navigation }) {
   return (
     <>
       <SignUpForm settings={settings} />
-      <footer class="bg-white p-4 dark:bg-gray-800 md:p-8 lg:p-10">
+      <footer class=" p-4 md:p-8 lg:p-10">
         <div class="mx-auto max-w-screen-xl text-center">
           <a
             href="#"
-            class="flex items-center justify-center text-2xl font-semibold text-gray-900 dark:text-white"
+            class="flex items-center justify-center text-2xl font-semibold "
           >
             {/*  <PrismicNextImage field={settings.data.logo} /> */}
             <span className="text-slate-100">
@@ -146,7 +146,7 @@ export function Footer({ settings, navigation }) {
           <span class="my-6 text-gray-500 dark:text-gray-400">
             <PrismicRichText field={settings.data.newsletterDescription} />
           </span>
-          <ul class="mb-6 flex flex-wrap items-center justify-center gap-5 text-gray-900 dark:text-white">
+          <ul class="mb-6 flex flex-wrap items-center justify-center gap-5 ">
             {navigation.data?.links.map((item) => (
               <li
                 key={prismic.asText(item.label)}

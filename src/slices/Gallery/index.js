@@ -16,6 +16,7 @@ import "lightgallery/scss/lg-zoom.scss";
 // import plugins if you need
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
+import { Fade } from "react-awesome-reveal";
 
 /**
  * @typedef {import("@prismicio/client").Content.GallerySlice} GallerySlice
@@ -40,18 +41,20 @@ const Gallery = ({ slice }) => {
         >
           {slice.items.map((item, index) => {
             return (
-              <li key={index}
-                data-src={prismic.asImageSrc(item.image)}>
-                <a
-                  className="gallery-item"
-                  href={prismic.asImageSrc(item.image)}
-                >
-                  <PrismicNextImage
-                    class="h-auto max-w-full rounded-lg transition-all hover:scale-105"
-                    field={item.image.Small}
-                  />
-                </a>
-              </li>
+              <Fade triggerOnce>
+                <li key={index}
+                  data-src={prismic.asImageSrc(item.image)}>
+                  <a
+                    className="gallery-item"
+                    href={prismic.asImageSrc(item.image)}
+                  >
+                    <PrismicNextImage
+                      class="h-auto max-w-full rounded-lg transition-all hover:scale-105"
+                      field={item.image.Small}
+                    />
+                  </a>
+                </li>
+              </Fade>
             );
           })}
         </LightGallery>
