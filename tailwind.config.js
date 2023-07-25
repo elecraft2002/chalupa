@@ -17,6 +17,8 @@ module.exports = {
           500: "rgba(200, 200, 200, 0.50)",
           600: "rgba(200, 200, 200, 0.60)",
         },
+        primary: "#160037",
+        secondary: "#ffff",
       },
     },
   },

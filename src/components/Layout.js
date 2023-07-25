@@ -9,7 +9,7 @@ export function Layout({ locales, navigation, settings, children }) {
     <div className="text-slate-200">
       <Background />
       <Header locales={locales} navigation={navigation} settings={settings} />
-      <main className="mt-16">{children}</main>
+      <main className="mt-16 bg-primary">{children}</main>
       <Footer settings={settings} navigation={navigation} />
       <CookieConsent buttonText={settings.data.cookies_button}>
         <PrismicRichText field={settings.data.cookies} />

@@ -19,7 +19,7 @@ const Features = ({ slice }) => {
       <ul className="flex flex-wrap items-center justify-center">
         {slice.items.map((item,index) => {
           return (
-            <li key={index} className="max-w-[40vw] md:max-w-[30vw] lg:max-w-xs">
+            <li key={index} className="min-w-[200px] max-w-[40vw] md:max-w-[30vw] lg:max-w-xs flex justify-center">
               <figure className=" flex flex-col gap-6 w-1/2">
                 <PrismicNextImage
                   field={item.icon}

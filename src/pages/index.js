@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { PrismicLink, SliceZone } from "@prismicio/react";
+import { PrismicLink, PrismicRichText, SliceZone } from "@prismicio/react";
 import * as prismic from "@prismicio/client";
 
 import { getLocales } from "@/lib/getLocales";
@@ -23,8 +23,53 @@ import Article from "@/components/Article";
 import { ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
 
 import image0 from "@/assets/img/parallax/chalupa-0.jpg";
-import image1 from "@/assets/img/parallax/chalupa-1.png";
-import image2 from "@/assets/img/parallax/chalupa-2.png";
+import { useState } from "react";
+import { interpolate } from "@/functions/interpolate";
+import { Fade } from "react-awesome-reveal";
+
+const Parallax = ({ page }) => {
+  const [progress, updateProgress] = useState(0);
+  const width = interpolate(progress, [0, 0.5, 1], [-110, 100, 100]);
+  const height = interpolate(progress, [0, 0.5, 1], [-30, 100, 100]);
+  return (
+    <ParallaxBanner className="h-[200vh] w-screen">
+      <ParallaxBannerLayer
+        className="flex h-screen w-screen items-center justify-center"
+        onProgressChange={(e) => updateProgress(e)}
+        translateY={["-100vh", "200vh"]}
+      >
+        <Fade
+          triggerOnce
+          style={{ width: `${width}vw`, height: `${height}vh` }}
+          className="overflow-hidden"
+        >
+          <img
+            alt="xd"
+            src={image0.src}
+            className="h-full w-full object-cover"
+          />
+        </Fade>
+      </ParallaxBannerLayer>
+      <ParallaxBannerLayer
+        className="flex h-screen w-screen items-center justify-center"
+        translateY={["-100vh", "200vh"]}
+      >
+        <Fade delay={500} triggerOnce>
+          <PrismicRichText
+            components={{
+              paragraph: (paragraph) => (
+                <h1 className="text-xl uppercase sm:text-4xl xl:text-8xl">
+                  {paragraph.children}
+                </h1>
+              ),
+            }}
+            field={page.data.title}
+          />
+        </Fade>
+      </ParallaxBannerLayer>
+    </ParallaxBanner>
+  );
+};
 
 export default function Home({
   page,
@@ -71,7 +116,7 @@ export default function Home({
           content={prismic.asImageSrc(settings.data.logo)}
         />
       </Head>
-      <ParallaxBanner className="h-screen w-screen">
+      {/* <ParallaxBanner className="h-screen w-screen">
         <ParallaxBannerLayer
           className="h-screen w-screen"
           image={image0.src}
@@ -92,7 +137,8 @@ export default function Home({
           image={image2.src}
           translateY={["-20vh", "20vh"]}
         />
-      </ParallaxBanner>
+      </ParallaxBanner> */}
+      <Parallax page={page} />
       <SliceZone
         slices={page.data.slices}
         components={components}
