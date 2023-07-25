@@ -27,11 +27,7 @@ const StyledCircle = styled(animated.div)`
   filter: blur(100px);
   opacity: 0.4;
   background: red;
-  background: linear-gradient(
-    0deg,
-    red 0%,
-    yellow 100%
-  );
+  background: linear-gradient(0deg, red 0%, yellow 100%);
 `;
 
 const StyledBackground = styled.div`

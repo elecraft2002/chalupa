@@ -21,6 +21,7 @@
     "@prismicio/react": "^2.7.1",
     "@react-google-maps/api": "^2.18.1",
     "@react-spring/web": "^9.7.2",
+    "@smakss/react-scroll-direction": "^2.1.1",
     "axios": "^1.4.0",
     "clsx": "^1.2.1",
     "lightgallery": "^2.7.1",

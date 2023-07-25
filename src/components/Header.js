@@ -1,9 +1,10 @@
 import * as prismic from "@prismicio/client";
 import { PrismicRichText, PrismicText } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import useDetectScroll from "@smakss/react-scroll-direction";
 
 import { Bounded } from "./Bounded";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Button from "./Button";
 
@@ -16,8 +17,33 @@ const localeLabels = {
 export function Header({ locales = [], navigation, settings }) {
   const [isOpen, setOpenState] = useState(false);
   const router = useRouter();
+
+  const [scrollDir, setScrollDir] = useState("up");
+
+  useEffect(() => {
+    const threshold = 100;
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    const updateScrollDir = () => {
+      const scrollY = window.scrollY;
+
+      if (Math.abs(scrollY - lastScrollY) < threshold) {
+        return;
+      }
+      setScrollDir(scrollY > lastScrollY ? "down" : "up");
+      lastScrollY = scrollY > 0 ? scrollY : 0;
+      ticking = false;
+    };
+
+    window.addEventListener("scroll", updateScrollDir);
+    console.log(scrollDir);
+
+    return () => window.removeEventListener("scroll", updateScrollDir);
+  }, [scrollDir]);
+  console.log(scrollDir);
   return (
-    <nav class="fixed left-0 top-0 z-50 w-full border-b border-slate-800 bg-slate-950/80 backdrop-blur-3xl">
+    <nav class={`fixed left-0 top-0 z-50 w-full border-b border-slate-800 bg-slate-950/80 backdrop-blur-3xl transition-all overflow-hidden ${scrollDir==="down"?"md:h-0":"md:h-[70px]"}`}>
       <div
         onClick={() => {
           setOpenState(!isOpen);
@@ -26,8 +52,8 @@ export function Header({ locales = [], navigation, settings }) {
           !isOpen && "hidden"
         } absolute -z-10 h-screen w-screen backdrop-blur-md md:hidden`}
       />
-      <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between  p-4">
-        <PrismicNextLink href="/" className="h-8 w-8">
+      <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between  p-4 ">
+        <PrismicNextLink href="/" className="h-8 w-8 md:order-2">
           {prismic.isFilled.image(settings.data.logo) && (
             <PrismicNextImage
               field={settings.data.logo}

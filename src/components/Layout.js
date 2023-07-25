@@ -6,10 +6,10 @@ import { PrismicRichText } from "@prismicio/react";
 
 export function Layout({ locales, navigation, settings, children }) {
   return (
-    <div className="text-slate-200">
+    <div className="text-secondary ">
       <Background />
       <Header locales={locales} navigation={navigation} settings={settings} />
-      <main className="mt-16 bg-primary">{children}</main>
+      <main className="mt-16">{children}</main>
       <Footer settings={settings} navigation={navigation} />
       <CookieConsent buttonText={settings.data.cookies_button}>
         <PrismicRichText field={settings.data.cookies} />
