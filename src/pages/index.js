@@ -45,7 +45,7 @@ const Parallax = ({ page }) => {
           className="overflow-hidden"
         >
           <Image
-            src={...image0}
+            {...image0}
             className="h-full w-full object-cover"
           />
         </Fade>
