@@ -22,30 +22,25 @@ const TextWithImages = ({ slice }) => {
       <ul className="box-border  p-4">
         {slice.items.map((item, index) => {
           return (
-           <Fade triggerOnce>
-              <li
-                key={index}
-                className="grid w-full max-w-7xl grid-cols-1 grid-rows-2 items-center gap-4 sm:grid-cols-2 sm:grid-rows-1 my-4"
-              >
-                  <figure className={` ${index & 1 && "sm:order-last"}`}>
-                <Slide triggerOnce>
+            <Fade key={index} triggerOnce>
+              <li className="my-4 grid w-full max-w-7xl grid-cols-1 grid-rows-2 items-center gap-4 sm:grid-cols-2 sm:grid-rows-1">
+                <figure className={` ${index & 1 && "sm:order-last"}`}>
+                  <Slide triggerOnce>
                     <PrismicNextImage field={item.image} />
-                </Slide>
-                  </figure>
+                  </Slide>
+                </figure>
                 <Fade triggerOnce delay={200}>
-                  <span className="flex flex-col items-center m-4">
+                  <span className="m-4 flex flex-col items-center">
                     <PrismicRichText field={item.text} />
                     {item.button_text && (
                       <PrismicNextLink document={item.link}>
-                        <Button type={"primary"}>
-                        {item.button_text}
-                        </Button>
+                        <Button type={"primary"}>{item.button_text}</Button>
                       </PrismicNextLink>
                     )}
                   </span>
                 </Fade>
               </li>
-           </Fade>
+            </Fade>
           );
         })}
       </ul>

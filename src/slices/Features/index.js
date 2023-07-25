@@ -18,11 +18,11 @@ const Features = ({ slice }) => {
         <PrismicRichText field={slice.primary.text} />
       </Fade>
       <ul className="flex flex-wrap items-center justify-center">
-        {slice.items.map((item,index) => {
+        {slice.items.map((item, index) => {
           return (
-            <Fade delay={index*200} triggerOnce>
-              <li key={index} className="min-w-[200px] max-w-[40vw] md:max-w-[30vw] lg:max-w-xs flex justify-center">
-                <figure className=" flex flex-col gap-6 w-1/2">
+            <Fade key={index} delay={index * 200} triggerOnce>
+              <li className="flex min-w-[200px] max-w-[40vw] justify-center md:max-w-[30vw] lg:max-w-xs">
+                <figure className=" flex w-1/2 flex-col gap-6">
                   <PrismicNextImage
                     field={item.icon}
                     className="transition hover:scale-105"

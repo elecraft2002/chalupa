@@ -26,6 +26,7 @@ import image0 from "@/assets/img/parallax/chalupa-0.jpg";
 import { useState } from "react";
 import { interpolate } from "@/functions/interpolate";
 import { Fade } from "react-awesome-reveal";
+import Image from "next/image";
 
 const Parallax = ({ page }) => {
   const [progress, updateProgress] = useState(0);
@@ -43,7 +44,7 @@ const Parallax = ({ page }) => {
           style={{ width: `${width}vw`, height: `${height}vh` }}
           className="overflow-hidden"
         >
-          <img
+          <Image
             alt="xd"
             src={image0.src}
             className="h-full w-full object-cover"

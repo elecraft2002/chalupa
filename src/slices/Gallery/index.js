@@ -41,9 +41,8 @@ const Gallery = ({ slice }) => {
         >
           {slice.items.map((item, index) => {
             return (
-              <Fade triggerOnce>
-                <li key={index}
-                  data-src={prismic.asImageSrc(item.image)}>
+              <Fade triggerOnce key={index}>
+                <li data-src={prismic.asImageSrc(item.image)}>
                   <a
                     className="gallery-item"
                     href={prismic.asImageSrc(item.image)}
