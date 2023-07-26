@@ -26,7 +26,7 @@ const TextWithImages = ({ slice }) => {
               <li className="my-4 grid w-full max-w-7xl grid-cols-1 grid-rows-2 items-center gap-4 sm:grid-cols-2 sm:grid-rows-1">
                 <figure className={` ${index & 1 && "sm:order-last"}`}>
                   <Slide triggerOnce>
-                    <PrismicNextImage field={item.image} />
+                    <PrismicNextImage field={item.image} className="rounded-md" />
                   </Slide>
                 </figure>
                 <Fade triggerOnce delay={200}>

@@ -132,15 +132,16 @@ export function Footer({ settings, navigation }) {
   return (
     <>
       <SignUpForm settings={settings} />
-      <footer class=" p-4 md:p-8 lg:p-10">
+      <footer class="bg-slate-900/20 p-4 md:p-8 lg:p-10">
         <div class="mx-auto max-w-screen-xl text-center">
           <a
-            href="#"
+            href="/"
             class="flex items-center justify-center text-2xl font-semibold "
           >
             {/*  <PrismicNextImage field={settings.data.logo} /> */}
             <span className="text-slate-100">
-              <PrismicRichText field={settings.data.siteTitle} />
+              {/* <PrismicRichText field={settings.data.siteTitle} /> */}
+              <PrismicNextImage className="w-full max-w-xs max-h-40 mb-8" field={settings.data.logo}/>
             </span>
           </a>
           <span class="my-6 text-gray-500 dark:text-gray-400">

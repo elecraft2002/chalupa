@@ -313,14 +313,14 @@ type PageDocumentDataSlicesSlice =
   | RealizaceSlice
   | TextWithImageSlice
   | HeroSlice
-  | ReferenceSlice
   | ImageSlice
   | TextWithFeaturesSlice
   | ReviewsSlice
   | TextWithImagesSlice
   | ImageFullScreenSlice
   | BookingsSlice
-  | GallerySlice;
+  | GallerySlice
+  | TripsNewSlice;
 /**
  * Page document from Prismic
  *
@@ -1938,6 +1938,109 @@ export type TextWithImagesSlice = prismic.SharedSlice<
   "text_with_images",
   TextWithImagesSliceVariation
 >;
+/**
+ * Primary content in TripsNew → Primary
+ *
+ */
+interface TripsNewSliceDefaultPrimary {
+  /**
+   * Text field in *TripsNew → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Text above trips
+   * - **API ID Path**: trips_new.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+  /**
+   * Summer field in *TripsNew → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trips_new.primary.summer
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  summer: prismic.ImageField<never>;
+  /**
+   * Winter field in *TripsNew → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trips_new.primary.winter
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  winter: prismic.ImageField<never>;
+}
+/**
+ * Item in TripsNew → Items
+ *
+ */
+export interface TripsNewSliceDefaultItem {
+  /**
+   * Image field in *TripsNew → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trips_new.items[].image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<"Small">;
+  /**
+   * Text field in *TripsNew → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Trip description
+   * - **API ID Path**: trips_new.items[].text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+  /**
+   * Season field in *TripsNew → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Summer
+   * - **API ID Path**: trips_new.items[].season
+   * - **Documentation**: https://prismic.io/docs/core-concepts/select
+   *
+   */
+  season: prismic.SelectField<"Summer" | "Winter", "filled">;
+}
+/**
+ * Default variation for TripsNew Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TripsNewSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TripsNewSliceDefaultPrimary>,
+  Simplify<TripsNewSliceDefaultItem>
+>;
+/**
+ * Slice variation for *TripsNew*
+ *
+ */
+type TripsNewSliceVariation = TripsNewSliceDefault;
+/**
+ * TripsNew Shared Slice
+ *
+ * - **API ID**: `trips_new`
+ * - **Description**: `TripsNew`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TripsNewSlice = prismic.SharedSlice<
+  "trips_new",
+  TripsNewSliceVariation
+>;
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -2036,6 +2139,11 @@ declare module "@prismicio/client" {
       TextWithImagesSliceDefault,
       TextWithImagesSliceVariation,
       TextWithImagesSlice,
+      TripsNewSliceDefaultPrimary,
+      TripsNewSliceDefaultItem,
+      TripsNewSliceDefault,
+      TripsNewSliceVariation,
+      TripsNewSlice,
     };
   }
 }

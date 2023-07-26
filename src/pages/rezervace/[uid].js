@@ -23,21 +23,17 @@ import { PrismicNextImage } from "@prismicio/next";
 import Image from "next/image";
 
 const Gallery = ({ images }) => {
+  console.log(images);
   return (
     <div class="grid gap-4 p-4">
       <Carousel autoPlay infiniteLoop className="h-auto max-w-full rounded-lg">
         {images.map((item) => {
           return (
             <div key={item.id} className="h-full w-full">
-              <Image
-                className="h-full w-full rounded-lg object-cover"
-                src={item.image.url}
-                loading="lazy"
-              />
-              {/* <PrismicNextImage
+              <PrismicNextImage
                 field={item.image}
-                className=" h-20 max-w-full rounded-lg"
-              /> */}
+                className="h-full max-w-full rounded-lg object-cover"
+              />
             </div>
           );
         })}
@@ -89,12 +85,11 @@ export default function Page({
           content={prismic.asImageSrc(settings.data.logo)}
         />
       </Head>
-      <section className="flex min-h-[50] w-full flex-col items-center justify-center bg-slate-100/90">
-        <div className="flex min-h-[50] w-full max-w-7xl flex-col items-center justify-center bg-slate-100/90  md:grid md:grid-cols-2">
-        <Gallery images={page.data.gallery} />
+      <section className="flex min-h-[50] w-full flex-col items-center justify-center bg-slate-900/30">
+        <div className="flex min-h-[50] w-full max-w-7xl flex-col items-center justify-center md:grid md:grid-cols-2">
+          <Gallery images={page.data.gallery} />
           <div className="flex flex-col p-4">
             <PrismicRichText field={page.data.title} />
-            <Stars count={page.data.rating} />
             <PrismicRichText field={page.data.description} />
             <ul>
               {page.data.info.map((item, index) => {

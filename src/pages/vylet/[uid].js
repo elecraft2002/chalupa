@@ -89,8 +89,8 @@ export default function Page({
           content={prismic.asImageSrc(settings.data.logo)}
         />
       </Head>
-      <section className="flex min-h-[50] w-full flex-col items-center justify-center bg-slate-100/90">
-        <div className="flex min-h-[50] w-full max-w-7xl flex-col items-center justify-center bg-slate-100/90  md:grid md:grid-cols-2">
+      <section className="flex min-h-[50] w-full flex-col items-center justify-center bg-slate-950/80">
+        <div className="flex min-h-[50] w-full max-w-7xl flex-col items-center justify-center   md:grid md:grid-cols-2">
           <div className="flex flex-col p-4">
             <PrismicRichText field={page.data.title} />
             <Stars count={page.data.rating} />

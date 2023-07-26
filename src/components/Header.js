@@ -37,11 +37,9 @@ export function Header({ locales = [], navigation, settings }) {
     };
 
     window.addEventListener("scroll", updateScrollDir);
-    console.log(scrollDir);
 
     return () => window.removeEventListener("scroll", updateScrollDir);
   }, [scrollDir]);
-  console.log(scrollDir);
   return (
     <nav class={`fixed left-0 top-0 z-50 w-full border-b border-slate-800 bg-slate-950/80 backdrop-blur-3xl transition-all duration-700 overflow-hidden ${scrollDir==="down"?"md:h-0":"md:h-[70px]"}`}>
       <div

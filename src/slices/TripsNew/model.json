@@ -1,0 +1,71 @@
+{
+  "id": "trips_new",
+  "type": "SharedSlice",
+  "name": "TripsNew",
+  "description": "TripsNew",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "Text above trips",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "summer": {
+          "type": "Image",
+          "config": {
+            "label": "Summer",
+            "constraint": { "width": 100, "height": 100 },
+            "thumbnails": []
+          }
+        },
+        "winter": {
+          "type": "Image",
+          "config": {
+            "label": "Winter",
+            "constraint": { "width": 100, "height": 100 },
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": [{ "name": "Small", "width": 300, "height": 200 }]
+          }
+        },
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "Trip description",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "season": {
+          "type": "Select",
+          "config": {
+            "label": "Season",
+            "placeholder": "",
+            "options": ["Summer", "Winter"],
+            "default_value": "Summer"
+          }
+        }
+      }
+    }
+  ]
+}
