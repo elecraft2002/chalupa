@@ -24,6 +24,7 @@
     "@smakss/react-scroll-direction": "^2.1.1",
     "axios": "^1.4.0",
     "clsx": "^1.2.1",
+    "framer-motion": "^10.13.1",
     "lightgallery": "^2.7.1",
     "next": "^13.4.4",
     "nextjs-google-analytics": "^2.3.3",

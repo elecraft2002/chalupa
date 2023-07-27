@@ -8,6 +8,8 @@ import Link from "next/link";
 import { Heading } from "@/components/Heading";
 import { ParallaxProvider } from "react-scroll-parallax";
 import { GoogleAnalytics } from "nextjs-google-analytics";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useRouter } from "next/router";
 
 const richTextComponents = {
   heading1: ({ children }) => (
@@ -65,20 +67,36 @@ const richTextComponents = {
     </PrismicLink>
   ),
 };
-
+const variants = {
+  initialState: { opacity: 0 },
+  animateState: { opacity: 1 },
+  exitState: {},
+};
 export default function App({ Component, pageProps }) {
+  const router = useRouter();
+  const shouldReduceMotion = useReducedMotion();
   return (
-    <PrismicProvider
-      internalLinkComponent={Link}
-      linkResolver={linkResolver}
-      richTextComponents={richTextComponents}
-    >
-      <ParallaxProvider>
-        <Component {...pageProps} />
-        <GoogleAnalytics trackPageViews />
-        <PrismicPreview repositoryName={repositoryName} />
-        
-      </ParallaxProvider>
-    </PrismicProvider>
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={router.route}
+        initial="initialState"
+        animate="animateState"
+        exit="exitState"
+        transition={{ duration: 0.75 }}
+        variants={!shouldReduceMotion ? variants : null}
+      >
+        <PrismicProvider
+          internalLinkComponent={Link}
+          linkResolver={linkResolver}
+          richTextComponents={richTextComponents}
+        >
+          <ParallaxProvider>
+            <Component {...pageProps} />
+            <GoogleAnalytics trackPageViews />
+            <PrismicPreview repositoryName={repositoryName} />
+          </ParallaxProvider>
+        </PrismicProvider>
+      </motion.div>
+    </AnimatePresence>
   );
 }
