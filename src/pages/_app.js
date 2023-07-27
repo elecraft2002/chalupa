@@ -8,8 +8,9 @@ import Link from "next/link";
 import { Heading } from "@/components/Heading";
 import { ParallaxProvider } from "react-scroll-parallax";
 import { GoogleAnalytics } from "nextjs-google-analytics";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
+import logo from "@/assets/img/logo.png";
 
 const richTextComponents = {
   heading1: ({ children }) => (
@@ -67,14 +68,9 @@ const richTextComponents = {
     </PrismicLink>
   ),
 };
-const variants = {
-  initialState: { opacity: 0 },
-  animateState: { opacity: 1 },
-  exitState: {},
-};
+
 export default function App({ Component, pageProps }) {
   const router = useRouter();
-  const shouldReduceMotion = useReducedMotion();
   return (
     <AnimatePresence mode="wait">
       <motion.div
@@ -82,8 +78,40 @@ export default function App({ Component, pageProps }) {
         initial="initialState"
         animate="animateState"
         exit="exitState"
-        transition={{ duration: 0.75 }}
-        variants={!shouldReduceMotion ? variants : null}
+        transition={{ duration: 1.0 }}
+        variants={{
+          initialState: { opacity: 1, zIndex: 99999999 },
+          animateState: { opacity: 0, zIndex: -99999999 },
+          exitState: { opacity: 1, zIndex: 99999999 },
+        }}
+        className="fixed left-0 top-0 flex h-screen w-screen items-center justify-center bg-primary"
+      >
+        <motion.img
+        key={router.route+"c"}
+          initial="initialState"
+          animate="animateState"
+          exit="exitState"
+          variants={{
+            initialState: { opacity: 0 },
+            animateState: { opacity: 1 },
+            exitState: { opacity: 0 },
+          }}
+          transition={{ duration: 0.5, delay: 1 }}
+          src={logo.src}
+          className="max-h-40 max-w-xs"
+        />
+      </motion.div>
+      <motion.div
+        key={router.route + "a"}
+        initial="initialState"
+        animate="animateState"
+        exit="exitState"
+        transition={{ duration: 1.0 }}
+        variants={{
+          initialState: { opacity: 0 },
+          animateState: { opacity: 1 },
+          exitState: { opacity: 0 },
+        }}
       >
         <PrismicProvider
           internalLinkComponent={Link}
