@@ -972,6 +972,26 @@ interface FeaturesSliceDefaultPrimary {
    *
    */
   text: prismic.RichTextField;
+  /**
+   * Link field in *Features → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.primary.link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  link: prismic.LinkField;
+  /**
+   * Button text field in *Features → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: features.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  button_text: prismic.KeyTextField;
 }
 /**
  * Item in Features → Items

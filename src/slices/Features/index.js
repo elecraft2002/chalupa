@@ -1,5 +1,5 @@
 import Button from "@/components/Button";
-import { PrismicNextImage } from "@prismicio/next";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 import { Fade } from "react-awesome-reveal";
 
@@ -37,7 +37,11 @@ const Features = ({ slice }) => {
           );
         })}
       </ul>
-        <Button type="secondary">Zarezervovat</Button>
+      {slice.primary.button_text && (
+        <PrismicNextLink document={slice.primary.link}>
+          <Button type={"secondary"}>{slice.primary.button_text}</Button>
+        </PrismicNextLink>
+      )}
     </section>
   );
 };
