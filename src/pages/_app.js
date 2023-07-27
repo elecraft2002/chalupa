@@ -72,7 +72,7 @@ const richTextComponents = {
 export default function App({ Component, pageProps }) {
   const router = useRouter();
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence /* mode="wait" */>
       {/* <motion.div
         key={router.asPath}
         initial="initialState"
@@ -105,7 +105,7 @@ export default function App({ Component, pageProps }) {
         animate={{
           zIndex: [-99999, 99999, -99999],
           opacity: [0, 1, 0],
-          transition: { duration: 1 /* , delay: 0.5 */ },
+          transition: { duration: 1, delay: 0.5 },
         }}
         // exit={{ opacity: 1 }}
         /* variants={{
@@ -128,11 +128,11 @@ export default function App({ Component, pageProps }) {
         initial="initialState"
         animate="animateState"
         exit="exitState"
-        transition={{ duration: 2 }}
+        // transition={{ duration: 2 }}
         variants={{
-          initialState: { opacity: 0, transition: { duration: 0.5 } },
-          animateState: { opacity: 1, transition: { delay: 1, duration: 0.5 } },
-          exitState: { opacity: 0, transition: { duration: 0.5 } },
+          initialState: { opacity: 0, transition: { duration: 1, delay: 1.5 } },
+          animateState: { opacity: 1, transition: { delay: 1 } },
+          exitState: { opacity: 0, transition: { duration: 1 } },
         }}
       >
         <PrismicProvider
