@@ -74,7 +74,7 @@ export default function App({ Component, pageProps }) {
   return (
     <AnimatePresence mode="wait">
       <motion.div
-        key={router.route}
+        key={router.asPath}
         initial="initialState"
         animate="animateState"
         exit="exitState"
@@ -87,7 +87,7 @@ export default function App({ Component, pageProps }) {
         className="fixed left-0 top-0 flex h-screen w-screen items-center justify-center bg-primary"
       >
         <motion.img
-        key={router.route+"c"}
+          // key={router.asPath + "c"}
           initial="initialState"
           animate="animateState"
           exit="exitState"
@@ -96,13 +96,13 @@ export default function App({ Component, pageProps }) {
             animateState: { opacity: 1 },
             exitState: { opacity: 0 },
           }}
-          transition={{ duration: 0.5, delay: 1 }}
+          transition={{ duration: 1, delay: 0 }}
           src={logo.src}
           className="max-h-40 max-w-xs"
         />
       </motion.div>
       <motion.div
-        key={router.route + "a"}
+        key={router.asPath + "a"}
         initial="initialState"
         animate="animateState"
         exit="exitState"
