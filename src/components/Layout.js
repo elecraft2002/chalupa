@@ -15,9 +15,9 @@ export function Layout({ locales, navigation, settings, children }) {
       <Header locales={locales} navigation={navigation} settings={settings} />
       <motion.main
         key={router.asPath}
-        initial={{ y: 10, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: -10, opacity: 0 }}
+        initial={{ x: 10, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: -10, opacity: 0 }}
         transition={{ duration: 0.2 }}
         className="mt-16"
       >
