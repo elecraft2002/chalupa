@@ -9,6 +9,7 @@ import { useState } from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import Button from "./Button";
 import axios from "axios";
+import Link from "next/link";
 
 function SignUpForm({ settings }) {
   const { isLoaded } = useJsApiLoader({
@@ -134,7 +135,7 @@ export function Footer({ settings, navigation }) {
       <SignUpForm settings={settings} />
       <footer class="bg-slate-900/20 p-4 md:p-8 lg:p-10">
         <div class="mx-auto max-w-screen-xl text-center">
-          <a
+          <Link
             href="/"
             class="flex items-center justify-center text-2xl font-semibold "
           >
@@ -143,7 +144,7 @@ export function Footer({ settings, navigation }) {
               {/* <PrismicRichText field={settings.data.siteTitle} /> */}
               <PrismicNextImage className="w-full max-w-xs max-h-40 mb-8" field={settings.data.logo}/>
             </span>
-          </a>
+          </Link>
           <span class="my-6 text-gray-500 dark:text-gray-400">
             <PrismicRichText field={settings.data.newsletterDescription} />
           </span>
