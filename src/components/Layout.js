@@ -18,7 +18,7 @@ export function Layout({ locales, navigation, settings, children }) {
         initial={{ x: 10, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         exit={{ x: -10, opacity: 0 }}
-        transition={{ duration: 0.2 }}
+        transition={{ duration: 0.3 }}
         className="mt-16"
       >
         {children}
