@@ -7,7 +7,6 @@ import Button from "./Button";
 import Arrow from "@/assets/svg/Arrow";
 
 export default function Article({ data, type = 0 }) {
-  console.log(data);
   if (type === 0)
     return (
       <article key={data.id} className="m-4 flex w-full max-w-md flex-col ">
