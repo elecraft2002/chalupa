@@ -641,6 +641,28 @@ interface SettingsDocumentData {
    *
    */
   cookies_button: prismic.KeyTextField;
+  /**
+   * Email field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.email
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  email: prismic.KeyTextField;
+  /**
+   * Telephone field in *Settings*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.telephone
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  telephone: prismic.KeyTextField;
 }
 /**
  * Settings document from Prismic

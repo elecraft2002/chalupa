@@ -61,6 +61,14 @@
       "cookies_button": {
         "type": "Text",
         "config": { "label": "Cookies Button", "placeholder": "" }
+      },
+      "email": {
+        "type": "Text",
+        "config": { "label": "Email", "placeholder": "" }
+      },
+      "telephone": {
+        "type": "Text",
+        "config": { "label": "Telephone", "placeholder": "" }
       }
     }
   }

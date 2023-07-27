@@ -74,7 +74,9 @@ function SignUpForm({ settings }) {
         <div className="box-border flex w-full flex-col items-center justify-center p-8">
           <form className="w-full" onSubmit={handleSubmit}>
             <div class="mb-6 w-full max-w-xl">
-              <label /* for="default-input" */ class="mb-2 block text-sm font-medium">
+              <label
+                /* for="default-input" */ class="mb-2 block text-sm font-medium"
+              >
                 Jméno
               </label>
               <input
@@ -90,7 +92,9 @@ function SignUpForm({ settings }) {
             </div>
 
             <div class="mb-6 w-full max-w-xl">
-              <label /* for="default-input" */ class="mb-2 block text-sm font-medium">
+              <label
+                /* for="default-input" */ class="mb-2 block text-sm font-medium"
+              >
                 Email
               </label>
               <input
@@ -142,7 +146,10 @@ export function Footer({ settings, navigation }) {
             {/*  <PrismicNextImage field={settings.data.logo} /> */}
             <span className="text-slate-100">
               {/* <PrismicRichText field={settings.data.siteTitle} /> */}
-              <PrismicNextImage className="w-full max-w-xs max-h-40 mb-8" field={settings.data.logo}/>
+              <PrismicNextImage
+                className="mb-8 max-h-40 w-full max-w-xs"
+                field={settings.data.logo}
+              />
             </span>
           </Link>
           <span class="my-6 text-gray-500 dark:text-gray-400">
@@ -163,6 +170,17 @@ export function Footer({ settings, navigation }) {
           <span class="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
             <PrismicRichText field={settings.data.copyright} />
           </span>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link className="hover:underline" href={`mailto: ${settings.data?.email}`}>
+              {settings.data?.email}
+            </Link>
+            <Link className="hover:underline" href={`tel: ${settings.data?.telephone}`}>
+              {settings.data?.telephone}
+            </Link>
+          </div>
+          <p>
+            web by <Link className="hover:underline" href={""}>verygud.cz</Link>
+          </p>
         </div>
       </footer>
     </>
