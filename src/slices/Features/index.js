@@ -1,3 +1,4 @@
+import Button from "@/components/Button";
 import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 import { Fade } from "react-awesome-reveal";
@@ -12,7 +13,7 @@ const Features = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex min-h-[50vh] flex-col items-center justify-center gap-6 py-20 text-center"
+      className="flex min-h-[50vh] flex-col items-center justify-center gap-40 py-20 text-center"
     >
       <Fade triggerOnce>
         <PrismicRichText field={slice.primary.text} />
@@ -36,6 +37,7 @@ const Features = ({ slice }) => {
           );
         })}
       </ul>
+        <Button type="secondary">Zarezervovat</Button>
     </section>
   );
 };
