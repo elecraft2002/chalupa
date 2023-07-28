@@ -11,7 +11,7 @@ export function Layout({ locales, navigation, settings, children }) {
   // key={router.asPath}
   return (
     <div className="text-secondary ">
-      <Background />
+      {/* <Background /> */}
       <Header locales={locales} navigation={navigation} settings={settings} />
       {/* <motion.main
         key={router.asPath}
