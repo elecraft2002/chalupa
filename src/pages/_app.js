@@ -14,17 +14,17 @@ import logo from "@/assets/img/logo.png";
 
 const richTextComponents = {
   heading1: ({ children }) => (
-    <Heading as="h1" size="6xl" className="mb-8  last:mb-0">
+    <Heading as="h1" size="6xl" className="mb-8 font-title last:mb-0">
       {children}
     </Heading>
   ),
   heading2: ({ children }) => (
-    <Heading as="h2" size="2xl" className="mb-2  last:mb-0">
+    <Heading as="h2" size="2xl" className="mb-2 font-title last:mb-0">
       {children}
     </Heading>
   ),
   heading3: ({ children }) => (
-    <Heading as="h3" className="mb-2  text-xl last:mb-0">
+    <Heading as="h3" size="2xl" className="mb-2  text-xl last:mb-0">
       {children}
     </Heading>
   ),

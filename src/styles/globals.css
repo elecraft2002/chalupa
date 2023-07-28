@@ -12,6 +12,9 @@
 figure {
   margin: 0;
 }
+body {
+  font-family: "Montserrat", sans-serif;
+}
 @font-face {
   font-family: "Belda";
   src: url("../../public/fonts/insigne - Belda Norm Regular.otf");

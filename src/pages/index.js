@@ -22,7 +22,6 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import Article from "@/components/Article";
 import { ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
 
-import image0 from "@/assets/img/parallax/chalupa-0.jpg";
 import { useState } from "react";
 import { interpolate } from "@/functions/interpolate";
 import { Fade } from "react-awesome-reveal";
