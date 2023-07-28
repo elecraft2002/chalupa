@@ -41,7 +41,11 @@ export function Header({ locales = [], navigation, settings }) {
     return () => window.removeEventListener("scroll", updateScrollDir);
   }, [scrollDir]);
   return (
-    <nav class={`fixed left-0 top-0 z-50 w-full border-b border-slate-800 bg-primary/80 backdrop-blur-3xl transition-all duration-700 overflow-hidden ${scrollDir==="down"?"md:h-0":"md:h-[70px]"}`}>
+    <nav
+      class={`fixed left-0 top-0 z-50 w-full overflow-hidden border-b bg-primary/80 backdrop-blur-3xl transition-all duration-700 ${
+        scrollDir === "down" ? "md:h-0" : "md:h-[70px]"
+      }`}
+    >
       <div
         onClick={() => {
           setOpenState(!isOpen);
@@ -103,7 +107,7 @@ export function Header({ locales = [], navigation, settings }) {
             {navigation.data?.links.map((item) => (
               <li
                 key={prismic.asText(item.label)}
-                className="font-semibold tracking-tight"
+                className="font-semibold tracking-tight text"
               >
                 <PrismicNextLink
                   className={`block rounded py-2 pl-3 pr-4 ${
@@ -118,7 +122,7 @@ export function Header({ locales = [], navigation, settings }) {
               </li>
             ))}
           </ul>
-          <div className="flex flex-wrap gap-3">
+          {/* <div className="flex flex-wrap gap-3">
             <span aria-hidden={true}>🌐</span>
             <ul className="flex flex-wrap gap-3">
               {locales.map((locale) => (
@@ -133,7 +137,7 @@ export function Header({ locales = [], navigation, settings }) {
                 </li>
               ))}
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </nav>
