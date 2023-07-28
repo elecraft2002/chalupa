@@ -28,49 +28,6 @@ import { interpolate } from "@/functions/interpolate";
 import { Fade } from "react-awesome-reveal";
 import Image from "next/image";
 
-const Parallax = ({ page }) => {
-  const [progress, updateProgress] = useState(0);
-  const width = interpolate(progress, [0, 0.5, 1], [-110, 100, 100]);
-  const height = interpolate(progress, [0, 0.5, 1], [-30, 100, 100]);
-  return (
-    <ParallaxBanner className="h-[200vh] w-screen">
-      <ParallaxBannerLayer
-        className="flex h-screen w-screen items-center justify-center"
-        onProgressChange={(e) => updateProgress(e)}
-        translateY={["-100vh", "200vh"]}
-      >
-        <Fade
-          triggerOnce
-          style={{ width: `${width}vw`, height: `${height}vh` }}
-          className="overflow-hidden"
-        >
-          <Image
-            {...image0}
-            className="h-full w-full object-cover"
-          />
-        </Fade>
-      </ParallaxBannerLayer>
-      <ParallaxBannerLayer
-        className="flex h-screen w-screen items-center justify-center"
-        translateY={["-100vh", "200vh"]}
-      >
-        <Fade delay={500} triggerOnce>
-          <PrismicRichText
-            components={{
-              paragraph: (paragraph) => (
-                <h1 className="text-xl uppercase sm:text-4xl xl:text-8xl">
-                  {paragraph.children}
-                </h1>
-              ),
-            }}
-            field={page.data.title}
-          />
-        </Fade>
-      </ParallaxBannerLayer>
-    </ParallaxBanner>
-  );
-};
-
 export default function Home({
   page,
   navigation,
@@ -138,7 +95,6 @@ export default function Home({
           translateY={["-20vh", "20vh"]}
         />
       </ParallaxBanner> */}
-      <Parallax page={page} />
       <SliceZone
         slices={page.data.slices}
         components={components}

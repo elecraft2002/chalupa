@@ -13,7 +13,7 @@ import Link from "next/link";
 
 const Links = ({ socials }) => {
   return (
-    <ul className="flex flex-wrap gap-14">
+    <ul className="flex flex-wrap gap-14 justify-center">
       {socials.map((item, index) => {
         return (
           <li key={index} className="transition-all hover:scale-110">
