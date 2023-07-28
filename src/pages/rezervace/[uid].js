@@ -109,11 +109,18 @@ export default function Page({
             </ul>
           </div>
         </div>
+        <iframe
+          src={prismic.asLink(page.data.iframeurl)}
+          id="trevlix-book-app"
+          name="trevlix-book-app"
+          frameborder="0"
+          className="box-border h-[100vh] w-full p-4 md:h-[50vh] max-w-6xl"
+        ></iframe>
       </section>
       <SliceZone
         slices={page.data.slices}
         components={components}
-        context={{ reviews, trips, bookings }}
+        context={{ reviews, trips, bookings, settings }}
       />
     </Layout>
   );

@@ -33,7 +33,9 @@
             "image_full_screen": { "type": "SharedSlice" },
             "bookings": { "type": "SharedSlice" },
             "gallery": { "type": "SharedSlice" },
-            "trips_new": { "type": "SharedSlice" }
+            "trips_new": { "type": "SharedSlice" },
+            "contact": { "type": "SharedSlice" },
+            "collection": { "type": "SharedSlice" }
           }
         }
       }

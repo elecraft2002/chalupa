@@ -142,7 +142,7 @@ export default function Home({
       <SliceZone
         slices={page.data.slices}
         components={components}
-        context={{ reviews, trips, bookings }}
+        context={{ reviews, trips, bookings, settings }}
       />
     </Layout>
   );

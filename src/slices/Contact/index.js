@@ -1,18 +1,14 @@
-import { PrismicText } from "@prismicio/react";
-import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
-import * as prismic from "@prismicio/client";
-
-import { Bounded } from "./Bounded";
-import { Heading } from "./Heading";
-import { PrismicRichText } from "./PrismicRichText";
-import { useState } from "react";
-// import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
-import Button from "./Button";
+import Button from "@/components/Button";
 import axios from "axios";
-import Link from "next/link";
+import { useState } from "react";
 
-function SignUpForm({ settings }) {
- /*  const { isLoaded } = useJsApiLoader({
+/**
+ * @typedef {import("@prismicio/client").Content.ContactSlice} ContactSlice
+ * @typedef {import("@prismicio/react").SliceComponentProps<ContactSlice>} ContactProps
+ * @param {ContactProps}
+ */
+const Contact = ({ slice }) => {
+  /* const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyBNNnVAI6mPg8SWMszs2ud5anSpDkbW69c",
   });
@@ -49,19 +45,23 @@ function SignUpForm({ settings }) {
   };
 
   return (
-    <section className="flex min-h-[50] w-full flex-col items-center justify-center bg-secondary/10 py-20 ">
+    <section
+      data-slice-type={slice.slice_type}
+      data-slice-variation={slice.variation}
+      className="flex min-h-[50vh] w-full flex-col items-center justify-center py-20 box-border"
+    >
       <h2>Kontaktujte nás</h2>
       <div className="grid w-screen grid-cols-1 grid-rows-2 items-center justify-center sm:grid-cols-2 sm:grid-rows-1">
         <div className="m-auto box-border h-[50vh] w-full max-w-xl p-4">
           {/* {isLoaded && (
-            <GoogleMap
-              mapContainerClassName="w-full h-full "
-              center={center}
-              zoom={19}
-            >
-              <Marker position={center} />
-            </GoogleMap>
-          )} */}
+          <GoogleMap
+            mapContainerClassName="w-full h-full "
+            center={center}
+            zoom={19}
+          >
+            <Marker position={center} />
+          </GoogleMap>
+        )} */}
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d80822.7086265226!2d15.46138965158454!3d50.72532568071398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470ec2181cc6ac75%3A0x400af0f6615e320!2zNTQzIDUxIMWgcGluZGxlcsWvdiBNbMO9bg!5e0!3m2!1scs!2scz!4v1687425183658!5m2!1scs!2scz"
             width="100%"
@@ -71,7 +71,7 @@ function SignUpForm({ settings }) {
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
         </div>
-        <div className="box-border flex w-full flex-col items-center justify-center p-8">
+        <div className="box-border flex w-full flex-col items-center justify-center p-8 ">
           <form className="w-full" onSubmit={handleSubmit}>
             <div class="mb-6 w-full max-w-xl">
               <label
@@ -87,7 +87,7 @@ function SignUpForm({ settings }) {
                 placeholder="Jméno"
                 type="text"
                 id="default-input"
-                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm  focus:border-blue-500 focus:ring-blue-500"
+                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm  text-primary focus:border-blue-500 focus:ring-blue-500"
               />
             </div>
 
@@ -105,7 +105,7 @@ function SignUpForm({ settings }) {
                 type="email"
                 placeholder="Email"
                 id="default-input"
-                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm  focus:border-blue-500 focus:ring-blue-500"
+                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm  text-primary focus:border-blue-500 focus:ring-blue-500"
               />
             </div>
 
@@ -120,7 +120,7 @@ function SignUpForm({ settings }) {
                 placeholder="Zpráva..."
                 type="text"
                 id="large-input"
-                class="sm:text-md block w-full rounded-lg border border-gray-300 bg-gray-50 p-4  focus:border-blue-500 focus:ring-blue-500"
+                class="sm:text-md block w-full rounded-lg border border-gray-300 bg-gray-50 p-4  text-primary focus:border-blue-500 focus:ring-blue-500"
               />
             </div>
             <Button>
@@ -131,58 +131,6 @@ function SignUpForm({ settings }) {
       </div>
     </section>
   );
-}
+};
 
-export function Footer({ settings, navigation }) {
-  return (
-    <>
-      {/* <SignUpForm settings={settings} /> */}
-      <footer class="bg-slate-900/20 p-4 md:p-8 lg:p-10">
-        <div class="mx-auto max-w-screen-xl text-center">
-          <Link
-            href="/"
-            class="flex items-center justify-center text-2xl font-semibold "
-          >
-            {/*  <PrismicNextImage field={settings.data.logo} /> */}
-            <span className="text-slate-100">
-              {/* <PrismicRichText field={settings.data.siteTitle} /> */}
-              <PrismicNextImage
-                className="mb-8 max-h-40 w-full max-w-xs"
-                field={settings.data.logo}
-              />
-            </span>
-          </Link>
-          <span class="my-6 text-gray-500 dark:text-gray-400">
-            <PrismicRichText field={settings.data.newsletterDescription} />
-          </span>
-          <ul class="mb-6 flex flex-wrap items-center justify-center gap-5 ">
-            {navigation.data?.links.map((item) => (
-              <li
-                key={prismic.asText(item.label)}
-                className="font-semibold tracking-tight hover:underline"
-              >
-                <PrismicNextLink field={item.link}>
-                  <PrismicText field={item.label} />
-                </PrismicNextLink>
-              </li>
-            ))}
-          </ul>
-          <span class="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
-            <PrismicRichText field={settings.data.copyright} />
-          </span>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link className="hover:underline" href={`mailto: ${settings.data?.email}`}>
-              {settings.data?.email}
-            </Link>
-            <Link className="hover:underline" href={`tel: ${settings.data?.telephone}`}>
-              {settings.data?.telephone}
-            </Link>
-          </div>
-          <p>
-            web by <Link className="hover:underline" href={""}>verygud.cz</Link>
-          </p>
-        </div>
-      </footer>
-    </>
-  );
-}
+export default Contact;

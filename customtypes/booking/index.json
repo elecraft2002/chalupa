@@ -36,6 +36,10 @@
           ]
         }
       },
+      "iframeurl": {
+        "type": "Link",
+        "config": { "label": "IframeUrl", "placeholder": "", "select": null }
+      },
       "distance": {
         "type": "Number",
         "config": { "label": "Distance", "placeholder": "Distance in km" }

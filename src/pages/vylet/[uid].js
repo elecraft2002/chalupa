@@ -118,7 +118,7 @@ export default function Page({
       <SliceZone
         slices={page.data.slices}
         components={components}
-        context={{ reviews, trips, bookings }}
+        context={{ reviews, trips, bookings, settings }}
       />
     </Layout>
   );

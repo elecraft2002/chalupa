@@ -41,6 +41,17 @@ interface BookingDocumentData {
    */
   image: prismic.ImageField<"Small" | "Big">;
   /**
+   * IframeUrl field in *Booking*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: booking.iframeurl
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  iframeurl: prismic.LinkField;
+  /**
    * Distance field in *Booking*
    *
    * - **Field Type**: Number
@@ -320,7 +331,9 @@ type PageDocumentDataSlicesSlice =
   | ImageFullScreenSlice
   | BookingsSlice
   | GallerySlice
-  | TripsNewSlice;
+  | TripsNewSlice
+  | ContactSlice
+  | CollectionSlice;
 /**
  * Page document from Prismic
  *
@@ -956,6 +969,158 @@ type BookingsSliceVariation = BookingsSliceDefault;
 export type BookingsSlice = prismic.SharedSlice<
   "bookings",
   BookingsSliceVariation
+>;
+/**
+ * Primary content in Collection → Primary
+ *
+ */
+interface CollectionSliceDefaultPrimary {
+  /**
+   * Text field in *Collection → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Text in center
+   * - **API ID Path**: collection.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+  /**
+   * Button Text field in *Collection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: collection.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  button_text: prismic.KeyTextField;
+  /**
+   * Button Link field in *Collection → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: collection.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  button_link: prismic.LinkField;
+  /**
+   * Image 1 field in *Collection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: collection.primary.image_1
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image_1: prismic.ImageField<never>;
+  /**
+   * Image 2 field in *Collection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: collection.primary.image_2
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image_2: prismic.ImageField<never>;
+  /**
+   * Image 3 field in *Collection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: collection.primary.image_3
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image_3: prismic.ImageField<never>;
+  /**
+   * Image 4 field in *Collection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: collection.primary.image_4
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image_4: prismic.ImageField<never>;
+}
+/**
+ * Default variation for Collection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type CollectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CollectionSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *Collection*
+ *
+ */
+type CollectionSliceVariation = CollectionSliceDefault;
+/**
+ * Collection Shared Slice
+ *
+ * - **API ID**: `collection`
+ * - **Description**: `Collection`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type CollectionSlice = prismic.SharedSlice<
+  "collection",
+  CollectionSliceVariation
+>;
+/**
+ * Primary content in Contact → Primary
+ *
+ */
+interface ContactSliceDefaultPrimary {
+  /**
+   * Text field in *Contact → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Text above contact form
+   * - **API ID Path**: contact.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+}
+/**
+ * Default variation for Contact Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ContactSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *Contact*
+ *
+ */
+type ContactSliceVariation = ContactSliceDefault;
+/**
+ * Contact Shared Slice
+ *
+ * - **API ID**: `contact`
+ * - **Description**: `Contact`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ContactSlice = prismic.SharedSlice<
+  "contact",
+  ContactSliceVariation
 >;
 /**
  * Primary content in Features → Primary
@@ -2121,6 +2286,14 @@ declare module "@prismicio/client" {
       BookingsSliceDefault,
       BookingsSliceVariation,
       BookingsSlice,
+      CollectionSliceDefaultPrimary,
+      CollectionSliceDefault,
+      CollectionSliceVariation,
+      CollectionSlice,
+      ContactSliceDefaultPrimary,
+      ContactSliceDefault,
+      ContactSliceVariation,
+      ContactSlice,
       FeaturesSliceDefaultPrimary,
       FeaturesSliceDefaultItem,
       FeaturesSliceDefault,
