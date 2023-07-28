@@ -11,6 +11,7 @@ export const components = {
   hero: dynamic(() => import("./Hero")),
   image: dynamic(() => import("./Image")),
   image_full_screen: dynamic(() => import("./ImageFullScreen")),
+  image_zoom: dynamic(() => import("./ImageZoom")),
   procedure: dynamic(() => import("./Procedure")),
   realizace: dynamic(() => import("./Trips")),
   reference: dynamic(() => import("./Reference")),

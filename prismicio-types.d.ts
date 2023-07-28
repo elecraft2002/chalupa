@@ -333,7 +333,8 @@ type PageDocumentDataSlicesSlice =
   | GallerySlice
   | TripsNewSlice
   | ContactSlice
-  | CollectionSlice;
+  | CollectionSlice
+  | ImageZoomSlice;
 /**
  * Page document from Prismic
  *
@@ -589,28 +590,6 @@ interface SettingsDocumentData {
    */
   logo: prismic.ImageField<"Icon">;
   /**
-   * Footer Description field in *Settings*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Text below the sign up form
-   * - **API ID Path**: settings.newsletterDescription
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
-   */
-  newsletterDescription: prismic.RichTextField;
-  /**
-   * App field in *Settings*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: App button text
-   * - **API ID Path**: settings.app
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-   *
-   */
-  app: prismic.KeyTextField;
-  /**
    * copyright field in *Settings*
    *
    * - **Field Type**: Rich Text
@@ -621,17 +600,6 @@ interface SettingsDocumentData {
    *
    */
   copyright: prismic.RichTextField;
-  /**
-   * More info field in *Settings*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: More info text
-   * - **API ID Path**: settings.more_info
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
-   *
-   */
-  more_info: prismic.KeyTextField;
   /**
    * Cookies field in *Settings*
    *
@@ -676,6 +644,43 @@ interface SettingsDocumentData {
    *
    */
   telephone: prismic.KeyTextField;
+  /**
+   * Socials field in *Settings*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.socials[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  socials: prismic.GroupField<Simplify<SettingsDocumentDataSocialsItem>>;
+}
+/**
+ * Item in Settings → Socials
+ *
+ */
+export interface SettingsDocumentDataSocialsItem {
+  /**
+   * Logo field in *Settings → Socials*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.socials[].logo
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  logo: prismic.ImageField<never>;
+  /**
+   * Link field in *Settings → Socials*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.socials[].link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  link: prismic.LinkField;
 }
 /**
  * Settings document from Prismic
@@ -1559,6 +1564,62 @@ export type ImageFullScreenSlice = prismic.SharedSlice<
   ImageFullScreenSliceVariation
 >;
 /**
+ * Primary content in ImageZoom → Primary
+ *
+ */
+interface ImageZoomSliceDefaultPrimary {
+  /**
+   * Text field in *ImageZoom → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_zoom.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+  /**
+   * Image field in *ImageZoom → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_zoom.primary.image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>;
+}
+/**
+ * Default variation for ImageZoom Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ImageZoomSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageZoomSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *ImageZoom*
+ *
+ */
+type ImageZoomSliceVariation = ImageZoomSliceDefault;
+/**
+ * ImageZoom Shared Slice
+ *
+ * - **API ID**: `image_zoom`
+ * - **Description**: `ImageZoom`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type ImageZoomSlice = prismic.SharedSlice<
+  "image_zoom",
+  ImageZoomSliceVariation
+>;
+/**
  * Primary content in Procedure → Primary
  *
  */
@@ -2275,6 +2336,7 @@ declare module "@prismicio/client" {
       ReviewDocumentDataSlicesSlice,
       ReviewDocument,
       SettingsDocumentData,
+      SettingsDocumentDataSocialsItem,
       SettingsDocument,
       TripDocumentData,
       TripDocumentDataGalleryItem,
@@ -2320,6 +2382,10 @@ declare module "@prismicio/client" {
       ImageFullScreenSliceDefault,
       ImageFullScreenSliceVariation,
       ImageFullScreenSlice,
+      ImageZoomSliceDefaultPrimary,
+      ImageZoomSliceDefault,
+      ImageZoomSliceVariation,
+      ImageZoomSlice,
       ProcedureSliceDefaultPrimary,
       ProcedureSliceDefaultItem,
       ProcedureSliceDefault,

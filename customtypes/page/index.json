@@ -35,7 +35,8 @@
             "gallery": { "type": "SharedSlice" },
             "trips_new": { "type": "SharedSlice" },
             "contact": { "type": "SharedSlice" },
-            "collection": { "type": "SharedSlice" }
+            "collection": { "type": "SharedSlice" },
+            "image_zoom": { "type": "SharedSlice" }
           }
         }
       }

@@ -11,8 +11,27 @@ import Button from "./Button";
 import axios from "axios";
 import Link from "next/link";
 
+const Links = ({ socials }) => {
+  return (
+    <ul className="flex flex-wrap gap-14">
+      {socials.map((item, index) => {
+        return (
+          <li key={index} className="transition-all hover:scale-110">
+            <PrismicNextLink field={item.link}>
+              <PrismicNextImage
+                field={item.logo}
+                className="h-14 w-14 object-contain"
+              />
+            </PrismicNextLink>
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
+
 function SignUpForm({ settings }) {
- /*  const { isLoaded } = useJsApiLoader({
+  /*  const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyBNNnVAI6mPg8SWMszs2ud5anSpDkbW69c",
   });
@@ -137,51 +156,55 @@ export function Footer({ settings, navigation }) {
   return (
     <>
       {/* <SignUpForm settings={settings} /> */}
-      <footer class="bg-slate-900/20 p-4 md:p-8 lg:p-10">
-        <div class="mx-auto max-w-screen-xl text-center">
-          <Link
-            href="/"
-            class="flex items-center justify-center text-2xl font-semibold "
-          >
-            {/*  <PrismicNextImage field={settings.data.logo} /> */}
-            <span className="text-slate-100">
-              {/* <PrismicRichText field={settings.data.siteTitle} /> */}
-              <PrismicNextImage
-                className="mb-8 max-h-40 w-full max-w-xs"
-                field={settings.data.logo}
-              />
-            </span>
-          </Link>
-          <span class="my-6 text-gray-500 dark:text-gray-400">
-            <PrismicRichText field={settings.data.newsletterDescription} />
-          </span>
-          <ul class="mb-6 flex flex-wrap items-center justify-center gap-5 ">
-            {navigation.data?.links.map((item) => (
-              <li
-                key={prismic.asText(item.label)}
-                className="font-semibold tracking-tight hover:underline"
-              >
-                <PrismicNextLink field={item.link}>
-                  <PrismicText field={item.label} />
-                </PrismicNextLink>
-              </li>
-            ))}
-          </ul>
-          <span class="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
-            <PrismicRichText field={settings.data.copyright} />
-          </span>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link className="hover:underline" href={`mailto: ${settings.data?.email}`}>
+      <footer class="w-full bg-slate-900/20 p-4 md:p-8 lg:p-10">
+        <div class="mx-auto flex flex-col justify-center items-center gap-8 md:grid md:grid-cols-3 max-w-7xl text-center ">
+          <Links socials={settings.data.socials} />
+          <div className="flex flex-col justify-center gap-4">
+            <Link
+              href="/"
+              class="flex items-center justify-center text-2xl font-semibold "
+            >
+              {/*  <PrismicNextImage field={settings.data.logo} /> */}
+              <span className="text-slate-100">
+                {/* <PrismicRichText field={settings.data.siteTitle} /> */}
+                <PrismicNextImage
+                  className="mb-8 max-h-40 w-full max-w-xs"
+                  field={settings.data.logo}
+                />
+              </span>
+            </Link>
+            <ul class="mb-6 flex flex-wrap items-center justify-center gap-5 ">
+              {navigation.data?.links.map((item) => (
+                <li
+                  key={prismic.asText(item.label)}
+                  className="font-semibold tracking-tight hover:underline"
+                >
+                  <PrismicNextLink field={item.link}>
+                    <PrismicText field={item.label} />
+                  </PrismicNextLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="flex flex-col justify-center gap-4">
+            <Link
+              className="hover:underline"
+              href={`mailto: ${settings.data?.email}`}
+            >
               {settings.data?.email}
             </Link>
-            <Link className="hover:underline" href={`tel: ${settings.data?.telephone}`}>
+            <Link
+              className="hover:underline"
+              href={`tel: ${settings.data?.telephone}`}
+            >
               {settings.data?.telephone}
             </Link>
           </div>
-          <p>
-            web by <Link className="hover:underline" href={""}>verygud.cz</Link>
-          </p>
         </div>
+        <span class="text-sm text-gray-500 dark:text-gray-400 text-center">
+          <PrismicRichText field={settings.data.copyright} />
+        </span>
       </footer>
     </>
   );
