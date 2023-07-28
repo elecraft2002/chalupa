@@ -17,25 +17,37 @@ const Collection = ({ slice }) => {
       className="relative my-40 flex h-[200vh] w-full flex-col items-center justify-center py-20 sm:h-[100vh]"
     >
       <div className="absolute top-0 h-[200vh] w-full sm:h-[100vh]">
-        <Fade delay={200} className="absolute w-2/3 sm:left-1/4 sm:h-1/3 sm:w-1/4 sm:-translate-x-1/2">
+        <Fade
+          delay={200}
+          className="absolute w-2/3 sm:left-1/4 sm:h-1/3 sm:w-1/4 sm:-translate-x-1/2"
+        >
           <PrismicNextImage
             field={slice.primary.image_1}
             className="h-full w-full object-contain"
           />
         </Fade>
-        <Fade delay={200} className="absolute right-4 top-[10%] w-2/3 sm:right-4 sm:top-1/4 sm:h-1/3 sm:w-1/3 ">
+        <Fade
+          delay={200}
+          className="absolute right-4 top-[10%] w-2/3 sm:right-4 sm:top-1/4 sm:h-1/3 sm:w-1/3 "
+        >
           <PrismicNextImage
             field={slice.primary.image_2}
             className="h-full w-full object-contain"
           />
         </Fade>
-        <Fade delay={200} className="absolute left-4 top-[70%] sm:left-0 sm:top-1/2 sm:h-1/3 sm:w-1/3">
+        <Fade
+          delay={200}
+          className="absolute left-4 top-[70%] w-2/3 sm:left-0 sm:top-1/2 sm:h-1/3 sm:w-1/3"
+        >
           <PrismicNextImage
             field={slice.primary.image_3}
             className="h-full w-full object-contain"
           />
         </Fade>
-        <Fade delay={200} className="absolute bottom-0 right-0 w-2/3 sm:left-[60%] sm:h-1/3 sm:w-1/3">
+        <Fade
+          delay={200}
+          className="absolute bottom-0 right-0 w-2/3 sm:left-[60%] sm:h-1/3 sm:w-1/3"
+        >
           <PrismicNextImage
             field={slice.primary.image_4}
             className="h-full w-full object-contain"
