@@ -20,7 +20,10 @@
         "config": {
           "label": "Logo",
           "constraint": {},
-          "thumbnails": [{ "name": "Icon", "width": 100, "height": null }]
+          "thumbnails": [
+            { "name": "Icon", "width": 100, "height": null },
+            { "name": "Navigation", "width": 80, "height": null }
+          ]
         }
       },
       "copyright": {

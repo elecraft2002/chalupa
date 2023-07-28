@@ -588,7 +588,7 @@ interface SettingsDocumentData {
    * - **Documentation**: https://prismic.io/docs/core-concepts/image
    *
    */
-  logo: prismic.ImageField<"Icon">;
+  logo: prismic.ImageField<"Icon" | "Navigation">;
   /**
    * copyright field in *Settings*
    *

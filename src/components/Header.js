@@ -42,7 +42,7 @@ export function Header({ locales = [], navigation, settings }) {
   }, [scrollDir]);
   return (
     <nav
-      class={`fixed left-0 top-0 z-50 w-full overflow-hidden border-b bg-primary/80 backdrop-blur-3xl transition-all duration-700 ${
+      class={`fixed left-0 top-0 z-50 w-full overflow-hidden bg-primary/80 backdrop-blur-3xl transition-all duration-700 ${
         scrollDir === "down" ? "md:h-0" : "md:h-[70px]"
       }`}
     >
@@ -54,16 +54,16 @@ export function Header({ locales = [], navigation, settings }) {
           !isOpen && "hidden"
         } absolute -z-10 h-screen w-screen backdrop-blur-md md:hidden`}
       />
-      <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between  p-4 ">
-        <PrismicNextLink href="/" className="h-8 w-8 md:order-2">
+      <div class="mx-auto md:grid md:grid-cols-3 flex max-w-screen-xl flex-wrap items-center justify-between  p-4 ">
+        <PrismicNextLink href="/" className="h-8 w-8 md:order-2 md:m-auto">
           {prismic.isFilled.image(settings.data.logo) && (
             <PrismicNextImage
-              field={settings.data.logo}
-              className="h-full w-full object-cover"
+              field={settings.data.logo.Navigation}
+              className="h-full w-full scale-[2.5] object-cover"
             />
           )}
         </PrismicNextLink>
-        <div class="flex md:order-2">
+        <div class="flex md:order-2 md:m-auto">
           {prismic.isFilled.richText(navigation.data.button_text) && (
             <PrismicNextLink field={navigation.data.button_link}>
               <Button type="secondary">
@@ -74,7 +74,7 @@ export function Header({ locales = [], navigation, settings }) {
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"
-            class="inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden"
+            class="inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 ml-4  focus:ring-gray-200 md:hidden"
             aria-controls="navbar-sticky"
             aria-expanded="false"
             onClick={() => {
@@ -100,14 +100,14 @@ export function Header({ locales = [], navigation, settings }) {
         <div
           class={`${
             !isOpen && "hidden"
-          } w-full items-center justify-between md:order-1 md:flex md:w-auto`}
+          } w-full items-center justify-between md:order-1 md:m-auto md:flex md:w-auto`}
           id="navbar-sticky"
         >
           <ul class="mt-4 flex flex-col rounded-lg   p-4 font-medium   md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 ">
             {navigation.data?.links.map((item) => (
               <li
                 key={prismic.asText(item.label)}
-                className="font-semibold tracking-tight text"
+                className="text text-xs font-semibold tracking-tight"
               >
                 <PrismicNextLink
                   className={`block rounded py-2 pl-3 pr-4 ${
