@@ -13,14 +13,14 @@ import Link from "next/link";
 
 const Links = ({ socials }) => {
   return (
-    <ul className="flex flex-wrap gap-14 justify-center">
+    <ul className="flex flex-wrap justify-center gap-14">
       {socials.map((item, index) => {
         return (
           <li key={index} className="transition-all hover:scale-110">
             <PrismicNextLink field={item.link}>
               <PrismicNextImage
                 field={item.logo}
-                className="h-14 w-14 object-contain"
+                className="h-8 w-8 object-contain"
               />
             </PrismicNextLink>
           </li>
@@ -157,7 +157,7 @@ export function Footer({ settings, navigation }) {
     <>
       {/* <SignUpForm settings={settings} /> */}
       <footer class="w-full bg-slate-900/20 p-4 md:p-8 lg:p-10">
-        <div class="mx-auto flex flex-col justify-center items-center gap-8 md:grid md:grid-cols-3 max-w-7xl text-center ">
+        <div class="mx-auto flex max-w-7xl flex-col items-center justify-center gap-8 text-center md:grid md:grid-cols-3 ">
           <Links socials={settings.data.socials} />
           <div className="flex flex-col justify-center gap-4">
             <Link
@@ -202,7 +202,7 @@ export function Footer({ settings, navigation }) {
             </Link>
           </div>
         </div>
-        <span class="text-sm text-gray-500 dark:text-gray-400 text-center">
+        <span class="text-center text-sm text-gray-500 dark:text-gray-400">
           <PrismicRichText field={settings.data.copyright} />
         </span>
       </footer>
