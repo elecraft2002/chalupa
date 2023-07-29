@@ -1587,7 +1587,7 @@ interface ImageZoomSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/image
    *
    */
-  image: prismic.ImageField<never>;
+  image: prismic.ImageField<"Desktop" | "Mobile">;
   /**
    * Bottom Text field in *ImageZoom → Primary*
    *

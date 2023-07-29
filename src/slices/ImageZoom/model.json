@@ -23,7 +23,14 @@
         },
         "image": {
           "type": "Image",
-          "config": { "label": "Image", "constraint": {}, "thumbnails": [] }
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": [
+              { "name": "Desktop", "width": 1920, "height": 1080 },
+              { "name": "Mobile", "width": 400, "height": null }
+            ]
+          }
         },
         "bottom_text": {
           "type": "StructuredText",

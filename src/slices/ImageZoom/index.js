@@ -37,7 +37,7 @@ const ImageZoom = ({ slice }) => {
               className="min-h-[20vh] min-w-[20vw] overflow-hidden"
             >
               <PrismicNextImage
-                field={slice.primary.image}
+                field={slice.primary.image.Desktop}
                 className="h-full w-full object-cover"
               />
             </Fade>
@@ -69,10 +69,10 @@ const ImageZoom = ({ slice }) => {
           </ParallaxBannerLayer>
         </ParallaxBanner>
       ) : (
-        <div className="flex h-[80vh] items-center justify-center relative">
+        <div className="relative flex h-[80vh] items-center justify-center">
           <Fade triggerOnce className="m-8">
             <PrismicNextImage
-              field={slice.primary.image}
+              field={slice.primary.image.Mobile}
               className="h-full w-full object-cover"
             />
           </Fade>
@@ -88,9 +88,12 @@ const ImageZoom = ({ slice }) => {
               field={slice.primary.text}
             />
           </Fade>
-          <Fade triggerOnce className="absolute mb-28 tracking-widest bottom-10">
-              <PrismicRichText field={slice.primary.bottom_text} />
-            </Fade>
+          <Fade
+            triggerOnce
+            className="absolute bottom-10 mb-28 tracking-widest"
+          >
+            <PrismicRichText field={slice.primary.bottom_text} />
+          </Fade>
         </div>
       )}
     </section>
