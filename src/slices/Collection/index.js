@@ -57,7 +57,7 @@ const Collection = ({ slice }) => {
       <div className="absolute sm:h-[70vh]">
         <div className="text-center sm:sticky sm:top-[40vh]">
           <Fade className="flex flex-col">
-            <span className=" mb-20">
+            <span className=" mb-12">
               <PrismicRichText field={slice.primary.text} />
             </span>
             {slice.primary.button_text && (
