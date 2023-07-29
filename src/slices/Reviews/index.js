@@ -3,6 +3,7 @@ import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 import Stars from "../../components/Stars";
 import { Heading } from "@/components/Heading";
+import useWindowSize from "@/functions/useWindowSize";
 /**
  * @typedef {import("@prismicio/client").Content.ReviewsSlice} ReviewsSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<ReviewsSlice>} ReviewsProps
@@ -10,6 +11,8 @@ import { Heading } from "@/components/Heading";
  */
 
 const Reviews = ({ slice, context }) => {
+  const { width, height } = useWindowSize();
+  const maxSlidesPerView = width / 400 > 4 ? 4 : width / 400;
   return (
     <section
       data-slice-type={slice.slice_type}

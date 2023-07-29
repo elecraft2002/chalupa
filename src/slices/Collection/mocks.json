@@ -9,7 +9,7 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Sit excepteur mollit sit ullamco tempor cupidatat non aliquip cupidatat. Esse ex esse exercitation. Sunt velit velit sit velit enim duis aute labore ullamco sunt sint magna tempor veniam."
+							"text": "Officia incididunt esse non."
 						}
 					}
 				]
@@ -27,7 +27,6 @@
 				}
 			},
 			"image_1": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
@@ -45,6 +44,9 @@
 					},
 					"background": "transparent"
 				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {
 					"Small": {
 						"origin": {
@@ -63,7 +65,9 @@
 								"y": 0
 							},
 							"background": "transparent"
-						}
+						},
+						"credits": null,
+						"alt": null
 					}
 				}
 			},

@@ -9,7 +9,7 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Mollit proident id duis. Anim ex in nisi magna laboris. Exercitation fugiat id non incididunt ut veniam in ut cupidatat incididunt."
+							"text": "Sint eiusmod eu excepteur nulla consequat sit et irure in cillum reprehenderit. Reprehenderit aliqua in reprehenderit ipsum non excepteur aute culpa commodo non."
 						}
 					}
 				]
@@ -22,7 +22,6 @@
 					[
 						"image",
 						{
-							"__TYPE__": "ImageContent",
 							"origin": {
 								"id": "main",
 								"url": "https://images.unsplash.com/photo-1576662712957-9c79ae1280f8",
@@ -40,6 +39,9 @@
 								},
 								"background": "transparent"
 							},
+							"credits": null,
+							"alt": null,
+							"__TYPE__": "ImageContent",
 							"thumbnails": {
 								"Small": {
 									"origin": {
@@ -58,7 +60,9 @@
 											"y": 288
 										},
 										"background": "transparent"
-									}
+									},
+									"credits": null,
+									"alt": null
 								}
 							}
 						}

@@ -13,6 +13,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { Heading } from "@/components/Heading";
 /**
  * @typedef {import("@prismicio/client").Content.TextWithImagesSlice} TextWithImagesSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<TextWithImagesSlice>} TextWithImagesProps
@@ -93,8 +94,21 @@ const TextWithImages = ({ slice }) => {
                   </Slide>
                 </figure>
                 <Fade triggerOnce delay={200}>
-                  <span className="m-4 flex flex-col items-center">
-                    <PrismicRichText field={item.text} />
+                  <span className="m-4 flex flex-col items-center text-center">
+                    <PrismicRichText
+                      field={item.text}
+                     /*  components={{
+                        heading2: ({ children }) => (
+                          <Heading
+                            as="h2"
+                            size="2xl"
+                            className="mb-2 font-title last:mb-0 text-3xl"
+                          >
+                            {children}
+                          </Heading>
+                        ),
+                      }} */
+                    />
                     {item.button_text && (
                       <PrismicNextLink document={item.link}>
                         <Button type={"primary"}>{item.button_text}</Button>

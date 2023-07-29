@@ -9,13 +9,12 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Irure ut aliquip ut magna elit qui exercitation ipsum enim elit laborum ex."
+							"text": "Eiusmod dolore sunt non et enim labore laborum fugiat. Dolor ut aute officia."
 						}
 					}
 				]
 			},
 			"summer": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1587653915936-5623ea0b949a",
@@ -33,10 +32,12 @@
 					},
 					"background": "transparent"
 				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
 			"winter": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1589321599763-d66926c29613",
@@ -54,6 +55,9 @@
 					},
 					"background": "transparent"
 				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			}
 		},

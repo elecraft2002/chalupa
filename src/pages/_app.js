@@ -19,9 +19,7 @@ const richTextComponents = {
     </Heading>
   ),
   heading2: ({ children }) => (
-    <Heading as="h2" size="4xl" className="mb-2 font-title last:mb-0">
-      {children}
-    </Heading>
+    <h2 className="mb-2 font-title text-3xl  last:mb-0">{children}</h2>
   ),
   heading3: ({ children }) => (
     <Heading as="h3" size="2xl" className="mb-2  text-xl last:mb-0">
@@ -87,7 +85,7 @@ export default function App({ Component, pageProps }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: .75 }}
+        transition={{ duration: 0.75 }}
         // onTransitionEndCapture={()=>console.log("Ahoj")}
       >
         <PrismicProvider
