@@ -15,14 +15,23 @@ const Features = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="flex min-h-[50vh] flex-col items-center justify-center gap-20 py-20 text-center"
     >
-      <Fade triggerOnce>
-        <PrismicRichText field={slice.primary.text} />
+      <Fade triggerOnce className="mt-28">
+        <PrismicRichText
+          field={slice.primary.text}
+          components={{
+            heading3: ({ children }) => (
+              <h3 className="text-xl tracking-widest md:text-[1.75rem]">
+                {children}
+              </h3>
+            ),
+          }}
+        />
       </Fade>
       <ul className="mt-20 flex flex-wrap items-center justify-center gap-20">
         {slice.items.map((item, index) => {
           return (
             <Fade key={index} delay={index * 200} triggerOnce>
-              <li className="flex min-w-[200px] max-w-[40vw] justify-center md:max-w-[30vw] lg:max-w-xs">
+              <li className="flex min-w-[200px] max-w-[40vw] justify-center md:max-w-[30vw] lg:max-w-[12rem]">
                 <figure className=" flex w-1/2 flex-col gap-6">
                   <PrismicNextImage
                     field={item.icon}
