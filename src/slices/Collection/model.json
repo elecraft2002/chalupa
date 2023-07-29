@@ -36,19 +36,35 @@
         },
         "image_1": {
           "type": "Image",
-          "config": { "label": "Image 1", "constraint": {}, "thumbnails": [] }
+          "config": {
+            "label": "Image 1",
+            "constraint": {},
+            "thumbnails": [{ "name": "Small", "width": 300, "height": null }]
+          }
         },
         "image_2": {
           "type": "Image",
-          "config": { "label": "Image 2", "constraint": {}, "thumbnails": [] }
+          "config": {
+            "label": "Image 2",
+            "constraint": {},
+            "thumbnails": [{ "name": "Small", "width": 300, "height": null }]
+          }
         },
         "image_3": {
           "type": "Image",
-          "config": { "label": "Image 3", "constraint": {}, "thumbnails": [] }
+          "config": {
+            "label": "Image 3",
+            "constraint": {},
+            "thumbnails": [{ "name": "Small", "width": 300, "height": null }]
+          }
         },
         "image_4": {
           "type": "Image",
-          "config": { "label": "Image 4", "constraint": {}, "thumbnails": [] }
+          "config": {
+            "label": "Image 4",
+            "constraint": {},
+            "thumbnails": [{ "name": "Small", "width": 300, "height": null }]
+          }
         }
       },
       "items": {}

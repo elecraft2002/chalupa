@@ -1019,7 +1019,7 @@ interface CollectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/image
    *
    */
-  image_1: prismic.ImageField<never>;
+  image_1: prismic.ImageField<"Small">;
   /**
    * Image 2 field in *Collection → Primary*
    *
@@ -1029,7 +1029,7 @@ interface CollectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/image
    *
    */
-  image_2: prismic.ImageField<never>;
+  image_2: prismic.ImageField<"Small">;
   /**
    * Image 3 field in *Collection → Primary*
    *
@@ -1039,7 +1039,7 @@ interface CollectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/image
    *
    */
-  image_3: prismic.ImageField<never>;
+  image_3: prismic.ImageField<"Small">;
   /**
    * Image 4 field in *Collection → Primary*
    *
@@ -1049,7 +1049,7 @@ interface CollectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/core-concepts/image
    *
    */
-  image_4: prismic.ImageField<never>;
+  image_4: prismic.ImageField<"Small">;
 }
 /**
  * Default variation for Collection Slice

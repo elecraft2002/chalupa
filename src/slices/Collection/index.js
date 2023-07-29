@@ -22,7 +22,7 @@ const Collection = ({ slice }) => {
           className="absolute w-2/3 sm:left-1/4 sm:h-1/3 sm:w-1/4 sm:-translate-x-1/2"
         >
           <PrismicNextImage
-            field={slice.primary.image_1}
+            field={slice.primary.image_1.Small}
             className="h-full w-full object-contain"
           />
         </Fade>
@@ -31,7 +31,7 @@ const Collection = ({ slice }) => {
           className="absolute right-4 top-[10%] w-2/3 sm:right-4 sm:top-1/4 sm:h-1/3 sm:w-1/3 "
         >
           <PrismicNextImage
-            field={slice.primary.image_2}
+            field={slice.primary.image_2.Small}
             className="h-full w-full object-contain"
           />
         </Fade>
@@ -40,7 +40,7 @@ const Collection = ({ slice }) => {
           className="absolute left-4 top-[70%] w-2/3 sm:left-0 sm:top-1/2 sm:h-1/3 sm:w-1/3"
         >
           <PrismicNextImage
-            field={slice.primary.image_3}
+            field={slice.primary.image_3.Small}
             className="h-full w-full object-contain"
           />
         </Fade>
@@ -49,7 +49,7 @@ const Collection = ({ slice }) => {
           className="absolute bottom-0 right-0 w-2/3 sm:left-[60%] sm:h-1/3 sm:w-1/3"
         >
           <PrismicNextImage
-            field={slice.primary.image_4}
+            field={slice.primary.image_4.Small}
             className="h-full w-full object-contain"
           />
         </Fade>
