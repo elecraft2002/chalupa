@@ -19,7 +19,7 @@ export function Header({ locales = [], navigation, settings }) {
   const router = useRouter();
 
   const [scrollDir, setScrollDir] = useState("up");
-
+  const [isAtTop, setTop] = useState(true);
   useEffect(() => {
     const threshold = 100;
     let lastScrollY = window.scrollY;
@@ -27,6 +27,8 @@ export function Header({ locales = [], navigation, settings }) {
 
     const updateScrollDir = () => {
       const scrollY = window.scrollY;
+      if (scrollY < 50) setTop(true);
+      else setTop(false);
 
       if (Math.abs(scrollY - lastScrollY) < threshold) {
         return;
@@ -42,8 +44,10 @@ export function Header({ locales = [], navigation, settings }) {
   }, [scrollDir]);
   return (
     <nav
-      class={`fixed left-0 top-0 z-50 w-full overflow-hidden bg-primary/80 backdrop-blur-3xl transition-all duration-700 ${
-        scrollDir === "down" ? "md:h-0" : "md:h-[80px]"
+      class={`fixed left-0 top-0 ${
+        isAtTop && "md:pt-12"
+      } z-50 w-full overflow-hidden bg-primary/80 backdrop-blur-3xl transition-all duration-700 ${
+        scrollDir === "down" ? "md:h-0" : `md:h-[${80 + 48 * isAtTop}px]`
       }`}
     >
       <div
@@ -54,7 +58,7 @@ export function Header({ locales = [], navigation, settings }) {
           !isOpen && "hidden"
         } absolute -z-10 h-screen w-screen backdrop-blur-md md:hidden`}
       />
-      <div class="mx-auto md:grid md:grid-cols-3 flex max-w-screen-xl flex-wrap items-center justify-between  p-6 ">
+      <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-6 md:grid  md:grid-cols-3 ">
         <PrismicNextLink href="/" className="h-8 w-8 md:order-2 md:m-auto">
           {prismic.isFilled.image(settings.data.logo) && (
             <PrismicNextImage
@@ -63,16 +67,19 @@ export function Header({ locales = [], navigation, settings }) {
             />
           )}
         </PrismicNextLink>
-        <div class="flex md:order-2 md:m-auto text-[14px] md:text-base">
+        <div class="flex text-[14px] md:order-2 md:m-auto md:text-base">
           {prismic.isFilled.richText(navigation.data.button_text) && (
-            <PrismicNextLink className="flex items-center" field={navigation.data.button_link}>
-                <PrismicRichText field={navigation.data.button_text} />
+            <PrismicNextLink
+              className="flex items-center"
+              field={navigation.data.button_link}
+            >
+              <PrismicRichText field={navigation.data.button_text} />
             </PrismicNextLink>
           )}
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"
-            class="inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 ml-4  focus:ring-gray-200 md:hidden"
+            class="ml-4 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2  focus:ring-gray-200 md:hidden"
             aria-controls="navbar-sticky"
             aria-expanded="false"
             onClick={() => {
@@ -105,7 +112,7 @@ export function Header({ locales = [], navigation, settings }) {
             {navigation.data?.links.map((item) => (
               <li
                 key={prismic.asText(item.label)}
-                className="text text-[14px] md:text-base font-semibold tracking-tight"
+                className="text text-[14px] font-semibold tracking-tight md:text-base"
               >
                 <PrismicNextLink
                   className={`block rounded py-2 pl-3 pr-4 ${
