@@ -20,25 +20,34 @@ const Features = ({ slice }) => {
           field={slice.primary.text}
           components={{
             heading3: ({ children }) => (
-              <h3 className="text-xl tracking-widest md:text-[1.75rem]">
+              <h3 className="spacing mb-0 text-xl leading-[1.6em] tracking-widest md:text-[1.75rem]">
                 {children}
               </h3>
             ),
           }}
         />
       </Fade>
-      <ul className="mt-20 flex flex-wrap items-center justify-center gap-20">
+      <ul className="mt-20 flex flex-wrap items-center justify-center gap-20 md:gap-10">
         {slice.items.map((item, index) => {
           return (
             <Fade key={index} delay={index * 200} triggerOnce>
               <li className="flex min-w-[200px] max-w-[40vw] justify-center md:max-w-[30vw] lg:max-w-[12rem]">
-                <figure className=" flex w-1/2 flex-col gap-6">
+                <figure className=" flex w-auto flex-col justify-between gap-6 text-center">
                   <PrismicNextImage
                     field={item.icon}
-                    className="transition hover:scale-105"
+                    className="m-auto w-1/2 transition hover:scale-105"
                   />
-                  <figcaption>
-                    <PrismicRichText field={item.text} />
+                  <figcaption className=" tracking-[.3em]">
+                    <PrismicRichText
+                      field={item.text}
+                      components={{
+                        heading3: ({ children }) => (
+                          <h3 className="m-auto  w-max text-center text-base last:mb-0">
+                            {children}
+                          </h3>
+                        ),
+                      }}
+                    />
                   </figcaption>
                 </figure>
               </li>
