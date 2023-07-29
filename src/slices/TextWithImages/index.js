@@ -37,7 +37,7 @@ const TextWithImages = ({ slice }) => {
                   <Slide triggerOnce>
                     <Swiper
                       // install Swiper modules
-                      modules={[A11y, Autoplay]}
+                      modules={[A11y, Autoplay, Pagination]}
                       slidesPerView={1}
                       pagination={{ clickable: true }}
                       scrollbar={{ draggable: true }}
