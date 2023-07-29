@@ -69,16 +69,16 @@ const ImageZoom = ({ slice }) => {
             />
           </Fade>
           <Fade delay={500} triggerOnce className="absolute">
-            <PrismicRichText
-              components={{
-                paragraph: (paragraph) => (
-                  <h1 className="text-xl uppercase sm:text-4xl xl:text-8xl">
-                    {paragraph.children}
-                  </h1>
-                ),
-              }}
-              field={slice.primary.text}
-            />
+              <PrismicRichText
+                components={{
+                  paragraph: (paragraph) => (
+                    <h1 className="text-xl uppercase sm:text-4xl xl:text-[85px]">
+                      {paragraph.children}
+                    </h1>
+                  ),
+                }}
+                field={slice.primary.text}
+              />
           </Fade>
         </div>
       )}

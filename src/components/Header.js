@@ -63,12 +63,10 @@ export function Header({ locales = [], navigation, settings }) {
             />
           )}
         </PrismicNextLink>
-        <div class="flex md:order-2 md:m-auto">
+        <div class="flex md:order-2 md:m-auto text-xs">
           {prismic.isFilled.richText(navigation.data.button_text) && (
             <PrismicNextLink field={navigation.data.button_link}>
-              <Button type="secondary">
                 <PrismicRichText field={navigation.data.button_text} />
-              </Button>
             </PrismicNextLink>
           )}
           <button

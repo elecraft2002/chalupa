@@ -13,12 +13,12 @@ const Features = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex min-h-[50vh] flex-col items-center justify-center gap-40 py-20 text-center"
+      className="flex min-h-[50vh] flex-col items-center justify-center gap-20 py-20 text-center"
     >
       <Fade triggerOnce>
         <PrismicRichText field={slice.primary.text} />
       </Fade>
-      <ul className="flex flex-wrap items-center justify-center">
+      <ul className="mt-20 flex flex-wrap items-center justify-center gap-20">
         {slice.items.map((item, index) => {
           return (
             <Fade key={index} delay={index * 200} triggerOnce>
