@@ -23,10 +23,6 @@
         }
       },
       "items": {
-        "image": {
-          "type": "Image",
-          "config": { "label": "Image", "constraint": {}, "thumbnails": [] }
-        },
         "text": {
           "type": "StructuredText",
           "config": {
@@ -43,6 +39,38 @@
         "button_text": {
           "type": "Text",
           "config": { "label": "Button text", "placeholder": "" }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": [{ "name": "Small", "width": 600, "height": 400 }]
+          }
+        },
+        "image_2": {
+          "type": "Image",
+          "config": {
+            "label": "Image 2",
+            "constraint": {},
+            "thumbnails": [{ "name": "Small", "width": 600, "height": 400 }]
+          }
+        },
+        "image_3": {
+          "type": "Image",
+          "config": {
+            "label": "Image 3",
+            "constraint": {},
+            "thumbnails": [{ "name": "Small", "width": 600, "height": 400 }]
+          }
+        },
+        "image_4": {
+          "type": "Image",
+          "config": {
+            "label": "Image 4",
+            "constraint": {},
+            "thumbnails": [{ "name": "Small", "width": 600, "height": 400 }]
+          }
         }
       }
     }

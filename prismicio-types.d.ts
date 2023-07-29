@@ -2273,16 +2273,6 @@ interface TextWithImagesSliceDefaultPrimary {
  */
 export interface TextWithImagesSliceDefaultItem {
   /**
-   * Image field in *TextWithImages → Items*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_images.items[].image
-   * - **Documentation**: https://prismic.io/docs/core-concepts/image
-   *
-   */
-  image: prismic.ImageField<never>;
-  /**
    * Text field in *TextWithImages → Items*
    *
    * - **Field Type**: Rich Text
@@ -2312,6 +2302,46 @@ export interface TextWithImagesSliceDefaultItem {
    *
    */
   button_text: prismic.KeyTextField;
+  /**
+   * Image field in *TextWithImages → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_images.items[].image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<"Small">;
+  /**
+   * Image 2 field in *TextWithImages → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_images.items[].image_2
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image_2: prismic.ImageField<"Small">;
+  /**
+   * Image 3 field in *TextWithImages → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_images.items[].image_3
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image_3: prismic.ImageField<"Small">;
+  /**
+   * Image 4 field in *TextWithImages → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_with_images.items[].image_4
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image_4: prismic.ImageField<"Small">;
 }
 /**
  * Default variation for TextWithImages Slice
