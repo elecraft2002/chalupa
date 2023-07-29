@@ -6,7 +6,6 @@ import { getLocales } from "@/lib/getLocales";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { Layout } from "@/components/Layout";
-import Stars from "@/components/Stars";
 
 // import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from "swiper";
 
@@ -16,31 +15,6 @@ import Stars from "@/components/Stars";
 // import "swiper/css";
 // import "swiper/css/navigation";
 // import "swiper/css/pagination";
-
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
-import { PrismicNextImage } from "@prismicio/next";
-import Image from "next/image";
-
-const Gallery = ({ images }) => {
-  console.log(images);
-  return (
-    <div class="grid gap-4 p-4">
-      <Carousel autoPlay infiniteLoop className="h-auto max-w-full rounded-lg">
-        {images.map((item) => {
-          return (
-            <div key={item.id} className="h-full w-full">
-              <PrismicNextImage
-                field={item.image}
-                className="h-full max-w-full rounded-lg object-cover"
-              />
-            </div>
-          );
-        })}
-      </Carousel>
-    </div>
-  );
-};
 
 export default function Page({
   page,
