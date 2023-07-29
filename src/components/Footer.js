@@ -156,7 +156,7 @@ export function Footer({ settings, navigation }) {
   return (
     <>
       {/* <SignUpForm settings={settings} /> */}
-      <footer class="w-full bg-slate-900/20 p-4 md:p-8 lg:p-10">
+      <footer class="w-full p-4 md:p-8 lg:p-10">
         <div class="mx-auto flex max-w-7xl flex-col items-center justify-center gap-8 text-center md:grid md:grid-cols-3 ">
           <Links socials={settings.data.socials} />
           <div className="flex flex-col items-center   justify-center gap-4">
