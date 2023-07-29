@@ -18,7 +18,7 @@ figure {
   src: url("../../public/fonts/insigne - Belda Norm Regular.otf");
 }
 @font-face {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat";
   font-display: swap;
   src: url("../../public/fonts/Montserrat-VariableFont_wght.ttf");
 }
