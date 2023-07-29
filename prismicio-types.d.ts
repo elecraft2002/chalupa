@@ -334,7 +334,8 @@ type PageDocumentDataSlicesSlice =
   | TripsNewSlice
   | ContactSlice
   | CollectionSlice
-  | ImageZoomSlice;
+  | ImageZoomSlice
+  | TextColoredBgSlice;
 /**
  * Page document from Prismic
  *
@@ -1997,6 +1998,72 @@ export type ReviewsSlice = prismic.SharedSlice<
   ReviewsSliceVariation
 >;
 /**
+ * Primary content in TextColoredBg → Primary
+ *
+ */
+interface TextColoredBgSliceDefaultPrimary {
+  /**
+   * Text field in *TextColoredBg → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_colored_bg.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+  /**
+   * Button Link field in *TextColoredBg → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_colored_bg.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  button_link: prismic.LinkField;
+  /**
+   * Button Text field in *TextColoredBg → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_colored_bg.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  button_text: prismic.KeyTextField;
+}
+/**
+ * Default variation for TextColoredBg Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TextColoredBgSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TextColoredBgSliceDefaultPrimary>,
+  never
+>;
+/**
+ * Slice variation for *TextColoredBg*
+ *
+ */
+type TextColoredBgSliceVariation = TextColoredBgSliceDefault;
+/**
+ * TextColoredBg Shared Slice
+ *
+ * - **API ID**: `text_colored_bg`
+ * - **Description**: `TextColoredBg`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type TextColoredBgSlice = prismic.SharedSlice<
+  "text_colored_bg",
+  TextColoredBgSliceVariation
+>;
+/**
  * Primary content in TextWithFeatures → Primary
  *
  */
@@ -2416,6 +2483,10 @@ declare module "@prismicio/client" {
       ReviewsSliceDefault,
       ReviewsSliceVariation,
       ReviewsSlice,
+      TextColoredBgSliceDefaultPrimary,
+      TextColoredBgSliceDefault,
+      TextColoredBgSliceVariation,
+      TextColoredBgSlice,
       TextWithFeaturesSliceDefaultPrimary,
       TextWithFeaturesSliceDefaultItem,
       TextWithFeaturesSliceDefault,

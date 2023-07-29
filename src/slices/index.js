@@ -16,6 +16,7 @@ export const components = {
   realizace: dynamic(() => import("./Trips")),
   reference: dynamic(() => import("./Reference")),
   reviews: dynamic(() => import("./Reviews")),
+  text_colored_bg: dynamic(() => import("./TextColoredBg")),
   text_with_features: dynamic(() => import("./TextWithFeatures")),
   text_with_image: dynamic(() => import("./TextWithImage")),
   text_with_images: dynamic(() => import("./TextWithImages")),

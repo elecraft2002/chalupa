@@ -1,0 +1,32 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ut dolore do cupidatat amet dolore ad enim exercitation laboris. Tempor anim amet deserunt mollit exercitation veniam dolore magna eiusmod et deserunt."
+						}
+					}
+				]
+			},
+			"button_link": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
+			},
+			"button_text": {
+				"__TYPE__": "FieldContent",
+				"value": "level",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]
