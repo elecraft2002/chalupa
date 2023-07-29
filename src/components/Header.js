@@ -43,7 +43,7 @@ export function Header({ locales = [], navigation, settings }) {
   return (
     <nav
       class={`fixed left-0 top-0 z-50 w-full overflow-hidden bg-primary/80 backdrop-blur-3xl transition-all duration-700 ${
-        scrollDir === "down" ? "md:h-0" : "md:h-[70px]"
+        scrollDir === "down" ? "md:h-0" : "md:h-[80px]"
       }`}
     >
       <div
@@ -54,16 +54,16 @@ export function Header({ locales = [], navigation, settings }) {
           !isOpen && "hidden"
         } absolute -z-10 h-screen w-screen backdrop-blur-md md:hidden`}
       />
-      <div class="mx-auto md:grid md:grid-cols-3 flex max-w-screen-xl flex-wrap items-center justify-between  p-4 ">
+      <div class="mx-auto md:grid md:grid-cols-3 flex max-w-screen-xl flex-wrap items-center justify-between  p-6 ">
         <PrismicNextLink href="/" className="h-8 w-8 md:order-2 md:m-auto">
           {prismic.isFilled.image(settings.data.logo) && (
             <PrismicNextImage
               field={settings.data.logo.Navigation}
-              className="h-full w-full scale-[2.5] object-cover"
+              className="h-full w-full scale-[3]  object-cover"
             />
           )}
         </PrismicNextLink>
-        <div class="flex md:order-2 md:m-auto text-xs">
+        <div class="flex md:order-2 md:m-auto text-[14px] md:text-base">
           {prismic.isFilled.richText(navigation.data.button_text) && (
             <PrismicNextLink className="flex items-center" field={navigation.data.button_link}>
                 <PrismicRichText field={navigation.data.button_text} />
@@ -105,7 +105,7 @@ export function Header({ locales = [], navigation, settings }) {
             {navigation.data?.links.map((item) => (
               <li
                 key={prismic.asText(item.label)}
-                className="text text-xs font-semibold tracking-tight"
+                className="text text-[14px] md:text-base font-semibold tracking-tight"
               >
                 <PrismicNextLink
                   className={`block rounded py-2 pl-3 pr-4 ${
