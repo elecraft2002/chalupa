@@ -17,5 +17,6 @@ body {
 }
 @font-face {
   font-family: "Belda";
+  font-display: swap;
   src: url("../../public/fonts/insigne - Belda Norm Regular.otf");
 }
