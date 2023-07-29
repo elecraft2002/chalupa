@@ -22,13 +22,13 @@ const Reviews = ({ slice, context }) => {
       <span>
         <PrismicRichText
           field={slice.primary.text}
-          components={{
-            heading2: ({ children }) => (
-              <Heading as="h2" size="4xl" className="mb-2 last:mb-0">
-                {children}
-              </Heading>
-            ),
-          }}
+            /* components={{
+              heading2: ({ children }) => (
+                <Heading as="h2" size="4xl" className="mb-2 last:mb-0">
+                  {children}
+                </Heading>
+              ),
+            }} */
         />
       </span>
       <ul className="flex w-full flex-wrap justify-evenly gap-6">
