@@ -12,16 +12,16 @@ const TextColoredBg = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex min-h-[50vh] flex-col items-center justify-center gap-6 bg-[#F1DBA8] py-20 text-center text-primary"
+      className="flex min-h-[100vh] flex-col items-center justify-center gap-6 py-20 text-center"
     >
       <span>
         <PrismicRichText field={slice.primary.text} />
       </span>
       {slice.primary.button_text && (
         <PrismicNextLink document={slice.primary.link}>
-          <button className="rounded border border-primary px-9 py-2 transition-all hover:scale-105 hover:bg-primary hover:text-[#F1DBA8]">
+          <Button type="secondary">
             {slice.primary.button_text}
-          </button>
+          </Button>
         </PrismicNextLink>
       )}
     </section>
