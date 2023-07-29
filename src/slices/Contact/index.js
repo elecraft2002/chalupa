@@ -56,7 +56,7 @@ const Contact = ({ slice }) => {
         <PrismicRichText field={slice.primary.text} />
       </span>
       <div className="grid w-screen grid-cols-1 grid-rows-2 items-center justify-center sm:grid-cols-2 sm:grid-rows-1">
-        <div className="m-auto box-border h-[50vh] w-full max-w-xl p-4">
+        <div className="m-auto box-border h-full w-full p-4">
           {/* {isLoaded && (
           <GoogleMap
             mapContainerClassName="w-full h-full "
