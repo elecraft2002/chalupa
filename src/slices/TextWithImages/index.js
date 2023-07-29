@@ -16,7 +16,7 @@ const TextWithImages = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="flex min-h-[50vh] flex-col items-center justify-center gap-16 py-20 "
     >
-      <Fade triggerOnce className="m-4 max-w-7xl">
+      <Fade triggerOnce className="m-4 max-w-7xl text-center">
         <PrismicRichText field={slice.primary.text} />
       </Fade>
       <ul className="box-border  p-4">

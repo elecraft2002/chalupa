@@ -335,7 +335,8 @@ type PageDocumentDataSlicesSlice =
   | ContactSlice
   | CollectionSlice
   | ImageZoomSlice
-  | TextColoredBgSlice;
+  | TextColoredBgSlice
+  | SliderSlice;
 /**
  * Page document from Prismic
  *
@@ -1998,6 +1999,65 @@ export type ReviewsSlice = prismic.SharedSlice<
   ReviewsSliceVariation
 >;
 /**
+ * Primary content in Slider → Primary
+ *
+ */
+interface SliderSliceDefaultPrimary {
+  /**
+   * Text field in *Slider → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+}
+/**
+ * Item in Slider → Items
+ *
+ */
+export interface SliderSliceDefaultItem {
+  /**
+   * Image field in *Slider → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: slider.items[].image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<"Small" | "Normal">;
+}
+/**
+ * Default variation for Slider Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SliderSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SliderSliceDefaultPrimary>,
+  Simplify<SliderSliceDefaultItem>
+>;
+/**
+ * Slice variation for *Slider*
+ *
+ */
+type SliderSliceVariation = SliderSliceDefault;
+/**
+ * Slider Shared Slice
+ *
+ * - **API ID**: `slider`
+ * - **Description**: `Slider`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type SliderSlice = prismic.SharedSlice<"slider", SliderSliceVariation>;
+/**
  * Primary content in TextColoredBg → Primary
  *
  */
@@ -2483,6 +2543,11 @@ declare module "@prismicio/client" {
       ReviewsSliceDefault,
       ReviewsSliceVariation,
       ReviewsSlice,
+      SliderSliceDefaultPrimary,
+      SliderSliceDefaultItem,
+      SliderSliceDefault,
+      SliderSliceVariation,
+      SliderSlice,
       TextColoredBgSliceDefaultPrimary,
       TextColoredBgSliceDefault,
       TextColoredBgSliceVariation,

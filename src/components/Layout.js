@@ -21,7 +21,7 @@ export function Layout({ locales, navigation, settings, children }) {
         transition={{ duration: 0.3 }}
         className="mt-16"
       > */}
-      <main className="mt-16">{children}</main>
+      <main className="mt-24">{children}</main>
       {/* </motion.main> */}
       <Footer settings={settings} navigation={navigation} />
       <CookieConsent buttonText={settings.data.cookies_button}>

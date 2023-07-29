@@ -1,0 +1,89 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Duis veniam eiusmod dolore fugiat. Esse consectetur eiusmod nostrud nulla pariatur laboris nisi do adipisicing. Nostrud et nisi enim irure dolore aliquip."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"image",
+						{
+							"__TYPE__": "ImageContent",
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db",
+								"width": 4380,
+								"height": 2895
+							},
+							"url": "https://images.unsplash.com/photo-1537498425277-c283d32ef9db",
+							"width": 4380,
+							"height": 2895,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								},
+								"background": "transparent"
+							},
+							"thumbnails": {
+								"Small": {
+									"origin": {
+										"id": "Small",
+										"url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c",
+										"width": 3424,
+										"height": 3424
+									},
+									"url": "https://images.unsplash.com/photo-1493119508027-2b584f234d6c?rect=0%2C0%2C3424%2C3424&w=150&h=150",
+									"width": 150,
+									"height": 150,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 0
+										},
+										"background": "transparent"
+									}
+								},
+								"Normal": {
+									"origin": {
+										"id": "Normal",
+										"url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a",
+										"width": 3024,
+										"height": 3778
+									},
+									"url": "https://images.unsplash.com/photo-1531771686035-25f47595c87a?rect=0%2C377%2C3024%2C3024&w=500&h=500",
+									"width": 500,
+									"height": 500,
+									"edit": {
+										"zoom": 1,
+										"crop": {
+											"x": 0,
+											"y": 377
+										},
+										"background": "transparent"
+									}
+								}
+							}
+						}
+					]
+				]
+			}
+		]
+	}
+]
