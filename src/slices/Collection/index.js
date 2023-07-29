@@ -46,7 +46,7 @@ const Collection = ({ slice }) => {
         </Fade>
         <Fade
           delay={200}
-          className="absolute bottom-0 right-0 w-2/3 sm:left-[60%] sm:h-1/2 sm:w-1/3 sm:translate-y-1/4 z-10"
+          className="absolute bottom-0 right-0 z-10 w-2/3 sm:left-[60%] sm:h-1/2 sm:w-1/3 sm:translate-y-1/4"
         >
           <PrismicNextImage
             field={slice.primary.image_4.Small}
@@ -58,7 +58,16 @@ const Collection = ({ slice }) => {
         <div className="text-center sm:sticky sm:top-[40vh]">
           <Fade className="flex flex-col">
             <span className=" mb-12">
-              <PrismicRichText field={slice.primary.text} />
+              <PrismicRichText
+                field={slice.primary.text}
+                components={{
+                  heading2: ({ children }) => (
+                    <h2 className="mb-2 font-title text-[3.0rem]  last:mb-0">
+                      {children}
+                    </h2>
+                  ),
+                }}
+              />
             </span>
             {slice.primary.button_text && (
               <PrismicNextLink document={slice.primary.button_link}>
