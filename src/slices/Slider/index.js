@@ -10,6 +10,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { PrismicNextImage } from "@prismicio/next";
 import useWindowSize from "@/functions/useWindowSize";
+import { PrismicRichText } from "@prismicio/react";
 /**
  * @typedef {import("@prismicio/client").Content.SliderSlice} SliderSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<SliderSlice>} SliderProps
@@ -22,8 +23,9 @@ const Slider = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex flex-col items-center justify-center py-20"
+      className="flex flex-col items-center justify-center py-20 min-h-screen"
     >
+      <span><PrismicRichText field={slice.primary.text}/></span>
       <div className="box-border w-full max-w-7xl rounded-md p-4">
         <Swiper
           // install Swiper modules
