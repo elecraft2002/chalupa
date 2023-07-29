@@ -12,9 +12,6 @@
 figure {
   margin: 0;
 }
-body {
-  font-family: "Montserrat", sans-serif;
-}
 @font-face {
   font-family: "Belda";
   font-display: swap;
@@ -24,4 +21,8 @@ body {
   font-family: "Montserrat", sans-serif;
   font-display: swap;
   src: url("../../public/fonts/Montserrat-VariableFont_wght.ttf");
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
 }
