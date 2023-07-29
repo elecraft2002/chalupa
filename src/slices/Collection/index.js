@@ -19,7 +19,7 @@ const Collection = ({ slice }) => {
       <div className="absolute top-0 h-[200vh] w-full sm:h-[150vh]">
         <Fade
           delay={200}
-          className="absolute w-2/3 sm:-top-1/3 sm:left-1/4 sm:h-1/3 sm:w-1/4 sm:-translate-x-1/2 sm:translate-y-1/2"
+          className="absolute w-2/3 sm:-top-1/3 sm:left-1/4 sm:h-1/2 sm:w-1/4 sm:-translate-x-1/2 sm:translate-y-1/2"
         >
           <PrismicNextImage
             field={slice.primary.image_1}
@@ -28,7 +28,7 @@ const Collection = ({ slice }) => {
         </Fade>
         <Fade
           delay={200}
-          className="absolute right-4 top-[10%] w-2/3 sm:-top-1/4 sm:right-4 sm:h-2/3 sm:w-1/4 sm:translate-y-1/3 "
+          className="absolute right-4 top-[10%] w-2/3 sm:-top-1/4 sm:right-4 sm:h-1/2 sm:w-1/4 sm:translate-y-1/2 "
         >
           <PrismicNextImage
             field={slice.primary.image_2.Small}
@@ -37,7 +37,7 @@ const Collection = ({ slice }) => {
         </Fade>
         <Fade
           delay={200}
-          className="absolute left-4 top-[70%] w-2/3 sm:left-0 sm:top-1/2 sm:h-1/2 sm:w-1/3"
+          className="absolute left-4 top-[70%] w-2/3 sm:left-0 sm:top-1/2 sm:h-1/3 sm:w-1/3"
         >
           <PrismicNextImage
             field={slice.primary.image_3.Small}
@@ -57,7 +57,7 @@ const Collection = ({ slice }) => {
       <div className="absolute sm:h-[70vh]">
         <div className="text-center sm:sticky sm:top-[40vh]">
           <Fade className="flex flex-col">
-            <span className="mb-20">
+            <span className=" mb-20">
               <PrismicRichText field={slice.primary.text} />
             </span>
             {slice.primary.button_text && (
