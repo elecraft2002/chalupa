@@ -17,12 +17,12 @@ import Stars from "@/components/Stars";
 // import "swiper/css/navigation";
 // import "swiper/css/pagination";
 
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+// import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import { PrismicNextImage } from "@prismicio/next";
-import Image from "next/image";
+// import Image from "next/image";
 
-const Gallery = ({ images }) => {
+/* const Gallery = ({ images }) => {
   return (
     <div class="grid gap-4 p-4">
       <Carousel autoPlay infiniteLoop className="h-auto max-w-full rounded-lg">
@@ -44,7 +44,7 @@ const Gallery = ({ images }) => {
       </Carousel>
     </div>
   );
-};
+}; */
 
 export default function Page({
   page,
@@ -112,7 +112,7 @@ export default function Page({
               })}
             </ul>
           </div>
-          <Gallery images={page.data.gallery} />
+          {/* <Gallery images={page.data.gallery} /> */}
         </div>
       </section>
       <SliceZone
