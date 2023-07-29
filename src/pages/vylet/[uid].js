@@ -22,29 +22,7 @@ import { Carousel } from "react-responsive-carousel";
 import { PrismicNextImage } from "@prismicio/next";
 // import Image from "next/image";
 
-/* const Gallery = ({ images }) => {
-  return (
-    <div class="grid gap-4 p-4">
-      <Carousel autoPlay infiniteLoop className="h-auto max-w-full rounded-lg">
-        {images.map((item) => {
-          return (
-            <div key={item.id} className="h-full w-full">
-              <Image
-                className="h-full w-full rounded-lg object-cover"
-                src={item.image.url}
-                loading="lazy"
-              />
-              {/* <PrismicNextImage
-                field={item.image}
-                className=" h-20 max-w-full rounded-lg"
-              /> */}
-            </div>
-          );
-        })}
-      </Carousel>
-    </div>
-  );
-}; */
+
 
 export default function Page({
   page,
