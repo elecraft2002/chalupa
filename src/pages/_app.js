@@ -14,7 +14,7 @@ import logo from "@/assets/img/logo.png";
 
 const richTextComponents = {
   heading1: ({ children }) => (
-    <Heading as="h1" size="6xl" className="mb-8 font-title last:mb-0">
+    <Heading as="h1" size="8xl" className="mb-8 font-title last:mb-0">
       {children}
     </Heading>
   ),
