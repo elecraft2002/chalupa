@@ -20,7 +20,7 @@ const Links = ({ socials }) => {
             <PrismicNextLink field={item.link}>
               <PrismicNextImage
                 field={item.logo}
-                className="h-8 w-8 object-contain"
+                className="h-6 w-6 object-contain"
               />
             </PrismicNextLink>
           </li>
@@ -156,7 +156,7 @@ export function Footer({ settings, navigation }) {
   return (
     <>
       {/* <SignUpForm settings={settings} /> */}
-      <footer class="w-full p-4 md:p-8 lg:p-10">
+      <footer class="w-full p-4 text-sm md:p-8 lg:p-10">
         <div class="mx-auto flex max-w-7xl flex-col items-center justify-center gap-8 text-center md:grid md:grid-cols-3 ">
           <Links socials={settings.data.socials} />
           <div className="flex flex-col items-center   justify-center gap-4">
@@ -168,12 +168,12 @@ export function Footer({ settings, navigation }) {
               <span className="text-slate-100">
                 {/* <PrismicRichText field={settings.data.siteTitle} /> */}
                 <PrismicNextImage
-                  className="mb-8 max-h-40 w-full max-w-xs"
+                  className="mb-8 max-h-40 w-full max-w-[15rem]"
                   field={settings.data.logo}
                 />
               </span>
             </Link>
-            <ul class="mb-6 flex flex-wrap items-center justify-center gap-5 ">
+            {/* <ul class="mb-6 flex flex-wrap items-center justify-center gap-5 ">
               {navigation.data?.links.map((item) => (
                 <li
                   key={prismic.asText(item.label)}
@@ -184,7 +184,7 @@ export function Footer({ settings, navigation }) {
                   </PrismicNextLink>
                 </li>
               ))}
-            </ul>
+            </ul> */}
           </div>
 
           <div className="flex flex-col justify-center gap-4">
