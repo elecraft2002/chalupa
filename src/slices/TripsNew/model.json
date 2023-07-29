@@ -61,7 +61,7 @@
           "config": {
             "label": "Season",
             "placeholder": "",
-            "options": ["Summer", "Winter"],
+            "options": ["Summer", "Winter", "Both"],
             "default_value": "Summer"
           }
         }

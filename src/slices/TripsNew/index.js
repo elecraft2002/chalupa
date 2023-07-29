@@ -25,7 +25,7 @@ const TripsNew = ({ slice }) => {
             className={`block h-16 cursor-pointer rounded-full p-4 transition-all hover:scale-110 ${
               filter === "Summer"
                 ? "scale-110 bg-slate-100/80 drop-shadow-md"
-                : "bg-slate-900/80"
+                : ""
             }`}
             onClick={() => {
               if (filter === "Summer") {
@@ -46,7 +46,7 @@ const TripsNew = ({ slice }) => {
             className={`block h-16 cursor-pointer rounded-full p-4 transition-all hover:scale-110 ${
               filter === "Winter"
                 ? "scale-110 bg-slate-100/80 drop-shadow-md"
-                : "bg-slate-900/80"
+                : ""
             }`}
             onClick={() => {
               if (filter === "Winter") {
@@ -67,7 +67,7 @@ const TripsNew = ({ slice }) => {
       <ul className="flex flex-wrap items-start justify-between gap-8">
         {slice.items.map((item, index) => {
           if (filter) {
-            if (item.season !== filter) return null;
+            if (item.season !== filter && item.season !== "Both") return null;
           }
           return (
             <Fade key={index} delay={index * 100} triggerOnce>

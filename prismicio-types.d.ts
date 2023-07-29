@@ -2444,7 +2444,7 @@ export interface TripsNewSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/core-concepts/select
    *
    */
-  season: prismic.SelectField<"Summer" | "Winter", "filled">;
+  season: prismic.SelectField<"Summer" | "Winter" | "Both", "filled">;
 }
 /**
  * Default variation for TripsNew Slice
