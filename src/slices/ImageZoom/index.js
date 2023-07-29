@@ -1,6 +1,6 @@
-import { PrismicRichText } from "@/components/PrismicRichText";
 import { interpolate } from "@/functions/interpolate";
 import { PrismicNextImage } from "@prismicio/next";
+import { PrismicRichText } from "@prismicio/react";
 import { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
 import { ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
@@ -50,7 +50,7 @@ const ImageZoom = ({ slice }) => {
               <PrismicRichText
                 components={{
                   paragraph: (paragraph) => (
-                    <h1 className="text-xl uppercase sm:text-4xl xl:text-8xl">
+                    <h1 className="text-xl uppercase tracking-widest sm:text-4xl xl:text-8xl">
                       {paragraph.children}
                     </h1>
                   ),
@@ -59,9 +59,17 @@ const ImageZoom = ({ slice }) => {
               />
             </Fade>
           </ParallaxBannerLayer>
+          <ParallaxBannerLayer
+            className="flex h-screen w-screen items-end justify-center text-center"
+            translateY={["-100vh", "200vh"]}
+          >
+            <Fade triggerOnce className="mb-28 tracking-widest">
+              <PrismicRichText field={slice.primary.bottom_text} />
+            </Fade>
+          </ParallaxBannerLayer>
         </ParallaxBanner>
       ) : (
-        <div className="flex h-[80vh] items-center justify-center">
+        <div className="flex h-[80vh] items-center justify-center relative">
           <Fade triggerOnce className="m-8">
             <PrismicNextImage
               field={slice.primary.image}
@@ -69,17 +77,20 @@ const ImageZoom = ({ slice }) => {
             />
           </Fade>
           <Fade delay={500} triggerOnce className="absolute">
-              <PrismicRichText
-                components={{
-                  paragraph: (paragraph) => (
-                    <h1 className="text-xl uppercase sm:text-4xl xl:text-[85px]">
-                      {paragraph.children}
-                    </h1>
-                  ),
-                }}
-                field={slice.primary.text}
-              />
+            <PrismicRichText
+              components={{
+                paragraph: (paragraph) => (
+                  <h1 className="text-xl uppercase sm:text-4xl xl:text-[85px]">
+                    {paragraph.children}
+                  </h1>
+                ),
+              }}
+              field={slice.primary.text}
+            />
           </Fade>
+          <Fade triggerOnce className="absolute mb-28 tracking-widest bottom-10">
+              <PrismicRichText field={slice.primary.bottom_text} />
+            </Fade>
         </div>
       )}
     </section>

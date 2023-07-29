@@ -24,6 +24,15 @@
         "image": {
           "type": "Image",
           "config": { "label": "Image", "constraint": {}, "thumbnails": [] }
+        },
+        "bottom_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Bottom Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
         }
       },
       "items": {}

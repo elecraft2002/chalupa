@@ -1588,6 +1588,16 @@ interface ImageZoomSliceDefaultPrimary {
    *
    */
   image: prismic.ImageField<never>;
+  /**
+   * Bottom Text field in *ImageZoom → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image_zoom.primary.bottom_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  bottom_text: prismic.RichTextField;
 }
 /**
  * Default variation for ImageZoom Slice
