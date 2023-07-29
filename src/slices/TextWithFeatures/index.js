@@ -10,7 +10,7 @@ const TextWithFeatures = ({ slice }) => {
     <Bounded
       collapsible={false}
       as="section"
-      className="bg-primary"
+      className="flex min-h-[100vh] flex-col items-center justify-center gap-20 py-40 text-center"
     >
       <div className="grid grid-cols-1 items-end gap-10 md:grid-cols-2 md:gap-10 lg:gap-28">
         <div className="grid grid-cols-1 gap-8">

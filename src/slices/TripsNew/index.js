@@ -14,7 +14,7 @@ const TripsNew = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex min-h-[50vh] flex-col items-center justify-center gap-16 py-20 "
+      className="flex min-h-[100vh] flex-col items-center justify-center gap-20 py-40 text-center"
     >
       <Fade triggerOnce className="m-4 max-w-7xl text-center">
         <PrismicRichText field={slice.primary.text} />

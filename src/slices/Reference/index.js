@@ -14,7 +14,7 @@ const Reference = ({ slice, context }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex flex-col items-center py-16 bg-slate-300/80"
+      className="flex min-h-[100vh] flex-col items-center justify-center gap-20 py-40 text-center"
     >
       <PrismicRichText field={slice.primary.text} />
       <div className="flex w-full flex-wrap place-content-around">

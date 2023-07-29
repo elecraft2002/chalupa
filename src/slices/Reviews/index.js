@@ -17,18 +17,20 @@ const Reviews = ({ slice, context }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex min-h-[100vh] flex-col items-center justify-center gap-6 py-40 text-center"
+      className="flex min-h-[100vh] flex-col items-center justify-center gap-20 py-40 text-center"
     >
-      <PrismicRichText
-        field={slice.primary.text}
-        components={{
-          heading2: ({ children }) => (
-            <Heading as="h2" size="4xl" className="mb-2 last:mb-0">
-              {children}
-            </Heading>
-          ),
-        }}
-      />
+      <span>
+        <PrismicRichText
+          field={slice.primary.text}
+          components={{
+            heading2: ({ children }) => (
+              <Heading as="h2" size="4xl" className="mb-2 last:mb-0">
+                {children}
+              </Heading>
+            ),
+          }}
+        />
+      </span>
       <ul className="flex w-full flex-wrap justify-evenly gap-6">
         {context.reviews.map((item, index) => {
           return (

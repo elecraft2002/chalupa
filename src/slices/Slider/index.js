@@ -23,7 +23,7 @@ const Slider = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex flex-col items-center justify-center py-20 min-h-screen gap-20"
+      className="flex min-h-[100vh] flex-col items-center justify-center gap-20 py-40 text-center"
     >
       <span><PrismicRichText field={slice.primary.text}/></span>
       <div className="box-border w-full max-w-7xl rounded-md p-4">
