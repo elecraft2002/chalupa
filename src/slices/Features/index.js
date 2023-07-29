@@ -20,7 +20,7 @@ const Features = ({ slice }) => {
           field={slice.primary.text}
           components={{
             heading3: ({ children }) => (
-              <h3 className="spacing mb-0 text-xl leading-[1.9em] tracking-widest md:text-[2.05rem]">
+              <h3 className="spacing mb-0 text-xl leading-[1.9em] tracking-widest md:text-[1.95rem]">
                 {children}
               </h3>
             ),

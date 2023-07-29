@@ -9,38 +9,6 @@ import { Heading } from "@/components/Heading";
  * @param {ReviewsProps}
  */
 
-const Reviews1 = ({ slice, context }) => {
-  return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-      className="flex min-h-[100vh] flex-col items-center justify-center gap-6 py-20 text-center"
-    >
-      <PrismicRichText
-        field={slice.primary.text}
-        components={{
-          heading2: ({ children }) => (
-            <Heading as="h2" size="4xl" className="mb-2 text-red-400 last:mb-0">
-              {children}
-            </Heading>
-          ),
-        }}
-      />
-      <ul className="border-y-2 border-slate-700">
-        {context.reviews.map((item) => {
-          return (
-            <li key={item.id}>
-              <Stars count={4} />
-              <PrismicNextImage field={item.data.image} />
-              <PrismicRichText field={item.data.text} />
-            </li>
-          );
-        })}
-      </ul>
-    </section>
-  );
-};
-
 const Reviews = ({ slice, context }) => {
   return (
     <section
