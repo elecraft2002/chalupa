@@ -37,11 +37,12 @@ const TextWithImages = ({ slice }) => {
                   <Slide triggerOnce>
                     <Swiper
                       // install Swiper modules
-                      modules={[A11y, Autoplay, Pagination]}
+                      modules={[A11y, Pagination, Navigation]}
                       slidesPerView={1}
                       pagination={{ clickable: true }}
                       scrollbar={{ draggable: true }}
                       autoplay={true}
+                      navigation
                       spaceBetween={20}
                     >
                       {prismicH.isFilled.image(item.image) && (
