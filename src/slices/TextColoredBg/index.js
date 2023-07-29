@@ -1,6 +1,7 @@
 import Button from "@/components/Button";
 import { PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
+import { Fade } from "react-awesome-reveal";
 
 /**
  * @typedef {import("@prismicio/client").Content.TextColoredBgSlice} TextColoredBgSlice
@@ -14,9 +15,9 @@ const TextColoredBg = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="flex min-h-[100vh] flex-col items-center justify-center gap-6 py-20 text-center"
     >
-      <span>
+      <Fade triggerOnce>
         <PrismicRichText field={slice.primary.text} />
-      </span>
+      </Fade>
       {slice.primary.button_text && (
         <PrismicNextLink document={slice.primary.link}>
           <Button type="secondary">
