@@ -37,7 +37,7 @@ const TripsNew = ({ slice }) => {
           >
             <PrismicNextImage
               field={slice.primary.summer}
-              className="h-full w-full"
+              className="h-8 w-8"
             />
           </div>
         </Fade>
@@ -58,7 +58,7 @@ const TripsNew = ({ slice }) => {
           >
             <PrismicNextImage
               field={slice.primary.winter}
-              className="h-full w-full"
+              className="h-8 w-8"
             />
           </div>
         </Fade>
