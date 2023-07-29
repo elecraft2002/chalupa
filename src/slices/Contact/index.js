@@ -1,4 +1,6 @@
 import Button from "@/components/Button";
+import { PrismicNextImage } from "@prismicio/next";
+import { PrismicRichText } from "@prismicio/react";
 import axios from "axios";
 import { useState } from "react";
 
@@ -48,9 +50,11 @@ const Contact = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex min-h-[50vh] w-full flex-col items-center justify-center py-20 box-border"
+      className="box-border flex min-h-[50vh] w-full flex-col items-center gap-20 justify-center py-20"
     >
-      <h2>Kontaktujte nás</h2>
+      <span className="text-center">
+        <PrismicRichText field={slice.primary.text} />
+      </span>
       <div className="grid w-screen grid-cols-1 grid-rows-2 items-center justify-center sm:grid-cols-2 sm:grid-rows-1">
         <div className="m-auto box-border h-[50vh] w-full max-w-xl p-4">
           {/* {isLoaded && (
@@ -62,17 +66,20 @@ const Contact = ({ slice }) => {
             <Marker position={center} />
           </GoogleMap>
         )} */}
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d80822.7086265226!2d15.46138965158454!3d50.72532568071398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470ec2181cc6ac75%3A0x400af0f6615e320!2zNTQzIDUxIMWgcGluZGxlcsWvdiBNbMO9bg!5e0!3m2!1scs!2scz!4v1687425183658!5m2!1scs!2scz"
-            width="100%"
-            height="100%"
-            allowFullScreen
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
+
+          <PrismicNextImage
+            field={slice.primary.image}
+            className="h-full w-full rounded-sm object-cover"
+          />
         </div>
         <div className="box-border flex w-full flex-col items-center justify-center p-8 ">
-          <form className="w-full" onSubmit={handleSubmit}>
+          <form
+            className="flex w-full flex-col items-start gap-4"
+            onSubmit={handleSubmit}
+          >
+            <span className="my-4">
+              <PrismicRichText field={slice.primary.adresa} />
+            </span>
             <div class="mb-6 w-full max-w-xl">
               <label
                 /* for="default-input" */ class="mb-2 block text-sm font-medium"
@@ -129,6 +136,16 @@ const Contact = ({ slice }) => {
           </form>
         </div>
       </div>
+      <PrismicRichText field={slice.primary.text_2} />
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d80822.7086265226!2d15.46138965158454!3d50.72532568071398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470ec2181cc6ac75%3A0x400af0f6615e320!2zNTQzIDUxIMWgcGluZGxlcsWvdiBNbMO9bg!5e0!3m2!1scs!2scz!4v1687425183658!5m2!1scs!2scz"
+        width="100%"
+        height="100%"
+        className="min-h-[50vh]"
+        allowFullScreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
     </section>
   );
 };

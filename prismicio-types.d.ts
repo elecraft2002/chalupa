@@ -1098,6 +1098,36 @@ interface ContactSliceDefaultPrimary {
    *
    */
   text: prismic.RichTextField;
+  /**
+   * Image field in *Contact → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.primary.image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<never>;
+  /**
+   * Adresa field in *Contact → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.primary.adresa
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  adresa: prismic.RichTextField;
+  /**
+   * Text 2 field in *Contact → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Text below the sign up form
+   * - **API ID Path**: contact.primary.text_2
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text_2: prismic.RichTextField;
 }
 /**
  * Default variation for Contact Slice
