@@ -39,7 +39,7 @@
           "config": {
             "label": "Image 1",
             "constraint": {},
-            "thumbnails": [{ "name": "Small", "width": 300, "height": null }]
+            "thumbnails": [{ "name": "Small", "width": 300, "height": 300 }]
           }
         },
         "image_2": {
