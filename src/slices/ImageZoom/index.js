@@ -50,7 +50,7 @@ const ImageZoom = ({ slice }) => {
               <PrismicRichText
                 components={{
                   paragraph: (paragraph) => (
-                    <h1 className="text-xl uppercase tracking-widest sm:text-4xl xl:text-8xl">
+                    <h1 className="text-xl uppercase tracking-[.18em] sm:text-4xl xl:text-8xl">
                       {paragraph.children}
                     </h1>
                   ),
@@ -63,7 +63,7 @@ const ImageZoom = ({ slice }) => {
             className="flex h-screen w-screen items-end justify-center text-center"
             translateY={["-100vh", "200vh"]}
           >
-            <Fade triggerOnce className="mb-28 tracking-widest">
+            <Fade triggerOnce className="mb-28 tracking-[.3em]">
               <PrismicRichText field={slice.primary.bottom_text} />
             </Fade>
           </ParallaxBannerLayer>

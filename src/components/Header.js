@@ -112,7 +112,7 @@ export function Header({ locales = [], navigation, settings }) {
             {navigation.data?.links.map((item) => (
               <li
                 key={prismic.asText(item.label)}
-                className="text text-[14px] font-semibold tracking-tight md:text-base"
+                className="text text-[14px]  tracking-tight md:text-base"
               >
                 <PrismicNextLink
                   className={`block rounded py-2 pl-3 pr-4 ${
@@ -131,7 +131,7 @@ export function Header({ locales = [], navigation, settings }) {
             <span aria-hidden={true}>🌐</span>
             <ul className="flex flex-wrap gap-3">
               {locales.map((locale) => (
-                <li key={locale.lang} className="first:font-semibold">
+                <li key={locale.lang} className="first:">
                   <PrismicNextLink
                     href={locale.url}
                     locale={locale.lang}
@@ -160,7 +160,7 @@ export function Header({ locales = [], navigation, settings }) {
             {navigation.data?.links.map((item) => (
               <li
                 key={prismic.asText(item.label)}
-                className="font-semibold tracking-tight text-slate-800"
+                className=" tracking-tight text-slate-800"
               >
                 <PrismicNextLink field={item.link}>
                   <PrismicText field={item.label} />
@@ -172,7 +172,7 @@ export function Header({ locales = [], navigation, settings }) {
             <span aria-hidden={true}>🌐</span>
             <ul className="flex flex-wrap gap-3">
               {locales.map((locale) => (
-                <li key={locale.lang} className="first:font-semibold">
+                <li key={locale.lang} className="first:">
                   <PrismicNextLink
                     href={locale.url}
                     locale={locale.lang}
