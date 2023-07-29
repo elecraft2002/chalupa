@@ -46,7 +46,7 @@ const Reviews = ({ slice, context }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex min-h-[100vh] flex-col items-center justify-center gap-6 py-20 text-center"
+      className="flex min-h-[100vh] flex-col items-center justify-center gap-6 py-40 text-center"
     >
       <PrismicRichText
         field={slice.primary.text}
@@ -63,7 +63,7 @@ const Reviews = ({ slice, context }) => {
           return (
             <li key={index} className="w-full max-w-sm">
               <article>
-                <div class="mb-4 flex items-center space-x-4">
+                <div class="mb-16 flex items-center space-x-4">
                   <figure className="aspect-1 overflow-hidden rounded-full">
                     <PrismicNextImage
                       className="h-full w-full object-cover"
@@ -134,7 +134,7 @@ const Reviews = ({ slice, context }) => {
                   </div>
                 </div>
 
-                <span>
+                <span className="text-left">
                   <PrismicRichText field={item.data.text} />
                 </span>
                 {/* <a
