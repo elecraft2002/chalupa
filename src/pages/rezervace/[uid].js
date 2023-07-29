@@ -51,7 +51,6 @@ export default function Page({
   reviews,
   bookings,
 }) {
-  // console.log(page);
   return (
     <Layout locales={locales} navigation={navigation} settings={settings}>
       <Head>
@@ -85,43 +84,29 @@ export default function Page({
           content={prismic.asImageSrc(settings.data.logo)}
         />
       </Head>
-      <section className="flex min-h-[50] w-full flex-col items-center justify-center bg-slate-900/30">
-        <div className="flex min-h-[50] w-full max-w-7xl flex-col items-center justify-center md:grid md:grid-cols-2">
-          <Gallery images={page.data.gallery} />
-          <div className="flex flex-col p-4">
-            <PrismicRichText field={page.data.title} />
-            <PrismicRichText field={page.data.description} />
-            <ul>
-              {page.data.info.map((item, index) => {
-                return (
-                  <li
-                    key={index}
-                    className="flex justify-between border-t-2 py-4"
-                  >
-                    <span className="flex gap-4">
-                      <PrismicNextImage field={item.icon.Small} />
-                      <PrismicRichText field={item.info_text} />
-                    </span>
-                    <PrismicRichText field={item.info_value} />
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </div>
+      <section className="flex min-h-[50vh] w-full flex-col items-center justify-center gap-20 pt-20">
+        <span className="text-center">
+          <PrismicRichText field={page.data.title} />
+        </span>
+        <span className="text-center">
+          <PrismicRichText field={page.data.description} />
+        </span>
+
         <iframe
           src={prismic.asLink(page.data.iframeurl)}
           id="trevlix-book-app"
           name="trevlix-book-app"
           frameborder="0"
-          className="box-border h-[100vh] w-full p-4 md:h-[50vh] max-w-6xl"
+          className="box-border h-[100vh] w-full max-w-6xl p-4 md:h-[50vh]"
         ></iframe>
       </section>
-      <SliceZone
-        slices={page.data.slices}
-        components={components}
-        context={{ reviews, trips, bookings, settings }}
-      />
+      <div>
+        <SliceZone
+          slices={page.data.slices}
+          components={components}
+          context={{ reviews, trips, bookings, settings }}
+        />
+      </div>
     </Layout>
   );
 }

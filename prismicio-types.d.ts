@@ -30,17 +30,6 @@ interface BookingDocumentData {
    */
   description: prismic.RichTextField;
   /**
-   * Image field in *Booking*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: booking.image
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/image
-   *
-   */
-  image: prismic.ImageField<"Small" | "Big">;
-  /**
    * IframeUrl field in *Booking*
    *
    * - **Field Type**: Link
@@ -51,39 +40,6 @@ interface BookingDocumentData {
    *
    */
   iframeurl: prismic.LinkField;
-  /**
-   * Distance field in *Booking*
-   *
-   * - **Field Type**: Number
-   * - **Placeholder**: Distance in km
-   * - **API ID Path**: booking.distance
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/number
-   *
-   */
-  distance: prismic.NumberField;
-  /**
-   * Gallery field in *Booking*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: booking.gallery[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/group
-   *
-   */
-  gallery: prismic.GroupField<Simplify<BookingDocumentDataGalleryItem>>;
-  /**
-   * Info field in *Booking*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: booking.info[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/group
-   *
-   */
-  info: prismic.GroupField<Simplify<BookingDocumentDataInfoItem>>;
   /**
    * Slice Zone field in *Booking*
    *
@@ -119,62 +75,28 @@ interface BookingDocumentData {
   meta_title: prismic.KeyTextField;
 }
 /**
- * Item in Booking → Gallery
- *
- */
-export interface BookingDocumentDataGalleryItem {
-  /**
-   * Image field in *Booking → Gallery*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: booking.gallery[].image
-   * - **Documentation**: https://prismic.io/docs/core-concepts/image
-   *
-   */
-  image: prismic.ImageField<"Small" | "Big">;
-}
-/**
- * Item in Booking → Info
- *
- */
-export interface BookingDocumentDataInfoItem {
-  /**
-   * Icon field in *Booking → Info*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: booking.info[].icon
-   * - **Documentation**: https://prismic.io/docs/core-concepts/image
-   *
-   */
-  icon: prismic.ImageField<"Small">;
-  /**
-   * Info text field in *Booking → Info*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: booking.info[].info_text
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
-   */
-  info_text: prismic.TitleField;
-  /**
-   * Info value field in *Booking → Info*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: booking.info[].info_value
-   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
-   *
-   */
-  info_value: prismic.RichTextField;
-}
-/**
  * Slice for *Booking → Slice Zone*
  *
  */
-type BookingDocumentDataSlicesSlice = never;
+type BookingDocumentDataSlicesSlice =
+  | CollectionSlice
+  | ContactSlice
+  | ImageZoomSlice
+  | TextColoredBgSlice
+  | SliderSlice
+  | TripsNewSlice
+  | BookingsSlice
+  | FeaturesSlice
+  | TextWithImageSlice
+  | ReviewsSlice
+  | HeroSlice
+  | TextWithFeaturesSlice
+  | ImageSlice
+  | ProcedureSlice
+  | TextWithImagesSlice
+  | RealizaceSlice
+  | GallerySlice
+  | ImageFullScreenSlice;
 /**
  * Booking document from Prismic
  *
@@ -2516,8 +2438,6 @@ declare module "@prismicio/client" {
   namespace Content {
     export type {
       BookingDocumentData,
-      BookingDocumentDataGalleryItem,
-      BookingDocumentDataInfoItem,
       BookingDocumentDataSlicesSlice,
       BookingDocument,
       NavigationDocumentData,

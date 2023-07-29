@@ -25,82 +25,35 @@
           "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
-      "image": {
-        "type": "Image",
-        "config": {
-          "label": "Image",
-          "constraint": {},
-          "thumbnails": [
-            { "name": "Small", "width": 600, "height": null },
-            { "name": "Big", "width": null, "height": 1000 }
-          ]
-        }
-      },
       "iframeurl": {
         "type": "Link",
         "config": { "label": "IframeUrl", "placeholder": "", "select": null }
       },
-      "distance": {
-        "type": "Number",
-        "config": { "label": "Distance", "placeholder": "Distance in km" }
-      },
-      "gallery": {
-        "type": "Group",
-        "config": {
-          "label": "Gallery",
-          "fields": {
-            "image": {
-              "type": "Image",
-              "config": {
-                "label": "Image",
-                "constraint": {},
-                "thumbnails": [
-                  { "name": "Small", "width": 100, "height": null },
-                  { "name": "Big", "width": 1000, "height": null }
-                ]
-              }
-            }
-          }
-        }
-      },
-      "info": {
-        "type": "Group",
-        "config": {
-          "label": "Info",
-          "fields": {
-            "icon": {
-              "type": "Image",
-              "config": {
-                "label": "Icon",
-                "constraint": {},
-                "thumbnails": [{ "name": "Small", "width": null, "height": 28 }]
-              }
-            },
-            "info_text": {
-              "type": "StructuredText",
-              "config": {
-                "label": "Info text",
-                "placeholder": "",
-                "allowTargetBlank": true,
-                "single": "heading4"
-              }
-            },
-            "info_value": {
-              "type": "StructuredText",
-              "config": {
-                "label": "Info value",
-                "placeholder": "",
-                "allowTargetBlank": true,
-                "single": "paragraph"
-              }
-            }
-          }
-        }
-      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
-        "config": { "choices": {} }
+        "config": {
+          "choices": {
+            "collection": { "type": "SharedSlice" },
+            "contact": { "type": "SharedSlice" },
+            "image_zoom": { "type": "SharedSlice" },
+            "text_colored_bg": { "type": "SharedSlice" },
+            "slider": { "type": "SharedSlice" },
+            "trips_new": { "type": "SharedSlice" },
+            "bookings": { "type": "SharedSlice" },
+            "features": { "type": "SharedSlice" },
+            "text_with_image": { "type": "SharedSlice" },
+            "reviews": { "type": "SharedSlice" },
+            "hero": { "type": "SharedSlice" },
+            "text_with_features": { "type": "SharedSlice" },
+            "image": { "type": "SharedSlice" },
+            "procedure": { "type": "SharedSlice" },
+            "text_with_images": { "type": "SharedSlice" },
+            "realizace": { "type": "SharedSlice" },
+            "gallery": { "type": "SharedSlice" },
+            "image_full_screen": { "type": "SharedSlice" }
+          }
+        }
       }
     },
     "SEO & Metadata": {
