@@ -22,7 +22,7 @@ const Realizace = ({ slice, context }) => {
         {context.bookings
           ?.slice(0, slice.primary.visible ? slice.primary.visible : 3)
           .map((project,index) => {
-            return <Fade triggerOnce delay={index*200} key={project.id}><Article type={0} data={project} /></Fade>;
+            return <Fade triggerOnce delay={index*200} key={project.id}>{/* <Article type={0} data={project} /> */}</Fade>;
           })}
       </div>
       {prismicH.asText(slice.primary.button_text) && (
