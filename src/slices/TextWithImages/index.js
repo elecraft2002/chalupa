@@ -36,7 +36,6 @@ const TextWithImages = ({ slice }) => {
                 <figure className={` ${index & 1 && "sm:order-last"}`}>
                   <Slide triggerOnce>
                     <Swiper
-                      // install Swiper modules
                       modules={[A11y, Pagination, Navigation]}
                       slidesPerView={1}
                       pagination={{ clickable: true }}
