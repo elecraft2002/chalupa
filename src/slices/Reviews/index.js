@@ -13,6 +13,7 @@ import useWindowSize from "@/functions/useWindowSize";
 const Reviews = ({ slice, context }) => {
   const { width, height } = useWindowSize();
   const maxSlidesPerView = width / 400 > 4 ? 4 : width / 400;
+  //lol
   return (
     <section
       data-slice-type={slice.slice_type}
