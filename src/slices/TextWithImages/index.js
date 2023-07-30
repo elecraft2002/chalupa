@@ -13,6 +13,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import Head from "next/head";
 /**
  * @typedef {import("@prismicio/client").Content.TextWithImagesSlice} TextWithImagesSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<TextWithImagesSlice>} TextWithImagesProps
@@ -25,6 +26,9 @@ const TextWithImages = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="flex min-h-[50vh] flex-col items-center justify-center gap-16 py-20 "
     >
+      <Head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+      </Head>
       <Fade triggerOnce className="m-4 max-w-7xl text-center">
         <PrismicRichText field={slice.primary.text} />
       </Fade>
