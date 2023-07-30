@@ -1050,6 +1050,46 @@ interface ContactSliceDefaultPrimary {
    *
    */
   text_2: prismic.RichTextField;
+  /**
+   * Loading field in *Contact → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Loading text...
+   * - **API ID Path**: contact.primary.loading
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  loading: prismic.KeyTextField;
+  /**
+   * Loading Icon field in *Contact → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.primary.loading_icon
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  loading_icon: prismic.ImageField<never>;
+  /**
+   * Succes field in *Contact → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.primary.succes
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  succes: prismic.KeyTextField;
+  /**
+   * Error field in *Contact → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact.primary.error
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  error: prismic.KeyTextField;
 }
 /**
  * Default variation for Contact Slice

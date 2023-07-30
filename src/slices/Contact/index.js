@@ -3,13 +3,15 @@ import { PrismicNextImage } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 import axios from "axios";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 /**
  * @typedef {import("@prismicio/client").Content.ContactSlice} ContactSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<ContactSlice>} ContactProps
  * @param {ContactProps}
  */
-const Contact = ({ slice }) => {
+
+const Contact = ({ slice, context }) => {
   /* const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: "AIzaSyBNNnVAI6mPg8SWMszs2ud5anSpDkbW69c",
@@ -24,8 +26,10 @@ const Contact = ({ slice }) => {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoadingState] = useState(false);
+  const [clicked, setClickedState] = useState(false);
 
   const handleSubmit = async (e) => {
+    setClickedState(true);
     e.preventDefault();
     setLoadingState(true);
     // console.log("Submit", { name, email, message });
@@ -42,16 +46,43 @@ const Contact = ({ slice }) => {
       // console.log(res);
     } catch (error) {
       // console.log(error.response.data.error);
+      setLoadingState(false);
       setError(error.response.data.error);
     }
   };
-
+  console.log(context);
   return (
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="box-border flex min-h-[50vh] w-full flex-col items-center gap-20 justify-center py-20"
+      className="box-border flex min-h-[50vh] w-full flex-col items-center justify-center gap-20 py-20"
     >
+      {loading && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          key={"Loading"}
+          className="fixed left-0 top-0 flex h-screen w-screen flex-col items-center justify-center gap-20 bg-slate-950/60 backdrop-blur-sm"
+        >
+          <motion.div
+            animate={{
+              rotate: [0, 360],
+              transition: { repeat: Infinity, duration: 2, repeatDelay: 0.2 },
+            }}
+            key={"Icon"}
+          >
+            <PrismicNextImage
+              field={slice.primary.loading_icon}
+              className="max-w-full"
+            />
+          </motion.div>
+          <p className="text-xl md:text-2xl lg:text-6xl">
+            {slice.primary.loading}
+          </p>
+        </motion.div>
+      )}
       <span className="text-center">
         <PrismicRichText field={slice.primary.text} />
       </span>
@@ -133,6 +164,8 @@ const Contact = ({ slice }) => {
             <Button>
               <input type="submit" />
             </Button>
+            <p className="text-red-600">{error}</p>
+            {clicked && !error && !loading && <p>{slice.primary.succes}</p>}
           </form>
         </div>
       </div>

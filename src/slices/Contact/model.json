@@ -42,6 +42,26 @@
             "allowTargetBlank": true,
             "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
+        },
+        "loading": {
+          "type": "Text",
+          "config": { "label": "Loading", "placeholder": "Loading text..." }
+        },
+        "loading_icon": {
+          "type": "Image",
+          "config": {
+            "label": "Loading Icon",
+            "constraint": { "width": 200, "height": 200 },
+            "thumbnails": []
+          }
+        },
+        "succes": {
+          "type": "Text",
+          "config": { "label": "Succes", "placeholder": "" }
+        },
+        "error": {
+          "type": "Text",
+          "config": { "label": "Error", "placeholder": "" }
         }
       },
       "items": {}

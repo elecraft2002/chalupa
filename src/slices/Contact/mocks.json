@@ -15,7 +15,6 @@
 				]
 			},
 			"image": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2",
@@ -33,6 +32,9 @@
 					},
 					"background": "transparent"
 				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
 			"adresa": {
@@ -56,6 +58,42 @@
 						}
 					}
 				]
+			},
+			"loading": {
+				"__TYPE__": "FieldContent",
+				"value": "influence",
+				"type": "Text"
+			},
+			"loading_icon": {
+				"__TYPE__": "ImageContent",
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2",
+					"width": 5616,
+					"height": 3744
+				},
+				"url": "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?rect=936%2C0%2C3744%2C3744&w=200&h=200",
+				"width": 200,
+				"height": 200,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 936,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"thumbnails": {}
+			},
+			"succes": {
+				"__TYPE__": "FieldContent",
+				"value": "strength",
+				"type": "Text"
+			},
+			"error": {
+				"__TYPE__": "FieldContent",
+				"value": "gift",
+				"type": "Text"
 			}
 		},
 		"items": []

@@ -35,21 +35,22 @@ const Collection = ({ slice }) => {
             className="h-full w-full object-cover"
           />
         </Fade>
+
         <Fade
           delay={200}
-          className="absolute left-4 top-[70%] w-2/3 sm:left-0 sm:top-[55%] sm:h-1/3 sm:w-1/3"
+          className="absolute bottom-0 right-0 w-2/3 sm:left-[60%] sm:z-10 sm:h-1/2 sm:w-1/3 sm:translate-y-1/4"
         >
           <PrismicNextImage
-            field={slice.primary.image_3.Small}
+            field={slice.primary.image_4.Small}
             className="h-full w-full object-cover"
           />
         </Fade>
         <Fade
           delay={200}
-          className="absolute bottom-0 right-0 z-10 w-2/3 sm:left-[60%] sm:h-1/2 sm:w-1/3 sm:translate-y-1/4"
+          className="absolute left-4 top-[60%] w-2/3 sm:left-0 sm:top-[55%] sm:h-1/3 sm:w-1/3"
         >
           <PrismicNextImage
-            field={slice.primary.image_4.Small}
+            field={slice.primary.image_3.Small}
             className="h-full w-full object-cover"
           />
         </Fade>

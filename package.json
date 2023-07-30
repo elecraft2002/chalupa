@@ -8,6 +8,7 @@
     "dev": "concurrently \"npm:next:dev\" \"npm:slicemachine\" --names \"next,slicemachine\" --prefix-colors blue,magenta",
     "next:dev": "next",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint",
     "slicemachine": "start-slicemachine",
@@ -27,6 +28,7 @@
     "framer-motion": "^10.13.1",
     "lightgallery": "^2.7.1",
     "next": "^13.4.4",
+    "next-sitemap": "^4.1.8",
     "nextjs-google-analytics": "^2.3.3",
     "nodemailer": "^6.9.3",
     "react": "^18.2.0",
@@ -38,6 +40,7 @@
     "react-show-more-text": "^1.6.2",
     "react-spring": "^9.7.1",
     "sass": "^1.63.6",
+    "sharp": "^0.32.4",
     "styled-components": "^6.0.0-rc.3",
     "swiper": "^9.3.2"
   },

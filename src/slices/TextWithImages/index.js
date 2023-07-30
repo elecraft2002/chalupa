@@ -13,7 +13,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { Heading } from "@/components/Heading";
 /**
  * @typedef {import("@prismicio/client").Content.TextWithImagesSlice} TextWithImagesSlice
  * @typedef {import("@prismicio/react").SliceComponentProps<TextWithImagesSlice>} TextWithImagesProps
@@ -45,6 +44,10 @@ const TextWithImages = ({ slice }) => {
                       autoplay={true}
                       navigation
                       spaceBetween={20}
+                      style={{
+                        "--swiper-pagination-color": "#F1DBA8",
+                        "--swiper-navigation-color": "#F1DBA8",
+                      }}
                     >
                       {prismicH.isFilled.image(item.image) && (
                         <SwiperSlide
@@ -97,7 +100,7 @@ const TextWithImages = ({ slice }) => {
                   <span className="m-4 flex flex-col items-center text-center">
                     <PrismicRichText
                       field={item.text}
-                     /*  components={{
+                      /*  components={{
                         heading2: ({ children }) => (
                           <Heading
                             as="h2"

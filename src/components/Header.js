@@ -69,14 +69,14 @@ export function Header({ locales = [], navigation, settings }) {
         </PrismicNextLink>
         <div class="flex text-[14px] md:order-2 md:m-auto md:text-base">
           {prismic.isFilled.richText(navigation.data.button_text) && (
-            <button className="rounded border border-[#F1DBA8] px-9 py-2 transition-all hover:scale-105 hover:bg-[#F1DBA8] hover:text-primary">
-              <PrismicNextLink
+            <PrismicNextLink
                 className="flex items-center"
                 field={navigation.data.button_link}
               >
+            <button className="rounded border border-[#F1DBA8] px-9 py-2 transition-all hover:scale-105 hover:bg-[#F1DBA8] hover:text-primary">
                 <PrismicRichText field={navigation.data.button_text} />
-              </PrismicNextLink>
             </button>
+              </PrismicNextLink>
           )}
           <button
             data-collapse-toggle="navbar-sticky"
