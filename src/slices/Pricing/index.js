@@ -1,3 +1,5 @@
+import Button from "@/components/Button";
+import { PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText } from "@prismicio/react";
 import { Fade } from "react-awesome-reveal";
 
