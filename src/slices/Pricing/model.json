@@ -23,7 +23,7 @@
         }
       },
       "items": {
-        "text": {
+        "title": {
           "type": "StructuredText",
           "config": {
             "label": "Title",

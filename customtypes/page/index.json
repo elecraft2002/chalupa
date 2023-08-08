@@ -38,7 +38,8 @@
             "collection": { "type": "SharedSlice" },
             "image_zoom": { "type": "SharedSlice" },
             "text_colored_bg": { "type": "SharedSlice" },
-            "slider": { "type": "SharedSlice" }
+            "slider": { "type": "SharedSlice" },
+            "pricing": { "type": "SharedSlice" }
           }
         }
       }

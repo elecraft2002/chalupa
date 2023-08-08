@@ -47,7 +47,7 @@ export function Header({ locales = [], navigation, settings }) {
       class={`fixed left-0 top-0 ${
         isAtTop && "md:pt-12"
       } z-50 w-full overflow-hidden bg-primary/80 backdrop-blur-3xl transition-all duration-700 ${
-        scrollDir === "down" ? "md:h-0" : `md:h-[${80 + 48 * isAtTop}px]`
+        scrollDir === "down" && "md:-translate-y-full"
       }`}
     >
       <div

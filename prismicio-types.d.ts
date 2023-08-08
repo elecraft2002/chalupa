@@ -258,7 +258,8 @@ type PageDocumentDataSlicesSlice =
   | CollectionSlice
   | ImageZoomSlice
   | TextColoredBgSlice
-  | SliderSlice;
+  | SliderSlice
+  | PricingSlice;
 /**
  * Page document from Prismic
  *
@@ -1649,11 +1650,11 @@ export interface PricingSliceDefaultItem {
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: pricing.items[].text
+   * - **API ID Path**: pricing.items[].title
    * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
    *
    */
-  text: prismic.RichTextField;
+  title: prismic.RichTextField;
   /**
    * Price field in *Pricing → Items*
    *
