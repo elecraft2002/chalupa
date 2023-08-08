@@ -12,6 +12,7 @@ export const components = {
   image: dynamic(() => import("./Image")),
   image_full_screen: dynamic(() => import("./ImageFullScreen")),
   image_zoom: dynamic(() => import("./ImageZoom")),
+  pricing: dynamic(() => import("./Pricing")),
   procedure: dynamic(() => import("./Procedure")),
   realizace: dynamic(() => import("./Trips")),
   reference: dynamic(() => import("./Reference")),

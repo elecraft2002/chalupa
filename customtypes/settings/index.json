@@ -21,7 +21,7 @@
           "label": "Logo",
           "constraint": {},
           "thumbnails": [
-            { "name": "Icon", "width": 100, "height": null },
+            { "name": "Icon", "width": 48, "height": 48 },
             { "name": "Navigation", "width": 80, "height": null }
           ]
         }

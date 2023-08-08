@@ -1,0 +1,86 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Proident consequat dolor pariatur veniam voluptate. Reprehenderit voluptate id minim nulla reprehenderit eu culpa minim non laborum incididunt amet aliquip officia tempor. Ipsum dolore adipisicing ad fugiat duis sint quis pariatur sunt aliqua dolor."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"text",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Reprehenderit laboris sint ut eu mollit enim sit anim id. Incididunt eiusmod commodo commodo voluptate non officia elit commodo deserunt tempor et."
+									}
+								}
+							]
+						}
+					],
+					[
+						"price",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Labore occaecat pariatur id pariatur minim. Consectetur dolor laborum excepteur mollit ut minim velit."
+									}
+								}
+							]
+						}
+					],
+					[
+						"description",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Est laborum dolor veniam incididunt incididunt pariatur proident ea ipsum. Exercitation velit mollit sint officia elit magna culpa nisi Lorem ex."
+									}
+								}
+							]
+						}
+					],
+					[
+						"button_link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "http://google.com"
+							}
+						}
+					],
+					[
+						"button_text",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "piece",
+							"type": "Text"
+						}
+					]
+				]
+			}
+		]
+	}
+]

@@ -1624,6 +1624,108 @@ export type ImageZoomSlice = prismic.SharedSlice<
   ImageZoomSliceVariation
 >;
 /**
+ * Primary content in Pricing → Primary
+ *
+ */
+interface PricingSliceDefaultPrimary {
+  /**
+   * Text field in *Pricing → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Text above prices...
+   * - **API ID Path**: pricing.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+}
+/**
+ * Item in Pricing → Items
+ *
+ */
+export interface PricingSliceDefaultItem {
+  /**
+   * Title field in *Pricing → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing.items[].text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+  /**
+   * Price field in *Pricing → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing.items[].price
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  price: prismic.RichTextField;
+  /**
+   * Description field in *Pricing → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing.items[].description
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  description: prismic.RichTextField;
+  /**
+   * Button Link field in *Pricing → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing.items[].button_link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  button_link: prismic.LinkField;
+  /**
+   * Button Text field in *Pricing → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pricing.items[].button_text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  button_text: prismic.KeyTextField;
+}
+/**
+ * Default variation for Pricing Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PricingSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PricingSliceDefaultPrimary>,
+  Simplify<PricingSliceDefaultItem>
+>;
+/**
+ * Slice variation for *Pricing*
+ *
+ */
+type PricingSliceVariation = PricingSliceDefault;
+/**
+ * Pricing Shared Slice
+ *
+ * - **API ID**: `pricing`
+ * - **Description**: `Pricing`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PricingSlice = prismic.SharedSlice<
+  "pricing",
+  PricingSliceVariation
+>;
+/**
  * Primary content in Procedure → Primary
  *
  */
@@ -2543,6 +2645,11 @@ declare module "@prismicio/client" {
       ImageZoomSliceDefault,
       ImageZoomSliceVariation,
       ImageZoomSlice,
+      PricingSliceDefaultPrimary,
+      PricingSliceDefaultItem,
+      PricingSliceDefault,
+      PricingSliceVariation,
+      PricingSlice,
       ProcedureSliceDefaultPrimary,
       ProcedureSliceDefaultItem,
       ProcedureSliceDefault,

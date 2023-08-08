@@ -14,7 +14,6 @@ const Procedure = ({ slice }) => {
       data-slice-variation={slice.variation}
       className="flex min-h-[100vh] flex-col items-center justify-center gap-20 py-40 text-center"
     >
-      Procedure
       <div className="grid w-screen grid-cols-1 grid-rows-2 items-center sm:grid-cols-2 sm:grid-rows-1">
         <div className="m-4 flex flex-col items-center gap-8">
           {slice.variation === "procedireWithImage" && (
