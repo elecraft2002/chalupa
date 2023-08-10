@@ -13,7 +13,7 @@ const Features = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex min-h-[100vh] flex-col items-center justify-center gap-20 py-40 text-center"
+      className="flex md:min-h-[100vh] flex-col items-center justify-center gap-20 md:py-40 text-center"
     >
       <Fade triggerOnce className="mt-28">
         <PrismicRichText

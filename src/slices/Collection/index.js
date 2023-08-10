@@ -28,13 +28,13 @@ const Collection = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="relative my-40 flex h-[200vh] w-full flex-col items-center justify-center py-20 sm:h-[150vh]"
+      className="relative my-40 flex h-[200vh] w-full flex-col items-center justify-center py-20 sm:h-[200vh]"
     >
       <ul className="w-full">
         <LightGallery
           speed={500}
           plugins={[lgThumbnail, lgZoom]}
-          elementClassNames="absolute top-0 h-[200vh] w-full sm:h-[150vh]"
+          elementClassNames="absolute top-0 h-[200vh] w-full sm:h-[200vh]"
         >
           <li data-src={prismic.asImageSrc(slice.primary.image_1)}>
             <Fade
