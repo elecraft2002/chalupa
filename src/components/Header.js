@@ -63,7 +63,7 @@ export function Header({ locales = [], navigation, settings }) {
           {prismic.isFilled.image(settings.data.logo) && (
             <PrismicNextImage
               field={settings.data.logo.Navigation}
-              className="h-full w-full scale-[2.5]  object-cover"
+              className="h-full w-full md:scale-[2.5]  object-cover"
             />
           )}
         </PrismicNextLink>

@@ -31,7 +31,7 @@ const Reviews = ({ slice, context }) => {
               }} */
         />
       </span>
-      <ul className="flex w-full flex-wrap justify-evenly gap-6">
+      <ul className="flex w-full flex-wrap justify-evenly gap-6 px-4">
         {context.reviews.map((item, index) => {
           console.log(item.data.image)
           return (
