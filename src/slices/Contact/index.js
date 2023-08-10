@@ -125,7 +125,7 @@ const Contact = ({ slice, context }) => {
                 placeholder="Jméno"
                 type="text"
                 id="default-input"
-                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm  text-primary focus:border-blue-500 focus:ring-blue-500"
+                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm  text-secondary focus:border-blue-500 focus:ring-blue-500"
               />
             </div>
 
@@ -143,7 +143,7 @@ const Contact = ({ slice, context }) => {
                 type="email"
                 placeholder="Email"
                 id="default-input"
-                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm  text-primary focus:border-blue-500 focus:ring-blue-500"
+                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm  text-secondary focus:border-blue-500 focus:ring-blue-500"
               />
             </div>
 
@@ -158,7 +158,7 @@ const Contact = ({ slice, context }) => {
                 placeholder="Zpráva..."
                 type="text"
                 id="large-input"
-                class="sm:text-md block w-full rounded-lg border border-gray-300 bg-gray-50 p-4  text-primary focus:border-blue-500 focus:ring-blue-500"
+                class="sm:text-md block w-full rounded-lg border border-gray-300 bg-gray-50 p-4  text-secondary focus:border-blue-500 focus:ring-blue-500"
               />
             </div>
             <Button>
