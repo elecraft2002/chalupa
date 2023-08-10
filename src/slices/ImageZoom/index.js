@@ -50,7 +50,7 @@ const ImageZoom = ({ slice }) => {
               <PrismicRichText
                 components={{
                   paragraph: (paragraph) => (
-                    <h1 className="text-xl uppercase tracking-[.18em] text-center sm:text-4xl xl:text-8xl">
+                    <h1 className={`text-xl uppercase tracking-[.18em] text-center sm:text-4xl xl:text-8xl`}>
                       {paragraph.children}
                     </h1>
                   ),

@@ -64,7 +64,10 @@ export default function Page({
         />
         <meta
           property="og:image"
-          content={prismic.asImageSrc(settings.data.logo)}
+          content={
+            prismic.asImageSrc(page.data.meta_image) ||
+            prismic.asImageSrc(settings.data.logo)
+          }
         />
       </Head>
       <section className="flex min-h-[50] w-full flex-col items-center justify-center bg-slate-950/80">

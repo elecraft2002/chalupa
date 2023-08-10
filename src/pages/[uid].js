@@ -46,7 +46,10 @@ export default function Page({
         />
         <meta
           property="og:image"
-          content={prismic.asImageSrc(settings.data.logo)}
+          content={
+            prismic.asImageSrc(page.data.meta_image) ||
+            prismic.asImageSrc(settings.data.logo)
+          }
         />
       </Head>
       <SliceZone

@@ -69,7 +69,10 @@ export default function Home({
         />
         <meta
           property="og:image"
-          content={prismic.asImageSrc(settings.data.logo)}
+          content={
+            prismic.asImageSrc(page.data.meta_image) ||
+            prismic.asImageSrc(settings.data.logo)
+          }
         />
       </Head>
       {/* <ParallaxBanner className="h-screen w-screen">
