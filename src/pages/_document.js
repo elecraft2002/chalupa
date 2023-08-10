@@ -13,7 +13,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body className="overflow-x-hidden antialiased bg-primary">
+      <body className="overflow-x-hidden antialiased bg-primary m-0">
         <Main/>
         <NextScript />
       </body>

@@ -55,8 +55,12 @@ export default function Page({
         />
         <meta
           property="og:image"
-          content={prismic.asImageSrc(settings.data.logo)}
+          content={
+            prismic.asImageSrc(page.data.meta_image) ||
+            prismic.asImageSrc(settings.data.logo)
+          }
         />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <section className="flex min-h-[50vh] w-full flex-col items-center justify-center gap-20 pt-20">
         <span className="text-center">

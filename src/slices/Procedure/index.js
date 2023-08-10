@@ -46,7 +46,7 @@ const Procedure = ({ slice }) => {
                   >
                     {i + 1}
                   </span>
-                  <span className="mt-4 w-full">
+                  <span className="mt-4 w-full text-left">
                     <PrismicRichText field={item.text} />
                   </span>
                 </li>

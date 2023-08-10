@@ -22,7 +22,7 @@ const Pricing = ({ slice }) => {
         {slice.items.map((item, index) => {
           return (
             <Fade triggerOnce key={index}>
-              <li className="p-8 flex-col gap-8 border rounded-lg">
+              <li className="p-8 flex-col gap-8 border rounded-lg max-w-xs">
                 <span>
                   <PrismicRichText field={item.title} />
                 </span>

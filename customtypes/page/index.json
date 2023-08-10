@@ -58,6 +58,14 @@
           "placeholder": "A title of the page used for social media and search engines"
         },
         "type": "Text"
+      },
+      "meta_image": {
+        "type": "Image",
+        "config": {
+          "label": "Meta Image",
+          "constraint": { "width": 1200, "height": 630 },
+          "thumbnails": []
+        }
       }
     }
   }

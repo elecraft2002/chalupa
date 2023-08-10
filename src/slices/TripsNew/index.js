@@ -22,9 +22,9 @@ const TripsNew = ({ slice }) => {
       <div className="flex flex-wrap gap-8">
         <Fade triggerOnce className="m-4 max-w-7xl text-center">
           <div
-            className={`block h-16 cursor-pointer rounded-full p-4 transition-all hover:scale-110 ${
+            className={`block h-16 cursor-pointer rounded-full p-4 transition-all hover:scale-110 bg-secondary ${
               filter === "Summer"
-                ? "scale-110 bg-slate-100/80 drop-shadow-md"
+                ? "scale-110 bg-slate-500/80 drop-shadow-md"
                 : ""
             }`}
             onClick={() => {
@@ -43,9 +43,9 @@ const TripsNew = ({ slice }) => {
         </Fade>
         <Fade triggerOnce className="m-4 max-w-7xl text-center">
           <div
-            className={`block h-16 cursor-pointer rounded-full p-4 transition-all hover:scale-110 ${
+            className={`block h-16 cursor-pointer rounded-full p-4 transition-all hover:scale-110 bg-secondary ${
               filter === "Winter"
-                ? "scale-110 bg-slate-100/80 drop-shadow-md"
+                ? "scale-110 bg-slate-500/80 drop-shadow-md"
                 : ""
             }`}
             onClick={() => {

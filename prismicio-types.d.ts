@@ -73,6 +73,17 @@ interface BookingDocumentData {
    *
    */
   meta_title: prismic.KeyTextField;
+  /**
+   * Meta Image field in *Booking*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: booking.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  meta_image: prismic.ImageField<never>;
 }
 /**
  * Slice for *Booking → Slice Zone*
@@ -235,6 +246,17 @@ interface PageDocumentData {
    *
    */
   meta_title: prismic.KeyTextField;
+  /**
+   * Meta Image field in *Page*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  meta_image: prismic.ImageField<never>;
 }
 /**
  * Slice for *Page → Slice Zone*
@@ -350,6 +372,17 @@ interface ReferenceDocumentData {
    *
    */
   meta_title: prismic.KeyTextField;
+  /**
+   * Meta Image field in *Reference*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: reference.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  meta_image: prismic.ImageField<never>;
 }
 /**
  * Slice for *Reference → Slice Zone*
@@ -452,17 +485,6 @@ interface ReviewDocumentData {
    */
   meta_description: prismic.KeyTextField;
   /**
-   * Meta Image field in *Review*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: review.meta_image
-   * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/core-concepts/image
-   *
-   */
-  meta_image: prismic.ImageField<never>;
-  /**
    * Meta Title field in *Review*
    *
    * - **Field Type**: Text
@@ -473,6 +495,17 @@ interface ReviewDocumentData {
    *
    */
   meta_title: prismic.KeyTextField;
+  /**
+   * Meta Image field in *Review*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: review.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  meta_image: prismic.ImageField<never>;
 }
 /**
  * Slice for *Review → Slice Zone*
@@ -747,6 +780,17 @@ interface TripDocumentData {
    *
    */
   meta_title: prismic.KeyTextField;
+  /**
+   * Meta Image field in *Trip*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: trip.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  meta_image: prismic.ImageField<never>;
 }
 /**
  * Item in Trip → Gallery
