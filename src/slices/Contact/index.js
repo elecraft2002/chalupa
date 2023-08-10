@@ -171,7 +171,7 @@ const Contact = ({ slice, context }) => {
       </div>
       <PrismicRichText field={slice.primary.text_2} />
       <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d80822.7086265226!2d15.46138965158454!3d50.72532568071398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470ec2181cc6ac75%3A0x400af0f6615e320!2zNTQzIDUxIMWgcGluZGxlcsWvdiBNbMO9bg!5e0!3m2!1scs!2scz!4v1687425183658!5m2!1scs!2scz"
+        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2528.9061944338073!2d15.6208175!3d50.6660022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNTDCsDM5JzU3LjYiTiAxNcKwMzcnMTQuOSJF!5e0!3m2!1scs!2scz!4v1691685641433!5m2!1scs!2scz"
         width="100%"
         height="100%"
         className="min-h-[50vh]"

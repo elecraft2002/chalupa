@@ -14,7 +14,7 @@ const TripsNew = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex min-h-[100vh] flex-col items-center justify-center gap-20 py-20 text-center"
+      className="flex min-h-[100vh] flex-col items-center justify-center gap-12 py-20 text-center"
     >
       <Fade triggerOnce className="m-4 max-w-7xl text-center">
         <PrismicRichText field={slice.primary.text} />
@@ -64,7 +64,7 @@ const TripsNew = ({ slice }) => {
         </Fade>
       </div>
 
-      <ul className="flex flex-wrap items-start justify-between gap-8">
+      <ul className="flex flex-wrap items-start justify-between gap-8 m-4">
         {slice.items.map((item, index) => {
           if (filter) {
             if (item.season !== filter && item.season !== "Both") return null;
@@ -72,13 +72,13 @@ const TripsNew = ({ slice }) => {
           return (
             <Fade key={index} delay={index * 100} triggerOnce>
               <li className="max-w-sm">
-                <figure className="w-full">
+                <figure className="w-full pr-4">
                   <PrismicNextImage
                     field={item.image.Small}
-                    className="box-border h-full w-full pr-4"
+                    className="box-border h-full w-full rounded-md"
                   />
                 </figure>
-                <div className="relative -mt-4 ml-4 bg-secondary/90 p-4 text-primary">
+                <div className="relative -mt-4 ml-4 bg-secondary/90 p-4 text-primary rounded-md">
                   <PrismicRichText field={item.text} />
                 </div>
               </li>
