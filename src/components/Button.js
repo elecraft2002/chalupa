@@ -9,7 +9,7 @@ export default function Button({ children, type = "primary" }) {
     );
   if (type == "secondary")
     return (
-      <button className="rounded border border-slate-100 px-9 py-2 hover:scale-105 transition-all hover:bg-secondary hover:text-primary">
+      <button className="rounded border border-secondary px-9 py-2 hover:scale-105 transition-all hover:bg-secondary hover:text-primary">
         {children}
       </button>
     );

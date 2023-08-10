@@ -25,7 +25,7 @@ const ImageZoom = ({ slice }) => {
       data-slice-variation={slice.variation}
     >
       {screenWidth > 500 ? (
-        <ParallaxBanner className="h-[200vh] w-screen">
+        <ParallaxBanner className="h-[200vh] w-screen text-center">
           <ParallaxBannerLayer
             className="flex h-screen w-screen items-center justify-center"
             onProgressChange={(e) => updateProgress(e)}
@@ -49,10 +49,17 @@ const ImageZoom = ({ slice }) => {
             <Fade delay={500} triggerOnce>
               <PrismicRichText
                 components={{
-                  paragraph: (paragraph) => (
-                    <h1 className={`text-xl uppercase tracking-[.18em] text-center sm:text-4xl xl:text-8xl`}>
+                  heading3: (paragraph) => (
+                    <h1
+                      className={`text-center text-xl uppercase tracking-[.18em] sm:text-4xl xl:text-8xl`}
+                    >
                       {paragraph.children}
                     </h1>
+                  ),
+                  paragraph: (paragraph) => (
+                    <h2 className="mb-8 text-center text-xl uppercase tracking-[.18em] sm:text-4xl">
+                      {paragraph.children}
+                    </h2>
                   ),
                 }}
                 field={slice.primary.text}
