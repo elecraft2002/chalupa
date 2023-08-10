@@ -18,24 +18,24 @@ const Pricing = ({ slice }) => {
       <Fade triggerOnce>
         <PrismicRichText field={slice.primary.text} />
       </Fade>
-      <ul>
+      <ul className="flex flex-wrap gap-16">
         {slice.items.map((item, index) => {
           return (
             <Fade triggerOnce key={index}>
-              <li className="max-w-xs flex-col gap-16 rounded-lg border p-8">
+              <li className="max-w-xs flex flex-col gap-10 rounded-lg border border-[#F1DBA8] p-8">
                 <span className="font-semibold">
                   <PrismicRichText field={item.title} />
                 </span>
-                <span className="m-16">
+                <span >
                   <PrismicRichText field={item.price} />
                 </span>
-                <span>
+                <span >
                   <PrismicRichText field={item.description} />
                 </span>
-                {item.button_link.id && (
+                {item.button_text && (
                   <PrismicNextLink field={item.button_link}>
-                    <Button>
-                      <PrismicRichText field={item.button_text} />
+                    <Button type="secondary">
+                    {item.button_text}
                     </Button>
                   </PrismicNextLink>
                 )}
