@@ -43,7 +43,7 @@ const ImageZoom = ({ slice }) => {
             </Fade>
           </ParallaxBannerLayer>
           <ParallaxBannerLayer
-            className="flex h-screen w-screen items-center justify-cente text-center"
+            className="flex h-screen w-screen items-center justify-center text-center"
             translateY={["-100vh", "200vh"]}
           >
             <Fade delay={500} triggerOnce className=" text-center">
