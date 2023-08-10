@@ -199,6 +199,7 @@ export function Footer({ settings, navigation }) {
             </Link>
           </div>
         </div>
+        <p className="text-center m-4">STRÁŽNÉ</p>
         <span class="text-center text-sm text-gray-500 dark:text-gray-400">
           <PrismicRichText field={settings.data.copyright} />
         </span>
