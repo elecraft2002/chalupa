@@ -13,7 +13,7 @@ const Pricing = ({ slice }) => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="flex min-h-[100vh] flex-col items-center justify-center gap-20 py-40 text-center"
+      className="flex min-h-[100vh] flex-col items-center justify-center gap-20 py-20 text-center"
     >
       <Fade triggerOnce>
         <PrismicRichText field={slice.primary.text} />
