@@ -18,7 +18,7 @@ const Pricing = ({ slice }) => {
       <Fade triggerOnce>
         <PrismicRichText field={slice.primary.text} />
       </Fade>
-      <ul className="flex flex-wrap gap-16">
+      <ul className="flex flex-wrap justify-center gap-16 m-4">
         {slice.items.map((item, index) => {
           return (
             <Fade triggerOnce key={index}>
