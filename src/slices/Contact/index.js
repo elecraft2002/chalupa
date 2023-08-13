@@ -75,7 +75,7 @@ const Contact = ({ slice, context }) => {
           >
             <PrismicNextImage
               field={slice.primary.loading_icon}
-              className="max-w-full"
+              className="max-w-full "
             />
           </motion.div>
           <p className="text-xl md:text-2xl lg:text-6xl">
@@ -100,7 +100,7 @@ const Contact = ({ slice, context }) => {
 
           <PrismicNextImage
             field={slice.primary.image}
-            className="h-full w-full rounded-sm object-cover"
+            className="h-full w-full rounded-md object-cover "
           />
         </div>
         <div className="box-border flex w-full flex-col items-center justify-center p-8 ">

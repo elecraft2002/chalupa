@@ -44,7 +44,7 @@ const Collection = ({ slice }) => {
               <a href={prismic.asImageSrc(slice.primary.image_1)}>
                 <PrismicNextImage
                   field={slice.primary.image_1}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover rounded-md"
                 />
               </a>
             </Fade>
@@ -58,7 +58,7 @@ const Collection = ({ slice }) => {
               <a href={prismic.asImageSrc(slice.primary.image_2)}>
                 <PrismicNextImage
                   field={slice.primary.image_2.Small}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover rounded-md"
                 />
               </a>
             </Fade>
@@ -72,7 +72,7 @@ const Collection = ({ slice }) => {
               <a href={prismic.asImageSrc(slice.primary.image_4)}>
                 <PrismicNextImage
                   field={slice.primary.image_4.Small}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover rounded-md"
                 />
               </a>
             </Fade>
@@ -86,7 +86,7 @@ const Collection = ({ slice }) => {
               <a href={prismic.asImageSrc(slice.primary.image_3)}>
                 <PrismicNextImage
                   field={slice.primary.image_3.Small}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover rounded-md"
                 />
               </a>
             </Fade>
