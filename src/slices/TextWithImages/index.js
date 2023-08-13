@@ -87,6 +87,7 @@ const TextWithImages = ({ slice }) => {
                                   return null;
                                 return (
                                   <a
+                                  key={galleryIndex}
                                     href={prismic.asImageSrc(galleryImage)}
                                     data-src={prismic.asImageSrc(galleryImage)}
                                   >
