@@ -153,6 +153,7 @@ function SignUpForm({ settings }) {
 }
 
 export function Footer({ settings, navigation }) {
+  console.log(navigation.data?.footer_links);
   return (
     <>
       {/* <SignUpForm settings={settings} /> */}
@@ -171,16 +172,22 @@ export function Footer({ settings, navigation }) {
               </span>
             </Link>
             <ul class="mb-6 flex flex-wrap items-center justify-center gap-5 ">
-              {navigation.data?.links.map((item) => (
-                <li
-                  key={prismic.asText(item.label)}
-                  className="tracking-tight hover:underline"
-                >
-                  <PrismicNextLink field={item.link}>
-                    <PrismicText field={item.label} />
-                  </PrismicNextLink>
-                </li>
-              ))}
+              {[
+                ...navigation.data?.links,
+                ...navigation.data?.footer_links,
+              ].map((item) => {
+                console.log(item);
+                return (
+                  <li
+                    key={prismic.asText(item.label)}
+                    className="tracking-tight hover:underline"
+                  >
+                    <PrismicNextLink field={item.link}>
+                      <PrismicText field={item.label} />
+                    </PrismicNextLink>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -199,7 +206,7 @@ export function Footer({ settings, navigation }) {
             </Link>
           </div>
         </div>
-        <p className="text-center m-4">STRÁŽNÉ</p>
+        <p className="m-4 text-center">STRÁŽNÉ</p>
         <span class="text-center text-sm text-gray-500 dark:text-gray-400">
           <PrismicRichText field={settings.data.copyright} />
         </span>

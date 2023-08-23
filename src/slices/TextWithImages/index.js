@@ -46,9 +46,11 @@ const TextWithImages = ({ slice }) => {
           href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
         />
       </Head>
-      <Fade triggerOnce className="m-4 max-w-7xl text-center">
-        <PrismicRichText field={slice.primary.text} />
-      </Fade>
+      {prismic.isFilled.richText(slice.primary.text) && (
+        <Fade triggerOnce className="m-4 max-w-7xl text-center">
+          <PrismicRichText field={slice.primary.text} />
+        </Fade>
+      )}
       <ul className="box-border  p-4">
         {slice.items.map((item, index) => {
           const images = [item.image, item.image_2, item.image_3, item.image_4];
@@ -87,7 +89,7 @@ const TextWithImages = ({ slice }) => {
                                   return null;
                                 return (
                                   <a
-                                  key={galleryIndex}
+                                    key={galleryIndex}
                                     href={prismic.asImageSrc(galleryImage)}
                                     data-src={prismic.asImageSrc(galleryImage)}
                                   >
@@ -105,7 +107,6 @@ const TextWithImages = ({ slice }) => {
                                   </a>
                                 );
                               })}
-                              
                             </LightGallery>
                           </SwiperSlide>
                         );

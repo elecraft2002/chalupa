@@ -158,6 +158,19 @@ interface NavigationDocumentData {
    *
    */
   button_text: prismic.RichTextField;
+  /**
+   * Footer Links field in *Navigation*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: navigation.footer_links[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/group
+   *
+   */
+  footer_links: prismic.GroupField<
+    Simplify<NavigationDocumentDataFooterLinksItem>
+  >;
 }
 /**
  * Item in Navigation → Links
@@ -180,6 +193,32 @@ export interface NavigationDocumentDataLinksItem {
    * - **Field Type**: Link
    * - **Placeholder**: Link for navigation item
    * - **API ID Path**: navigation.links[].link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  link: prismic.LinkField;
+}
+/**
+ * Item in Navigation → Footer Links
+ *
+ */
+export interface NavigationDocumentDataFooterLinksItem {
+  /**
+   * Label field in *Navigation → Footer Links*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Optional - Label for the link
+   * - **API ID Path**: navigation.footer_links[].label
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  label: prismic.TitleField;
+  /**
+   * Link field in *Navigation → Footer Links*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Link for navigation item
+   * - **API ID Path**: navigation.footer_links[].link
    * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
    *
    */
@@ -282,7 +321,9 @@ type PageDocumentDataSlicesSlice =
   | TextColoredBgSlice
   | SliderSlice
   | PricingSlice
-  | GalleryNewSlice;
+  | GalleryNewSlice
+  | PartnersSlice
+  | IconsSlice;
 /**
  * Page document from Prismic
  *
@@ -1527,6 +1568,48 @@ type HeroSliceVariation = HeroSliceDefault | HeroSliceWithButton;
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 /**
+ * Primary content in Icons → Primary
+ *
+ */
+interface IconsSliceDefaultPrimary {
+  /**
+   * Text field in *Icons → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icons.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+}
+/**
+ * Item in Icons → Items
+ *
+ */
+export interface IconsSliceDefaultItem {
+  /**
+   * Icon field in *Icons → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icons.items[].icon
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  icon: prismic.ImageField<never>;
+  /**
+   * Text field in *Icons → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: icons.items[].text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+}
+/**
  * Default variation for Icons Slice
  *
  * - **API ID**: `default`
@@ -1536,8 +1619,8 @@ export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
  */
 export type IconsSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
-  never
+  Simplify<IconsSliceDefaultPrimary>,
+  Simplify<IconsSliceDefaultItem>
 >;
 /**
  * Slice variation for *Icons*
@@ -1788,6 +1871,78 @@ type ImageZoomSliceVariation = ImageZoomSliceDefault;
 export type ImageZoomSlice = prismic.SharedSlice<
   "image_zoom",
   ImageZoomSliceVariation
+>;
+/**
+ * Primary content in Partners → Primary
+ *
+ */
+interface PartnersSliceDefaultPrimary {
+  /**
+   * Text field in *Partners → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Text above partners
+   * - **API ID Path**: partners.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+}
+/**
+ * Item in Partners → Items
+ *
+ */
+export interface PartnersSliceDefaultItem {
+  /**
+   * Image field in *Partners → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partners.items[].image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<"Small">;
+  /**
+   * Link field in *Partners → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: partners.items[].link
+   * - **Documentation**: https://prismic.io/docs/core-concepts/link-content-relationship
+   *
+   */
+  link: prismic.LinkField;
+}
+/**
+ * Default variation for Partners Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PartnersSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PartnersSliceDefaultPrimary>,
+  Simplify<PartnersSliceDefaultItem>
+>;
+/**
+ * Slice variation for *Partners*
+ *
+ */
+type PartnersSliceVariation = PartnersSliceDefault;
+/**
+ * Partners Shared Slice
+ *
+ * - **API ID**: `partners`
+ * - **Description**: `Partners`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type PartnersSlice = prismic.SharedSlice<
+  "partners",
+  PartnersSliceVariation
 >;
 /**
  * Primary content in Pricing → Primary
@@ -2750,6 +2905,7 @@ declare module "@prismicio/client" {
       BookingDocument,
       NavigationDocumentData,
       NavigationDocumentDataLinksItem,
+      NavigationDocumentDataFooterLinksItem,
       NavigationDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
@@ -2802,6 +2958,8 @@ declare module "@prismicio/client" {
       HeroSliceWithButton,
       HeroSliceVariation,
       HeroSlice,
+      IconsSliceDefaultPrimary,
+      IconsSliceDefaultItem,
       IconsSliceDefault,
       IconsSliceVariation,
       IconsSlice,
@@ -2819,6 +2977,11 @@ declare module "@prismicio/client" {
       ImageZoomSliceDefault,
       ImageZoomSliceVariation,
       ImageZoomSlice,
+      PartnersSliceDefaultPrimary,
+      PartnersSliceDefaultItem,
+      PartnersSliceDefault,
+      PartnersSliceVariation,
+      PartnersSlice,
       PricingSliceDefaultPrimary,
       PricingSliceDefaultItem,
       PricingSliceDefault,

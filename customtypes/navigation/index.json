@@ -25,6 +25,7 @@
               "config": {
                 "label": "Link",
                 "placeholder": "Link for navigation item",
+                "allowTargetBlank": false,
                 "select": null
               }
             }
@@ -42,6 +43,32 @@
           "placeholder": "",
           "allowTargetBlank": true,
           "single": "paragraph"
+        }
+      },
+      "footer_links": {
+        "type": "Group",
+        "config": {
+          "label": "Footer Links",
+          "fields": {
+            "label": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Label",
+                "placeholder": "Optional - Label for the link",
+                "allowTargetBlank": true,
+                "single": "heading3"
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "Link for navigation item",
+                "allowTargetBlank": true,
+                "select": null
+              }
+            }
+          }
         }
       }
     }

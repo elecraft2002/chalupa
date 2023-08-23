@@ -1,8 +1,8 @@
 {
-  "id": "icons",
+  "id": "partners",
   "type": "SharedSlice",
-  "name": "Icons",
-  "description": "Icons",
+  "name": "Partners",
+  "description": "Partners",
   "variations": [
     {
       "id": "default",
@@ -16,29 +16,24 @@
           "type": "StructuredText",
           "config": {
             "label": "Text",
-            "placeholder": "",
+            "placeholder": "Text above partners",
             "allowTargetBlank": true,
             "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
           }
         }
       },
       "items": {
-        "icon": {
+        "image": {
           "type": "Image",
           "config": {
-            "label": "Icon",
-            "constraint": { "width": 200, "height": 200 },
-            "thumbnails": []
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": [{ "name": "Small", "width": 300, "height": 200 }]
           }
         },
-        "text": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Text",
-            "placeholder": "",
-            "allowTargetBlank": true,
-            "multi": "paragraph,preformatted,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-          }
+        "link": {
+          "type": "Link",
+          "config": { "label": "Link", "placeholder": "", "select": null }
         }
       }
     }
