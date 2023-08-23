@@ -281,7 +281,8 @@ type PageDocumentDataSlicesSlice =
   | ImageZoomSlice
   | TextColoredBgSlice
   | SliderSlice
-  | PricingSlice;
+  | PricingSlice
+  | GalleryNewSlice;
 /**
  * Page document from Prismic
  *
@@ -1321,6 +1322,99 @@ export type GallerySlice = prismic.SharedSlice<
   GallerySliceVariation
 >;
 /**
+ * Primary content in GalleryNew → Primary
+ *
+ */
+interface GalleryNewSliceDefaultPrimary {
+  /**
+   * Text field in *GalleryNew → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_new.primary.text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
+   *
+   */
+  text: prismic.RichTextField;
+  /**
+   * Exterior field in *GalleryNew → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_new.primary.exterior
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  exterior: prismic.ImageField<never>;
+  /**
+   * Interior field in *GalleryNew → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_new.primary.interior
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  interior: prismic.ImageField<never>;
+}
+/**
+ * Item in GalleryNew → Items
+ *
+ */
+export interface GalleryNewSliceDefaultItem {
+  /**
+   * Image field in *GalleryNew → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: gallery_new.items[].image
+   * - **Documentation**: https://prismic.io/docs/core-concepts/image
+   *
+   */
+  image: prismic.ImageField<"Small">;
+  /**
+   * Type field in *GalleryNew → Items*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Interior
+   * - **API ID Path**: gallery_new.items[].type
+   * - **Documentation**: https://prismic.io/docs/core-concepts/select
+   *
+   */
+  type: prismic.SelectField<"Interior" | "Exterior" | "Both", "filled">;
+}
+/**
+ * Default variation for GalleryNew Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type GalleryNewSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<GalleryNewSliceDefaultPrimary>,
+  Simplify<GalleryNewSliceDefaultItem>
+>;
+/**
+ * Slice variation for *GalleryNew*
+ *
+ */
+type GalleryNewSliceVariation = GalleryNewSliceDefault;
+/**
+ * GalleryNew Shared Slice
+ *
+ * - **API ID**: `gallery_new`
+ * - **Description**: `GalleryNew`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type GalleryNewSlice = prismic.SharedSlice<
+  "gallery_new",
+  GalleryNewSliceVariation
+>;
+/**
  * Primary content in Hero → Primary
  *
  */
@@ -1432,6 +1526,33 @@ type HeroSliceVariation = HeroSliceDefault | HeroSliceWithButton;
  *
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+/**
+ * Default variation for Icons Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: `Default`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type IconsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+/**
+ * Slice variation for *Icons*
+ *
+ */
+type IconsSliceVariation = IconsSliceDefault;
+/**
+ * Icons Shared Slice
+ *
+ * - **API ID**: `icons`
+ * - **Description**: `Icons`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/reusing-slices
+ *
+ */
+export type IconsSlice = prismic.SharedSlice<"icons", IconsSliceVariation>;
 /**
  * Primary content in Image → Primary
  *
@@ -2670,12 +2791,20 @@ declare module "@prismicio/client" {
       GallerySliceDefault,
       GallerySliceVariation,
       GallerySlice,
+      GalleryNewSliceDefaultPrimary,
+      GalleryNewSliceDefaultItem,
+      GalleryNewSliceDefault,
+      GalleryNewSliceVariation,
+      GalleryNewSlice,
       HeroSliceDefaultPrimary,
       HeroSliceDefault,
       HeroSliceWithButtonPrimary,
       HeroSliceWithButton,
       HeroSliceVariation,
       HeroSlice,
+      IconsSliceDefault,
+      IconsSliceVariation,
+      IconsSlice,
       ImageSliceWhitePrimary,
       ImageSliceWhite,
       ImageSliceLightSlatePrimary,

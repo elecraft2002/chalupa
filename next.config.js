@@ -8,7 +8,6 @@ const nextConfig = async () => {
 
   const repository = await client.getRepository();
   const locales = repository.languages.map((lang) => lang.id);
-
   return {
     reactStrictMode: true,
     experimental: { esmExternals: true },

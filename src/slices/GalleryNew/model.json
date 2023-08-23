@@ -1,0 +1,62 @@
+{
+  "id": "gallery_new",
+  "type": "SharedSlice",
+  "name": "GalleryNew",
+  "description": "GalleryNew",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Text",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "exterior": {
+          "type": "Image",
+          "config": {
+            "label": "Exterior",
+            "constraint": { "width": 100, "height": 100 },
+            "thumbnails": []
+          }
+        },
+        "interior": {
+          "type": "Image",
+          "config": {
+            "label": "Interior",
+            "constraint": { "width": 100, "height": 100 },
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {
+        "image": {
+          "type": "Image",
+          "config": {
+            "label": "Image",
+            "constraint": {},
+            "thumbnails": [{ "name": "Small", "width": 300, "height": 200 }]
+          }
+        },
+        "type": {
+          "type": "Select",
+          "config": {
+            "label": "Type",
+            "placeholder": "",
+            "options": ["Interior", "Exterior", "Both"],
+            "default_value": "Interior"
+          }
+        }
+      }
+    }
+  ]
+}

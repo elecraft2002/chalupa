@@ -1,0 +1,16 @@
+{
+  "id": "icons",
+  "type": "SharedSlice",
+  "name": "Icons",
+  "description": "Icons",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": ""
+    }
+  ]
+}

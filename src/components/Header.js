@@ -45,9 +45,9 @@ export function Header({ locales = [], navigation, settings }) {
   return (
     <nav
       class={`fixed left-0 top-0 ${
-        isAtTop && "md:pt-12"
+        isAtTop && "lg:pt-12"
       } z-50 w-full overflow-hidden bg-primary/80 backdrop-blur-3xl transition-all duration-700 ${
-        scrollDir === "down" && "md:-translate-y-full"
+        scrollDir === "down" && "lg:-translate-y-full"
       }`}
     >
       <div
@@ -56,32 +56,53 @@ export function Header({ locales = [], navigation, settings }) {
         }}
         className={`${
           !isOpen && "hidden"
-        } absolute -z-10 h-screen w-screen backdrop-blur-md md:hidden`}
+        } absolute -z-10 h-screen w-screen backdrop-blur-md lg:hidden`}
       />
-      <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-6 md:grid  md:grid-cols-3 ">
-        <PrismicNextLink href="/" className="h-8 w-8 md:order-2 md:m-auto">
+      <div class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-6 lg:grid  lg:grid-cols-[1fr_80px_1fr] ">
+        <PrismicNextLink href="/" className="h-8 w-8 lg:order-2 lg:m-auto">
           {prismic.isFilled.image(settings.data.logo) && (
             <PrismicNextImage
               field={settings.data.logo.Navigation}
-              className="h-full w-full md:scale-[2.5]  object-cover"
+              className="h-full w-full object-cover  lg:scale-[2.5]"
             />
           )}
         </PrismicNextLink>
-        <div class="flex text-[14px] md:order-2 md:m-auto md:text-base">
+        <div class="flex gap-4 text-[14px] lg:order-2 lg:m-auto lg:text-base">
           {prismic.isFilled.richText(navigation.data.button_text) && (
             <PrismicNextLink
-                className="flex items-center"
-                field={navigation.data.button_link}
-              >
-            <button className="rounded border border-[#F1DBA8] px-9 py-2 transition-all hover:scale-105 hover:bg-[#F1DBA8] hover:text-primary">
+              className="flex items-center"
+              field={navigation.data.button_link}
+            >
+              <button className="rounded border border-[#F1DBA8] px-9 py-2 transition-all hover:scale-105 hover:bg-[#F1DBA8] hover:text-primary">
                 <PrismicRichText field={navigation.data.button_text} />
-            </button>
-              </PrismicNextLink>
+              </button>
+            </PrismicNextLink>
           )}
+
+          <ul className="flex flex-wrap gap-3">
+            {locales.map((locale) => {
+              if (locale.lang === settings.lang) return null;
+              return (
+                <li
+                  key={locale.lang}
+                  className="flex items-center hover:bg-gray-100 lg:p-0 lg:hover:bg-transparent lg:hover:text-slate-300"
+                >
+                  <PrismicNextLink
+                    href={locale.url}
+                    locale={locale.lang}
+                    aria-label={`Change language to ${locale.lang_name}`}
+                  >
+                    {locale.lang.split("-")[0].toUpperCase()}
+                  </PrismicNextLink>
+                </li>
+              );
+            })}
+          </ul>
+
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"
-            class="ml-4 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2  focus:ring-gray-200 md:hidden"
+            class="ml-4 inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2  focus:ring-gray-200 lg:hidden"
             aria-controls="navbar-sticky"
             aria-expanded="false"
             onClick={() => {
@@ -107,21 +128,21 @@ export function Header({ locales = [], navigation, settings }) {
         <div
           class={`${
             !isOpen && "hidden"
-          } w-full items-center justify-between md:order-1 md:m-auto md:flex md:w-auto`}
+          } w-full items-center justify-between lg:order-1 lg:m-auto lg:flex lg:w-auto`}
           id="navbar-sticky"
         >
-          <ul class="mt-4 flex flex-col rounded-lg   p-4 font-medium   md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 ">
+          <ul class="mt-4 flex flex-col rounded-lg   p-4 font-medium   lg:mt-0 lg:flex-row lg:space-x-8 lg:border-0 lg:p-0 ">
             {navigation.data?.links.map((item) => (
               <li
                 key={prismic.asText(item.label)}
-                className="text text-[14px]  tracking-tight md:text-base"
+                className="text text-[14px]  tracking-tight lg:text-base"
               >
                 <PrismicNextLink
                   className={`block rounded py-2 pl-3 pr-4 ${
                     router.asPath === prismic.asLink(item.link)
                       ? "text-slate-400"
                       : ""
-                  } hover:bg-gray-100 md:p-0 md:hover:bg-transparent md:hover:text-slate-300`}
+                  } hover:bg-gray-100 lg:p-0 lg:hover:bg-transparent lg:hover:text-slate-300`}
                   field={item.link}
                 >
                   <PrismicText field={item.label} />
@@ -157,8 +178,8 @@ export function Header({ locales = [], navigation, settings }) {
             <PrismicNextImage field={settings.data.logo} />
           )}
         </PrismicNextLink>
-        <nav className="flex flex-wrap items-center gap-x-6 gap-y-3 md:gap-x-10">
-          <ul className="flex flex-wrap gap-6 md:gap-10">
+        <nav className="flex flex-wrap items-center gap-x-6 gap-y-3 lg:gap-x-10">
+          <ul className="flex flex-wrap gap-6 lg:gap-10">
             {navigation.data?.links.map((item) => (
               <li
                 key={prismic.asText(item.label)}
