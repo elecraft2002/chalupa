@@ -12,7 +12,7 @@ import { ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
  */
 const ImageZoom = ({ slice }) => {
   const [progress, updateProgress] = useState(0);
-  const width = interpolate(progress, [0, 0.5, 1], [-110, 100, 100]);
+  const width = interpolate(progress, [0, 0.5, 1], [-65, 100, 100]);
   const height = interpolate(progress, [0, 0.5, 1], [-30, 100, 100]);
   const [screenWidth, setScreenWidth] = useState(0);
 
@@ -70,7 +70,7 @@ const ImageZoom = ({ slice }) => {
             className="flex h-screen w-screen items-end justify-center text-center"
             translateY={["-100vh", "200vh"]}
           >
-            <Fade triggerOnce className="mb-28 tracking-[.3em] text-center">
+            <Fade triggerOnce className="mb-28 text-center tracking-[.3em]">
               <PrismicRichText field={slice.primary.bottom_text} />
             </Fade>
           </ParallaxBannerLayer>
@@ -87,7 +87,7 @@ const ImageZoom = ({ slice }) => {
             <PrismicRichText
               components={{
                 paragraph: (paragraph) => (
-                  <h1 className="text-xl uppercase sm:text-4xl xl:text-[85px] text-center">
+                  <h1 className="text-center text-xl uppercase sm:text-4xl xl:text-[85px]">
                     {paragraph.children}
                   </h1>
                 ),
