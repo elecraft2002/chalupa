@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 
-import { PrismicPreview } from "@prismicio/next";
+import { PrismicNextLink, PrismicPreview } from "@prismicio/next";
 
 import { repositoryName, linkResolver } from "@/prismicio";
 import { PrismicLink, PrismicProvider } from "@prismicio/react";
@@ -58,12 +58,12 @@ const richTextComponents = {
     <strong className="font-semibold">{children}</strong>
   ),
   hyperlink: ({ children, node }) => (
-    <PrismicLink
+    <PrismicNextLink
       field={node.data}
       className="underline decoration-1 underline-offset-2"
     >
       {children}
-    </PrismicLink>
+    </PrismicNextLink>
   ),
 };
 
