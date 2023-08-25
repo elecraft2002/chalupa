@@ -50,7 +50,6 @@ const Contact = ({ slice, context }) => {
       setError(error.response.data.error);
     }
   };
-  console.log(context);
   return (
     <section
       data-slice-type={slice.slice_type}

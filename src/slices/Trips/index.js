@@ -10,7 +10,6 @@ import * as prismicH from "@prismicio/helpers";
  * @param {RealizaceProps}
  */
 const Realizace = ({ slice, context }) => {
-  console.log(context.trips)
   return (
     <section
       data-slice-type={slice.slice_type}

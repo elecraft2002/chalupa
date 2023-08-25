@@ -153,7 +153,6 @@ function SignUpForm({ settings }) {
 }
 
 export function Footer({ settings, navigation }) {
-  console.log(navigation.data?.footer_links);
   return (
     <>
       {/* <SignUpForm settings={settings} /> */}
@@ -176,7 +175,6 @@ export function Footer({ settings, navigation }) {
                 ...navigation.data?.links,
                 ...navigation.data?.footer_links,
               ].map((item) => {
-                console.log(item);
                 return (
                   <li
                     key={prismic.asText(item.label)}

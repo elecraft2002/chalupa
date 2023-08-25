@@ -64,10 +64,8 @@ export default function Page({
       </Head>
       <section className="flex min-h-[50vh] w-full flex-col items-center justify-center gap-20 pt-20">
         <span className="text-center">
-          <PrismicRichText field={page.data.title} />
-        </span>
-        <span className="text-center">
-          <PrismicRichText field={page.data.description} />
+            <PrismicRichText field={page.data.title} />
+            <PrismicRichText field={page.data.description} />
         </span>
 
         <iframe
