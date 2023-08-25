@@ -58,7 +58,7 @@ export function Header({ locales = [], navigation, settings }) {
           !isOpen && "hidden"
         } absolute -z-10 h-screen w-screen backdrop-blur-md lg:hidden`}
       />
-      <div class="mx-auto flex  flex-wrap items-center justify-between p-6 lg:grid  lg:grid-cols-[1fr_80px_1fr] xl:grid-cols-3">
+      <div class="mx-auto flex  flex-wrap items-center justify-between p-6 lg:grid  lg:grid-cols-[1fr_80px_1fr] max-w-[1500px]">
         <PrismicNextLink href="/" className="h-8 w-8 lg:order-2 lg:m-auto">
           {prismic.isFilled.image(settings.data.logo) && (
             <PrismicNextImage
@@ -67,7 +67,7 @@ export function Header({ locales = [], navigation, settings }) {
             />
           )}
         </PrismicNextLink>
-        <div class="flex gap-4 text-[14px] lg:order-2 lg:m-auto lg:w-full lg:justify-end lg:text-base  xl:justify-center">
+        <div class="flex gap-4 text-[14px] lg:order-2 lg:m-auto lg:w-full lg:justify-end lg:text-base ">
           {prismic.isFilled.richText(navigation.data.button_text) && (
             <PrismicNextLink
               className="flex items-center"
@@ -128,7 +128,7 @@ export function Header({ locales = [], navigation, settings }) {
         <div
           class={`${
             !isOpen && "hidden"
-          } flex w-full items-center justify-between lg:order-1 lg:m-auto lg:mx-auto lg:flex lg:w-full xl:justify-center`}
+          } flex w-full items-center justify-between lg:order-1 lg:m-auto lg:mx-auto lg:flex lg:w-full`}
           id="navbar-sticky"
         >
           <ul class="mt-4 flex flex-col rounded-lg   p-4 font-medium   lg:mt-0 lg:flex-row lg:space-x-8 lg:border-0 lg:p-0 ">
