@@ -58,7 +58,7 @@ export function Header({ locales = [], navigation, settings }) {
           !isOpen && "hidden"
         } absolute -z-10 h-screen w-screen backdrop-blur-md lg:hidden`}
       />
-      <div class="mx-auto flex  flex-wrap items-center justify-between p-6 lg:grid  lg:grid-cols-[1fr_80px_1fr] ">
+      <div class="mx-auto flex  flex-wrap items-center justify-between p-6 lg:grid  lg:grid-cols-3 ">
         <PrismicNextLink href="/" className="h-8 w-8 lg:order-2 lg:m-auto">
           {prismic.isFilled.image(settings.data.logo) && (
             <PrismicNextImage
