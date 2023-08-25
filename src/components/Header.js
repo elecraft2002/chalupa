@@ -67,7 +67,7 @@ export function Header({ locales = [], navigation, settings }) {
             />
           )}
         </PrismicNextLink>
-        <div class="flex gap-4 text-[14px] lg:order-2 lg:m-auto lg:w-full lg:justify-end lg:text-base">
+        <div class="flex gap-4 text-[14px] lg:order-2 lg:m-auto lg:w-full lg:justify-end lg:text-base  xl:justify-center">
           {prismic.isFilled.richText(navigation.data.button_text) && (
             <PrismicNextLink
               className="flex items-center"
@@ -128,7 +128,7 @@ export function Header({ locales = [], navigation, settings }) {
         <div
           class={`${
             !isOpen && "hidden"
-          } w-full items-center justify-between lg:order-1 lg:m-auto lg:mx-auto lg:flex lg:w-full`}
+          } flex w-full items-center justify-between lg:order-1 lg:m-auto lg:mx-auto lg:flex lg:w-full xl:justify-center`}
           id="navbar-sticky"
         >
           <ul class="mt-4 flex flex-col rounded-lg   p-4 font-medium   lg:mt-0 lg:flex-row lg:space-x-8 lg:border-0 lg:p-0 ">
