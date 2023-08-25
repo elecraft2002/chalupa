@@ -34,7 +34,7 @@ const ImageZoom = ({ slice }) => {
             <Fade
               triggerOnce
               style={{ width: `${width}vw`, height: `${height}vh` }}
-              className="min-h-[20vh] min-w-[20vw] overflow-hidden"
+              className="min-h-[20vh] min-w-[530px] overflow-hidden"
             >
               <PrismicNextImage
                 field={slice.primary.image.Desktop}
